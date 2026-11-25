@@ -1,0 +1,22 @@
+[
+  {"inicio": "2026-11-23T12:41:07Z", "fin": "2026-11-23T12:41:15Z", "camara": "simulada", "clase": "perro", "confianza": 0.91, "confianza_max": 0.97, "n_frames": 32, "modo": "rapido"},
+  {"inicio": "2026-11-23T13:15:40Z", "fin": "2026-11-23T13:15:43Z", "camara": "simulada", "clase": "gato", "confianza": 0.84, "confianza_max": 0.93, "n_frames": 12, "modo": "rapido"},
+  {"inicio": "2026-11-23T14:02:11Z", "fin": "2026-11-23T14:02:33Z", "camara": "simulada", "clase": "bovino", "confianza": 0.88, "confianza_max": 0.95, "n_frames": 21, "modo": "preciso"},
+  {"inicio": "2026-11-23T15:30:55Z", "fin": "2026-11-23T15:30:56Z", "camara": "simulada", "clase": "perro", "confianza": 0.72, "confianza_max": 0.78, "n_frames": 4, "modo": "rapido"},
+  {"inicio": "2026-11-23T17:48:20Z", "fin": "2026-11-23T17:48:34Z", "camara": "simulada", "clase": "caballo", "confianza": 0.86, "confianza_max": 0.96, "n_frames": 55, "modo": "rapido"},
+  {"inicio": "2026-11-23T19:05:33Z", "fin": "2026-11-23T19:05:39Z", "camara": "simulada", "clase": "gato", "confianza": 0.79, "confianza_max": 0.88, "n_frames": 6, "modo": "preciso"},
+  {"inicio": "2026-11-23T21:22:09Z", "fin": "2026-11-23T21:22:39Z", "camara": "simulada", "clase": "perro", "confianza": 0.93, "confianza_max": 0.99, "n_frames": 118, "modo": "rapido"},
+  {"inicio": "2026-11-24T00:10:45Z", "fin": "2026-11-24T00:10:50Z", "camara": "simulada", "clase": "gato", "confianza": 0.67, "confianza_max": 0.81, "n_frames": 20, "modo": "rapido"},
+  {"inicio": "2026-11-24T11:58:02Z", "fin": "2026-11-24T11:58:13Z", "camara": "simulada", "clase": "perro", "confianza": 0.90, "confianza_max": 0.96, "n_frames": 11, "modo": "preciso"},
+  {"inicio": "2026-11-24T13:34:27Z", "fin": "2026-11-24T13:34:44Z", "camara": "simulada", "clase": "bovino", "confianza": 0.82, "confianza_max": 0.91, "n_frames": 67, "modo": "rapido"},
+  {"inicio": "2026-11-24T14:47:50Z", "fin": "2026-11-24T14:47:54Z", "camara": "simulada", "clase": "gato", "confianza": 0.88, "confianza_max": 0.94, "n_frames": 16, "modo": "rapido"},
+  {"inicio": "2026-11-24T16:20:14Z", "fin": "2026-11-24T16:20:40Z", "camara": "simulada", "clase": "caballo", "confianza": 0.85, "confianza_max": 0.92, "n_frames": 25, "modo": "preciso"},
+  {"inicio": "2026-11-24T18:09:36Z", "fin": "2026-11-24T18:09:45Z", "camara": "simulada", "clase": "perro", "confianza": 0.94, "confianza_max": 0.99, "n_frames": 36, "modo": "rapido"},
+  {"inicio": "2026-11-24T20:55:03Z", "fin": "2026-11-24T20:55:05Z", "camara": "simulada", "clase": "gato", "confianza": 0.71, "confianza_max": 0.76, "n_frames": 8, "modo": "rapido"},
+  {"inicio": "2026-11-24T23:31:48Z", "fin": "2026-11-24T23:32:00Z", "camara": "simulada", "clase": "perro", "confianza": 0.77, "confianza_max": 0.89, "n_frames": 12, "modo": "preciso"},
+  {"inicio": "2026-11-25T12:25:19Z", "fin": "2026-11-25T12:25:38Z", "camara": "simulada", "clase": "caballo", "confianza": 0.89, "confianza_max": 0.97, "n_frames": 75, "modo": "rapido"},
+  {"inicio": "2026-11-25T13:40:00Z", "fin": "2026-11-25T13:40:07Z", "camara": "pestana", "clase": "gato", "confianza": 0.83, "confianza_max": 0.90, "n_frames": 7, "modo": "preciso"},
+  {"inicio": "2026-11-25T15:12:44Z", "fin": "2026-11-25T15:13:12Z", "camara": "video", "clase": "bovino", "confianza": 0.80, "confianza_max": 0.93, "n_frames": 111, "modo": "rapido"},
+  {"inicio": "2026-11-25T16:03:21Z", "fin": "2026-11-25T16:03:26Z", "camara": "simulada", "clase": "perro", "confianza": 0.92, "confianza_max": 0.98, "n_frames": 20, "modo": "rapido"},
+  {"inicio": "2026-11-25T17:36:58Z", "fin": "2026-11-25T17:37:08Z", "camara": "webcam_1", "clase": "perro", "confianza": 0.87, "confianza_max": 0.95, "n_frames": 10, "modo": "preciso"}
+]

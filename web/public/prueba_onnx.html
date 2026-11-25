@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prueba de paridad ONNX · navegador vs Python</title>
+  <link rel="stylesheet" href="/css/estilos.css">
+  <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web@1.31.1/dist/ort.min.js"></script>
+</head>
+<body>
+  <section class="cam-historial">
+    <h1>Prueba de paridad: navegador vs Python</h1>
+    <p class="cam-muted">Clasifica las 10 fotos de <code>fotos_prueba/</code> con los ONNX en este navegador y compara con las
+      probabilidades que dio el modelo original en Python (<code>modelos/esperado.json</code>, generado por
+      <code>src/verificar_onnx.py</code>). Tolerancia: 0.001 (el navegador decodifica los JPG un poco distinto que Python).</p>
+    <p id="resumen"><strong>Corriendo…</strong></p>
+    <div class="cam-tabla-wrap">
+      <table class="cam-tabla">
+        <thead><tr><th>Foto</th><th>Modo</th><th>Python</th><th>Navegador</th><th>Dif. máx.</th><th>Tiempo</th><th>Resultado</th></tr></thead>
+        <tbody id="filas"></tbody>
+      </table>
+    </div>
+  </section>
+  <script type="module">
+    import { cargarMeta, clasificar, interpretar } from "/js/modelo.js";
+
+    const meta = await cargarMeta();
+    const esperado = await (await fetch("/modelos/esperado.json")).json();
+    const filas = document.getElementById("filas");
+    const lienzo = document.createElement("canvas");
+    const ctx = lienzo.getContext("2d", { willReadFrequently: true });
+    let ok = 0, total = 0, difMaxGlobal = 0;
+
+    for (const [foto, porModo] of Object.entries(esperado.fotos)) {
+      const blob = await (await fetch(`/prueba/${foto}`)).blob();
+      const bmp = await createImageBitmap(blob, { colorSpaceConversion: "none", premultiplyAlpha: "none" });
+      lienzo.width = bmp.width; lienzo.height = bmp.height;
+      ctx.drawImage(bmp, 0, 0);
+      const img = ctx.getImageData(0, 0, bmp.width, bmp.height);
+      for (const modo of ["rapido", "preciso"]) {
+        const { probs, ms } = await clasificar(img, modo);
+        const py = porModo[modo];
+        const dif = Math.max(...probs.map((p, i) => Math.abs(p - py[i])));
+        const clasePy = meta.clases[py.indexOf(Math.max(...py))];
+        const claseJs = interpretar(probs, 0.6).clase;
+        const pasa = dif < esperado.tolerancia_navegador && clasePy === claseJs;
+        total++; ok += pasa; difMaxGlobal = Math.max(difMaxGlobal, dif);
+        filas.insertAdjacentHTML("beforeend", `<tr><td>${foto}</td><td>${modo}</td>` +
+          `<td>${clasePy} ${(Math.max(...py) * 100).toFixed(1)} %</td>` +
+          `<td>${claseJs} ${(Math.max(...probs) * 100).toFixed(1)} %</td>` +
+          `<td>${dif.toExponential(1)}</td><td>${ms.toFixed(0)} ms</td><td>${pasa ? "OK" : "FALLA"}</td></tr>`);
+      }
+    }
+    document.getElementById("resumen").innerHTML =
+      `<strong>${ok}/${total} pruebas OK</strong> · diferencia máxima ${difMaxGlobal.toExponential(1)}` +
+      (ok === total ? " · el navegador da lo mismo que Python" : " · revisar las filas con FALLA");
+    window.__resultadoParidad = { ok, total, difMaxGlobal };
+  </script>
+</body>
+</html>

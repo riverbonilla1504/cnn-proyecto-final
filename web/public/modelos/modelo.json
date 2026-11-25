@@ -1,0 +1,25 @@
+{
+  "clases": [
+    "bovino",
+    "caballo",
+    "fondo",
+    "gato",
+    "perro"
+  ],
+  "nombres": {
+    "bovino": "Bovino (vaca/toro)",
+    "caballo": "Caballo",
+    "fondo": "Sin animal (fondo)",
+    "gato": "Gato",
+    "perro": "Perro"
+  },
+  "entrada": "imagen: float32 [1, alto, ancho, 3], RGB 0-255 (el modelo redimensiona y normaliza)",
+  "salida": "probabilidades: float32 [1, 5]",
+  "archivos": {
+    "rapido": "cnn_rapido.onnx",
+    "preciso": "cnn_preciso.onnx"
+  },
+  "test_accuracy": {
+    "preciso": 0.952
+  }
+}
