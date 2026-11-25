@@ -36,6 +36,8 @@ DATABASE_URL = os.environ.get("DATABASE_URL", "").strip()
 COLUMNAS = ["id", "inicio", "fin", "camara", "clase", "confianza", "confianza_max",
             "n_frames", "modo", "miniatura_url", "creado_en"]
 _ESQUEMA_PG = Path(__file__).resolve().parents[2] / "contrato" / "esquema.sql"
+if not _ESQUEMA_PG.exists():                     # en Vercel (raíz web/) contrato/ no se sube: copia junto a la API
+    _ESQUEMA_PG = Path(__file__).resolve().parent / "esquema.sql"
 _ESQUEMA_SQLITE = """
 create table if not exists eventos (
     id integer primary key autoincrement,
