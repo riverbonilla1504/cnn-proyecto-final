@@ -1,0 +1,3 @@
+# Solo lo que necesita la API en Vercel (sin TensorFlow: la CNN corre en el navegador con ONNX)
+fastapi
+psycopg[binary]

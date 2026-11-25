@@ -16,3 +16,8 @@ modelos/_*_entrenando.keras
 .idea/
 Thumbs.db
 desktop.ini
+
+# Base SQLite local de la web (solo para desarrollo)
+web/eventos_local.db
+.env
+web/.vercel/
