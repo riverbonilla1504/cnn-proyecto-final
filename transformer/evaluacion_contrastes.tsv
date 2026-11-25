@@ -1,0 +1,49 @@
+pregunta	intencion	clase	periodo
+De los perros que aparecen hoy, necesito el total	contar	perro	hoy
+¿Cuántas detecciones de reses hubo durante el día anterior?	contar	bovino	ayer
+¿Qué cantidad de gatos se alcanzó a registrar en los pasados 60 minutos?	contar	gato	ultima_hora
+Acumulado de equinos desde el comienzo de esta semana	contar	caballo	esta_semana
+¿En cuánto va el conteo de la cámara?	contar	animales	sin_periodo
+Dime el número de vacas que figuran hoy en los registros	contar	bovino	hoy
+¿Se llegó a ver algún gato ayer?	contar	gato	ayer
+¿Cuántas veces aparece un caballo en todo el historial?	contar	caballo	sin_periodo
+De los perros que aparecen hoy, necesito la lista	listar	perro	hoy
+¿Qué detecciones de reses hubo durante el día anterior?	listar	bovino	ayer
+Pásame lo registrado de gatos en los pasados 60 minutos	listar	gato	ultima_hora
+Enséñame los eventos de equinos desde el comienzo de esta semana	listar	caballo	esta_semana
+Quiero revisar lo que ha detectado la cámara	listar	animales	sin_periodo
+¿Qué registros de vacas figuran hoy en el historial?	listar	bovino	hoy
+Déjame revisar lo que detectó de gatos el día pasado	listar	gato	ayer
+Dime qué caballos aparecen en todo el historial	listar	caballo	sin_periodo
+De los perros que aparecen hoy, necesito el último	ultimo_avistamiento	perro	hoy
+¿A qué hora ocurrió la última detección de reses del día anterior?	ultimo_avistamiento	bovino	ayer
+Me interesa el avistamiento más nuevo de gatos de los pasados 60 minutos	ultimo_avistamiento	gato	ultima_hora
+De lo que va de semana, dime cuándo quedó registrada la última yegua	ultimo_avistamiento	caballo	esta_semana
+Dime cuál fue el último animal que detectamos	ultimo_avistamiento	animales	sin_periodo
+¿A qué hora salió la vaca más reciente de hoy?	ultimo_avistamiento	bovino	hoy
+Ubícame el último registro de felinos del día pasado	ultimo_avistamiento	gato	ayer
+¿Cuándo fue la aparición más reciente de un equino en el historial?	ultimo_avistamiento	caballo	sin_periodo
+De los perros que aparecen hoy, necesito el resumen	resumen	perro	hoy
+Dame un panorama de lo que se detectó de reses en el día anterior	resumen	bovino	ayer
+Haz un balance de los registros de felinos de los pasados 60 minutos	resumen	gato	ultima_hora
+Descríbeme en general qué registramos de yeguas desde el comienzo de esta semana	resumen	caballo	esta_semana
+Quiero una síntesis de lo que ha visto la cámara	resumen	animales	sin_periodo
+Cuéntame a grandes rasgos la actividad de vacas de hoy	resumen	bovino	hoy
+¿Cómo estuvo el movimiento de gatos el día pasado?	resumen	gato	ayer
+Dame un informe sobre la actividad registrada de equinos	resumen	caballo	sin_periodo
+De los perros que aparecen hoy, necesito la hora con más detecciones	hora_frecuente	perro	hoy
+¿A qué hora hubo más detecciones de reses durante el día anterior?	hora_frecuente	bovino	ayer
+De los pasados 60 minutos, ¿qué horario tuvo más apariciones de gatos?	hora_frecuente	gato	ultima_hora
+Señala la franja de mayor actividad de yeguas desde el comienzo de esta semana	hora_frecuente	caballo	esta_semana
+¿En qué horario suele registrar más animales la cámara?	hora_frecuente	animales	sin_periodo
+¿A qué horas se registraron más vacas hoy?	hora_frecuente	bovino	hoy
+Dime en qué hora se concentraron más apariciones de felinos el día pasado	hora_frecuente	gato	ayer
+Identifica el horario con más apariciones de equinos de todo el historial	hora_frecuente	caballo	sin_periodo
+¿Cuántas veces debe comer un perro hoy?	fuera_de_dominio	animales	sin_periodo
+Muéstrame los resultados de fútbol del día anterior	fuera_de_dominio	animales	sin_periodo
+¿A qué hora salieron más buses en los pasados 60 minutos?	fuera_de_dominio	animales	sin_periodo
+¿Qué alarmas me mandaron por correo esta semana?	fuera_de_dominio	animales	sin_periodo
+¿Cuál es el precio de comprar un caballo criollo?	fuera_de_dominio	animales	sin_periodo
+Dime si mañana va a llover en la vía	fuera_de_dominio	animales	sin_periodo
+Busca un veterinario que vacune gatos hoy	fuera_de_dominio	animales	sin_periodo
+¿Hubo más apariciones de perros o caballos ayer?	fuera_de_dominio	animales	sin_periodo

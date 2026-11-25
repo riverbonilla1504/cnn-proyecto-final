@@ -1,0 +1,37 @@
+pregunta	intencion	clase	periodo
+Del video, ¿cuántos gatos quedaron registrados el día de ayer?	contar	gato	ayer
+Sácame el total de caninos que llevamos en lo que va de semana	contar	perro	esta_semana
+Desde hace una hora, ¿apareció algún caballo?	contar	caballo	ultima_hora
+Número de veces que la cámara alcanzó a ver ganado en el día de hoy	contar	bovino	hoy
+¿Cuánto suma el total de apariciones de animales?	contar	animales	sin_periodo
+Quiero saber si quedó al menos un registro de un gato hoy	contar	gato	hoy
+Déjame revisar cuáles vacas aparecieron desde el lunes	listar	bovino	esta_semana
+Quiero el listado de caballos que salieron el día de ayer	listar	caballo	ayer
+Pon en pantalla las apariciones de perros en lo que va del día	listar	perro	hoy
+¿Qué felinos figuran en los registros de la hora previa?	listar	gato	ultima_hora
+Enséñame qué se ha visto por la cámara hasta ahora	listar	animales	sin_periodo
+Dime qué eventos de ganado quedaron registrados el día previo	listar	bovino	ayer
+¿En qué momento apareció el último caballo de hoy?	ultimo_avistamiento	caballo	hoy
+De los caninos detectados ayer elige el avistamiento más reciente	ultimo_avistamiento	perro	ayer
+En lo que va de semana, ¿cuándo se vio a la última vaca?	ultimo_avistamiento	bovino	esta_semana
+¿Cuál fue el gato más reciente registrado dentro de la última hora?	ultimo_avistamiento	gato	ultima_hora
+¿Qué fue lo último que registró la cámara?	ultimo_avistamiento	animales	sin_periodo
+Saca la hora de la detección más reciente de un equino	ultimo_avistamiento	caballo	sin_periodo
+Con los avistamientos de bovinos de hoy, hazme un balance	resumen	bovino	hoy
+Necesito una vista general de lo que se vio de felinos ayer	resumen	gato	ayer
+En la hora previa, dame un resumen de la actividad de los perros	resumen	perro	ultima_hora
+Cuéntame en pocas palabras cómo estuvo la actividad de caballos desde el lunes	resumen	caballo	esta_semana
+En conjunto, ¿cómo estuvo la actividad que registró la cámara?	resumen	animales	sin_periodo
+Dame una síntesis de lo que vimos de bovinos el día previo	resumen	bovino	ayer
+Quiero la hora que acumuló más detecciones de gatos hoy	hora_frecuente	gato	hoy
+De los registros de perros de ayer, ¿en qué horario hubo el pico?	hora_frecuente	perro	ayer
+Marca el momento con más apariciones de reses desde hace una hora	hora_frecuente	bovino	ultima_hora
+¿En qué franja de esta semana se dejaron ver más caballos?	hora_frecuente	caballo	esta_semana
+¿Cuál es el horario de mayor concentración de avistamientos?	hora_frecuente	animales	sin_periodo
+¿En qué hora salieron más felinos durante el día previo?	hora_frecuente	gato	ayer
+¿Cuándo me toca desparasitar al gato otra vez?	fuera_de_dominio	animales	sin_periodo
+¿Se puede poner una alerta cuando salga un caballo?	fuera_de_dominio	animales	sin_periodo
+¿A qué hora pasó el último bus hacia Villavicencio?	fuera_de_dominio	animales	sin_periodo
+Consígueme un listado de los mejores paseadores de perros	fuera_de_dominio	animales	sin_periodo
+¿Qué tan alto puede saltar una yegua?	fuera_de_dominio	animales	sin_periodo
+Quiero un balance de las noticias de última hora	fuera_de_dominio	animales	sin_periodo
