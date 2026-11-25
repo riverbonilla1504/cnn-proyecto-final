@@ -1,0 +1,263 @@
+2026-11-25 20:37:57.797600: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-11-25 20:37:57.836137: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX512_FP16 AVX_VNNI AMX_TILE AMX_INT8 AMX_BF16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2026-11-25 20:37:59.121794: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+Backend: torch | GPU (NVIDIA H100 80GB HBM3) | modelo: cnn_v3_s1
+Train: 80309 imágenes | val: 2205 fotos completas
+/root/cnn/src/paso7_entrenar_cnn_v3.py:94: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  print("Positivos por clase:", dict(zip(ANIMALES, pos.astype(int))), "| fondo:", int((tr[ANIMALES].sum(1) == 0).sum()))
+Positivos por clase: {'bovino': np.int64(15212), 'caballo': np.int64(9225), 'gato': np.int64(14996), 'perro': np.int64(15374)} | fondo: 26132
+Peso de los positivos: {'bovino': np.float32(2.07), 'caballo': np.float32(2.78), 'gato': np.float32(2.09), 'perro': np.float32(2.06)}
+Model: "cnn_v3_s1"
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┓
+┃ Layer (type)                    ┃ Output Shape           ┃       Param # ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━┩
+│ imagen_rgb_0_255 (InputLayer)   │ (None, None, None, 3)  │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ normalizar_0_1 (Rescaling)      │ (None, None, None, 3)  │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque1_conv1 (Conv2D)          │ (None, None, None, 32) │           864 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque1_bn1                     │ (None, None, None, 32) │           128 │
+│ (BatchNormalization)            │                        │               │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque1_relu1 (Activation)      │ (None, None, None, 32) │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque1_conv2 (Conv2D)          │ (None, None, None, 32) │         9,216 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque1_bn2                     │ (None, None, None, 32) │           128 │
+│ (BatchNormalization)            │                        │               │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque1_relu2 (Activation)      │ (None, None, None, 32) │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque2_conv1 (Conv2D)          │ (None, None, None, 64) │        18,432 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque2_bn1                     │ (None, None, None, 64) │           256 │
+│ (BatchNormalization)            │                        │               │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque2_relu1 (Activation)      │ (None, None, None, 64) │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque2_conv2 (Conv2D)          │ (None, None, None, 64) │        36,864 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque2_bn2                     │ (None, None, None, 64) │           256 │
+│ (BatchNormalization)            │                        │               │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque2_relu2 (Activation)      │ (None, None, None, 64) │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque2_pool (MaxPooling2D)     │ (None, None, None, 64) │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque3_conv1 (Conv2D)          │ (None, None, None,     │        73,728 │
+│                                 │ 128)                   │               │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque3_bn1                     │ (None, None, None,     │           512 │
+│ (BatchNormalization)            │ 128)                   │               │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque3_relu1 (Activation)      │ (None, None, None,     │             0 │
+│                                 │ 128)                   │               │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque3_conv2 (Conv2D)          │ (None, None, None,     │       147,456 │
+│                                 │ 128)                   │               │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque3_bn2                     │ (None, None, None,     │           512 │
+│ (BatchNormalization)            │ 128)                   │               │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque3_relu2 (Activation)      │ (None, None, None,     │             0 │
+│                                 │ 128)                   │               │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque3_pool (MaxPooling2D)     │ (None, None, None,     │             0 │
+│                                 │ 128)                   │               │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque4_conv1 (Conv2D)          │ (None, None, None,     │       294,912 │
+│                                 │ 256)                   │               │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque4_bn1                     │ (None, None, None,     │         1,024 │
+│ (BatchNormalization)            │ 256)                   │               │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque4_relu1 (Activation)      │ (None, None, None,     │             0 │
+│                                 │ 256)                   │               │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque4_conv2 (Conv2D)          │ (None, None, None,     │       589,824 │
+│                                 │ 256)                   │               │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque4_bn2                     │ (None, None, None,     │         1,024 │
+│ (BatchNormalization)            │ 256)                   │               │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque4_relu2 (Activation)      │ (None, None, None,     │             0 │
+│                                 │ 256)                   │               │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque4_pool (MaxPooling2D)     │ (None, None, None,     │             0 │
+│                                 │ 256)                   │               │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque5_conv1 (Conv2D)          │ (None, None, None,     │       737,280 │
+│                                 │ 320)                   │               │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque5_bn1                     │ (None, None, None,     │         1,280 │
+│ (BatchNormalization)            │ 320)                   │               │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque5_relu1 (Activation)      │ (None, None, None,     │             0 │
+│                                 │ 320)                   │               │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque5_conv2 (Conv2D)          │ (None, None, None,     │       921,600 │
+│                                 │ 320)                   │               │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque5_bn2                     │ (None, None, None,     │         1,280 │
+│ (BatchNormalization)            │ 320)                   │               │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque5_relu2 (Activation)      │ (None, None, None,     │             0 │
+│                                 │ 320)                   │               │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque5_pool (MaxPooling2D)     │ (None, None, None,     │             0 │
+│                                 │ 320)                   │               │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ dropout_zonas                   │ (None, None, None,     │             0 │
+│ (SpatialDropout2D)              │ 320)                   │               │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ mapa_evidencias (Conv2D)        │ (None, None, None, 4)  │         1,284 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ max_suave (PoolingLSE)          │ (None, 4)              │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ probabilidades (Activation)     │ (None, 4)              │             0 │
+└─────────────────────────────────┴────────────────────────┴───────────────┘
+ Total params: 2,837,860 (10.83 MB)
+ Trainable params: 2,834,660 (10.81 MB)
+ Non-trainable params: 3,200 (12.50 KB)
+
+== Fase 1: épocas 1-15 a 256 px ==
+/usr/local/lib/python3.12/dist-packages/keras/src/trainers/epoch_iterator.py:74: UserWarning: `shuffle=True` was passed, but will be ignored since the data `x` was provided as a tf.data.Dataset. The Dataset is expected to already be shuffled (via `.shuffle(buffer_size)`).
+  self.data_adapter = data_adapters.get_data_adapter(
+Epoch 1/15
+
+Epoch 1: val_map improved from None to 0.27904, saving model to /root/cnn/modelos/_cnn_v3_s1_entrenando.keras
+
+Epoch 1: finished saving model to /root/cnn/modelos/_cnn_v3_s1_entrenando.keras
+1673/1673 - 138s - 83ms/step - acc_binaria: 0.7797 - loss: 0.7561 - map: 0.2715 - val_acc_binaria: 0.7883 - val_loss: 0.6306 - val_map: 0.2790
+Epoch 2/15
+
+Epoch 2: val_map improved from 0.27904 to 0.30970, saving model to /root/cnn/modelos/_cnn_v3_s1_entrenando.keras
+
+Epoch 2: finished saving model to /root/cnn/modelos/_cnn_v3_s1_entrenando.keras
+1673/1673 - 126s - 75ms/step - acc_binaria: 0.8090 - loss: 0.6931 - map: 0.3904 - val_acc_binaria: 0.7895 - val_loss: 0.6245 - val_map: 0.3097
+Epoch 3/15
+
+Epoch 3: val_map improved from 0.30970 to 0.37573, saving model to /root/cnn/modelos/_cnn_v3_s1_entrenando.keras
+
+Epoch 3: finished saving model to /root/cnn/modelos/_cnn_v3_s1_entrenando.keras
+1673/1673 - 122s - 73ms/step - acc_binaria: 0.8139 - loss: 0.6668 - map: 0.4436 - val_acc_binaria: 0.7957 - val_loss: 0.6256 - val_map: 0.3757
+Epoch 4/15
+
+Epoch 4: val_map improved from 0.37573 to 0.42621, saving model to /root/cnn/modelos/_cnn_v3_s1_entrenando.keras
+
+Epoch 4: finished saving model to /root/cnn/modelos/_cnn_v3_s1_entrenando.keras
+1673/1673 - 112s - 67ms/step - acc_binaria: 0.8214 - loss: 0.6466 - map: 0.4885 - val_acc_binaria: 0.8085 - val_loss: 0.5801 - val_map: 0.4262
+Epoch 5/15
+
+Epoch 5: val_map did not improve from 0.42621
+1673/1673 - 116s - 69ms/step - acc_binaria: 0.8292 - loss: 0.6305 - map: 0.5236 - val_acc_binaria: 0.8889 - val_loss: 0.6315 - val_map: 0.2652
+Epoch 6/15
+
+Epoch 6: val_map improved from 0.42621 to 0.50415, saving model to /root/cnn/modelos/_cnn_v3_s1_entrenando.keras
+
+Epoch 6: finished saving model to /root/cnn/modelos/_cnn_v3_s1_entrenando.keras
+1673/1673 - 111s - 67ms/step - acc_binaria: 0.8371 - loss: 0.6117 - map: 0.5668 - val_acc_binaria: 0.9210 - val_loss: 0.4881 - val_map: 0.5042
+Epoch 7/15
+
+Epoch 7: val_map did not improve from 0.50415
+1673/1673 - 114s - 68ms/step - acc_binaria: 0.8491 - loss: 0.5917 - map: 0.6102 - val_acc_binaria: 0.8862 - val_loss: 0.5425 - val_map: 0.4889
+Epoch 8/15
+
+Epoch 8: val_map improved from 0.50415 to 0.55009, saving model to /root/cnn/modelos/_cnn_v3_s1_entrenando.keras
+
+Epoch 8: finished saving model to /root/cnn/modelos/_cnn_v3_s1_entrenando.keras
+1673/1673 - 119s - 71ms/step - acc_binaria: 0.8564 - loss: 0.5762 - map: 0.6404 - val_acc_binaria: 0.9006 - val_loss: 0.4589 - val_map: 0.5501
+Epoch 9/15
+
+Epoch 9: val_map did not improve from 0.55009
+1673/1673 - 112s - 67ms/step - acc_binaria: 0.8622 - loss: 0.5621 - map: 0.6663 - val_acc_binaria: 0.8179 - val_loss: 0.5933 - val_map: 0.4731
+Epoch 10/15
+
+Epoch 10: val_map improved from 0.55009 to 0.56462, saving model to /root/cnn/modelos/_cnn_v3_s1_entrenando.keras
+
+Epoch 10: finished saving model to /root/cnn/modelos/_cnn_v3_s1_entrenando.keras
+1673/1673 - 117s - 70ms/step - acc_binaria: 0.8676 - loss: 0.5491 - map: 0.6888 - val_acc_binaria: 0.9001 - val_loss: 0.4804 - val_map: 0.5646
+Epoch 11/15
+
+Epoch 11: val_map improved from 0.56462 to 0.60861, saving model to /root/cnn/modelos/_cnn_v3_s1_entrenando.keras
+
+Epoch 11: finished saving model to /root/cnn/modelos/_cnn_v3_s1_entrenando.keras
+1673/1673 - 113s - 68ms/step - acc_binaria: 0.8729 - loss: 0.5387 - map: 0.7073 - val_acc_binaria: 0.9067 - val_loss: 0.4406 - val_map: 0.6086
+Epoch 12/15
+
+Epoch 12: val_map improved from 0.60861 to 0.61134, saving model to /root/cnn/modelos/_cnn_v3_s1_entrenando.keras
+
+Epoch 12: finished saving model to /root/cnn/modelos/_cnn_v3_s1_entrenando.keras
+1673/1673 - 111s - 66ms/step - acc_binaria: 0.8778 - loss: 0.5256 - map: 0.7279 - val_acc_binaria: 0.8960 - val_loss: 0.4494 - val_map: 0.6113
+Epoch 13/15
+
+Epoch 13: val_map improved from 0.61134 to 0.63244, saving model to /root/cnn/modelos/_cnn_v3_s1_entrenando.keras
+
+Epoch 13: finished saving model to /root/cnn/modelos/_cnn_v3_s1_entrenando.keras
+1673/1673 - 109s - 65ms/step - acc_binaria: 0.8831 - loss: 0.5154 - map: 0.7439 - val_acc_binaria: 0.9090 - val_loss: 0.4274 - val_map: 0.6324
+Epoch 14/15
+
+Epoch 14: val_map improved from 0.63244 to 0.67696, saving model to /root/cnn/modelos/_cnn_v3_s1_entrenando.keras
+
+Epoch 14: finished saving model to /root/cnn/modelos/_cnn_v3_s1_entrenando.keras
+1673/1673 - 115s - 69ms/step - acc_binaria: 0.8875 - loss: 0.5043 - map: 0.7599 - val_acc_binaria: 0.9218 - val_loss: 0.4198 - val_map: 0.6770
+Epoch 15/15
+
+Epoch 15: val_map improved from 0.67696 to 0.69116, saving model to /root/cnn/modelos/_cnn_v3_s1_entrenando.keras
+
+Epoch 15: finished saving model to /root/cnn/modelos/_cnn_v3_s1_entrenando.keras
+1673/1673 - 115s - 69ms/step - acc_binaria: 0.8923 - loss: 0.4940 - map: 0.7754 - val_acc_binaria: 0.9088 - val_loss: 0.4280 - val_map: 0.6912
+
+== Fase 2: épocas 16-25 a 320 px ==
+Epoch 16/25
+
+Epoch 16: val_map did not improve from 0.69116
+1673/1673 - 183s - 109ms/step - acc_binaria: 0.8925 - loss: 0.4915 - map: 0.7789 - val_acc_binaria: 0.9217 - val_loss: 0.4194 - val_map: 0.6867
+Epoch 17/25
+
+Epoch 17: val_map did not improve from 0.69116
+1673/1673 - 167s - 100ms/step - acc_binaria: 0.8977 - loss: 0.4796 - map: 0.7958 - val_acc_binaria: 0.9270 - val_loss: 0.4058 - val_map: 0.6692
+Epoch 18/25
+
+Epoch 18: val_map improved from 0.69116 to 0.69126, saving model to /root/cnn/modelos/_cnn_v3_s1_entrenando.keras
+
+Epoch 18: finished saving model to /root/cnn/modelos/_cnn_v3_s1_entrenando.keras
+1673/1673 - 159s - 95ms/step - acc_binaria: 0.9026 - loss: 0.4682 - map: 0.8110 - val_acc_binaria: 0.9285 - val_loss: 0.3983 - val_map: 0.6913
+Epoch 19/25
+
+Epoch 19: val_map improved from 0.69126 to 0.70639, saving model to /root/cnn/modelos/_cnn_v3_s1_entrenando.keras
+
+Epoch 19: finished saving model to /root/cnn/modelos/_cnn_v3_s1_entrenando.keras
+1673/1673 - 160s - 96ms/step - acc_binaria: 0.9066 - loss: 0.4586 - map: 0.8234 - val_acc_binaria: 0.9285 - val_loss: 0.3959 - val_map: 0.7064
+Epoch 20/25
+
+Epoch 20: val_map improved from 0.70639 to 0.71140, saving model to /root/cnn/modelos/_cnn_v3_s1_entrenando.keras
+
+Epoch 20: finished saving model to /root/cnn/modelos/_cnn_v3_s1_entrenando.keras
+1673/1673 - 170s - 101ms/step - acc_binaria: 0.9100 - loss: 0.4500 - map: 0.8337 - val_acc_binaria: 0.9303 - val_loss: 0.3970 - val_map: 0.7114
+Epoch 21/25
+
+Epoch 21: val_map improved from 0.71140 to 0.74032, saving model to /root/cnn/modelos/_cnn_v3_s1_entrenando.keras
+
+Epoch 21: finished saving model to /root/cnn/modelos/_cnn_v3_s1_entrenando.keras
+1673/1673 - 177s - 106ms/step - acc_binaria: 0.9135 - loss: 0.4412 - map: 0.8450 - val_acc_binaria: 0.9315 - val_loss: 0.3884 - val_map: 0.7403
+Epoch 22/25
+
+Epoch 22: val_map did not improve from 0.74032
+1673/1673 - 167s - 100ms/step - acc_binaria: 0.9161 - loss: 0.4342 - map: 0.8532 - val_acc_binaria: 0.9290 - val_loss: 0.3909 - val_map: 0.7306
+Epoch 23/25
+
+Epoch 23: val_map did not improve from 0.74032
+1673/1673 - 156s - 93ms/step - acc_binaria: 0.9183 - loss: 0.4294 - map: 0.8586 - val_acc_binaria: 0.9339 - val_loss: 0.3872 - val_map: 0.7320
+Epoch 24/25
+
+Epoch 24: val_map did not improve from 0.74032
+1673/1673 - 170s - 102ms/step - acc_binaria: 0.9199 - loss: 0.4256 - map: 0.8631 - val_acc_binaria: 0.9330 - val_loss: 0.3865 - val_map: 0.7358
+Epoch 25/25
+
+Epoch 25: val_map did not improve from 0.74032
+1673/1673 - 158s - 95ms/step - acc_binaria: 0.9199 - loss: 0.4242 - map: 0.8647 - val_acc_binaria: 0.9336 - val_loss: 0.3848 - val_map: 0.7378
+
+Épocas: 25 | 57.1 min en GPU (NVIDIA H100 80GB HBM3) | mejor val mAP: 0.7403

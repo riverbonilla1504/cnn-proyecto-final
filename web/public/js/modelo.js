@@ -1,4 +1,6 @@
 // modelo.js - Corre la CNN (ONNX) en el navegador con onnxruntime-web.
+// Versión v3: la red es totalmente convolucional; además de las 5 probabilidades devuelve
+// "animales" (un sí/no por animal) y "mapa" (dónde está cada animal) para dibujar cajas.
 //
 // Los .onnx ya traen dentro el redimensionado a 224x224, la normalización, el ensemble y el
 // espejo (ver src/exportar_onnx.py). Aquí solo se pasa la imagen RGB 0-255 a su tamaño real
@@ -81,5 +83,45 @@ export async function clasificar(imageData, modo) {
   const t0 = performance.now();
   const salida = await sesion.run({ imagen: aTensor(imageData) });
   const probs = salida.probabilidades.data;
-  return { probs: Array.from(probs), ms: performance.now() - t0 };
+  const ms = performance.now() - t0;
+  let mapa = null;
+  if (salida.mapa) {
+    const [, h, w, c] = salida.mapa.dims;
+    mapa = { data: salida.mapa.data, h, w, c };
+  }
+  const animales = salida.animales ? Array.from(salida.animales.data) : null;
+  return { probs: Array.from(probs), ms, mapa, animales };
+}
+
+// Cajas a partir del mapa de evidencias de la v3: para cada animal que supera el umbral,
+// las zonas del mapa por encima del umbral se agrupan (vecinas arriba/abajo/izq/der) y cada
+// grupo es una caja. Coordenadas normalizadas 0-1 respecto a la imagen que entró al modelo.
+export function cajasDelMapa(mapa, animales, umbral) {
+  if (!mapa || !animales) return [];
+  const { data, h, w, c } = mapa;
+  const cajas = [];
+  for (let k = 0; k < c; k++) {
+    if (animales[k] < umbral) continue;
+    const visto = new Uint8Array(h * w);
+    for (let i = 0; i < h * w; i++) {
+      if (visto[i] || data[i * c + k] < umbral) continue;
+      let x0 = w, y0 = h, x1 = -1, y1 = -1, conf = 0;
+      const pila = [i];
+      visto[i] = 1;
+      while (pila.length) {
+        const j = pila.pop(), y = Math.floor(j / w), x = j % w;
+        x0 = Math.min(x0, x); y0 = Math.min(y0, y); x1 = Math.max(x1, x); y1 = Math.max(y1, y);
+        conf = Math.max(conf, data[j * c + k]);
+        for (const [dx, dy] of [[1, 0], [-1, 0], [0, 1], [0, -1]]) {
+          const nx = x + dx, ny = y + dy, n = ny * w + nx;
+          if (nx >= 0 && ny >= 0 && nx < w && ny < h && !visto[n] && data[n * c + k] >= umbral) {
+            visto[n] = 1;
+            pila.push(n);
+          }
+        }
+      }
+      cajas.push({ clase: meta.animales[k], conf, x0: x0 / w, y0: y0 / h, x1: (x1 + 1) / w, y1: (y1 + 1) / h });
+    }
+  }
+  return cajas;
 }

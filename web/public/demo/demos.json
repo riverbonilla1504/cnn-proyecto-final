@@ -1,0 +1,18 @@
+{
+  "videos": [
+    {"titulo": "Manada de vacas en vía", "archivo": "video_manada_vacas.mp4",
+     "descripcion": "Ganado caminando por una carretera rural (Pexels). La v3 reconoce bovino en ~85 % de los frames"},
+    {"titulo": "Vaca en el desierto", "archivo": "video_vaca_desierto.mp4",
+     "descripcion": "Vaca cerca de la vía con cabras al fondo (Pexels). Bovino en ~62 % de los frames"},
+    {"titulo": "Perros en la calle", "archivo": "video_perros_calle.mp4",
+     "descripcion": "Dos perros caminando frente a un edificio (Pexels). Perro en ~47 % de los frames y casi sin errores"}
+  ],
+  "fotos": [
+    {"titulo": "Vacas · cámara trampa", "archivo": "foto_vacas_camara_trampa.jpg",
+     "descripcion": "Cámara trampa (WCS Camera Traps, LILA), vacas lejos. Nunca vista en el entrenamiento"},
+    {"titulo": "Gato · infrarrojo de noche", "archivo": "foto_gato_noche_ir.jpg",
+     "descripcion": "Cámara trampa con IR (Caltech Camera Traps, LILA), gato pequeño de noche"},
+    {"titulo": "Perro · campo", "archivo": "foto_perro_campo.jpg",
+     "descripcion": "Cámara trampa (Caltech Camera Traps, LILA), perro en el pasto"}
+  ]
+}

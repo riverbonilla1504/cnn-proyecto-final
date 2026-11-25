@@ -2,7 +2,7 @@
 // Fuentes: webcam, video subido o foto. Cada frame pasa por la CNN (ONNX),
 // se muestra el resultado y el AgrupadorEventos convierte las detecciones en eventos.
 
-import { cargarMeta, cargarModelo, clasificar, interpretar, Suavizador } from "./modelo.js";
+import { cajasDelMapa, cargarMeta, cargarModelo, clasificar, interpretar, Suavizador } from "./modelo.js";
 import { AgrupadorEventos, guardarEvento, listarEventos } from "./eventos.js";
 
 const $ = (id) => document.getElementById(id);
@@ -12,12 +12,12 @@ const captura = document.createElement("canvas");
 const ctxCaptura = captura.getContext("2d", { willReadFrequently: true });
 
 const CAMARA_DE_FUENTE = { camara: "webcam_1", video: "video" };
-const MAX_LADO_VIDEO = 640;      // el modelo reduce todo a 224: no hace falta más
+const MAX_LADO_VIDEO = 640;      // la v3 recibe el frame completo a 640 px de lado mayor (sin aplastarlo)
 const MAX_LADO_FOTO = 1024;
 
 const estado = {
   fuente: "camara",
-  modo: "preciso",     // modo único: 3 redes + espejo (95.2 % en el test, ~1 frame/s)
+  modo: "preciso",     // CNN v3: ensemble de semillas, frame a 640 px
   umbral: 0.6,
   corriendo: false,
   stream: null,
@@ -159,6 +159,43 @@ function capturarFrame(fuente, ancho, alto, maxLado, region = null) {
   return ctxCaptura.getImageData(0, 0, captura.width, captura.height);
 }
 
+// ---------------------------------------------------------------- cajas de la v3
+// region = parte de la fuente que entró al modelo, en coordenadas normalizadas (0-1)
+const lienzoCajas = $("cajas");
+const COLOR_CAJA = { bovino: "#f08a5d", caballo: "#c850c8", gato: "#3cc83c", perro: "#3fa0ff" };
+
+function dibujarCajas(cajas, fuenteAncho, fuenteAlto, region = { x0: 0, y0: 0, x1: 1, y1: 1 }) {
+  const c = $("pantalla").getBoundingClientRect();
+  lienzoCajas.width = c.width;
+  lienzoCajas.height = c.height;
+  const ctx = lienzoCajas.getContext("2d");
+  ctx.clearRect(0, 0, c.width, c.height);
+  if (!cajas.length || !fuenteAncho) return;
+  const s = Math.min(c.width / fuenteAncho, c.height / fuenteAlto);
+  const izq = (c.width - fuenteAncho * s) / 2, arr = (c.height - fuenteAlto * s) / 2;
+  const rw = region.x1 - region.x0, rh = region.y1 - region.y0;
+  ctx.lineWidth = 3;
+  ctx.font = "600 14px system-ui, sans-serif";
+  for (const k of cajas) {
+    const x = izq + (region.x0 + k.x0 * rw) * fuenteAncho * s;
+    const y = arr + (region.y0 + k.y0 * rh) * fuenteAlto * s;
+    const w = (k.x1 - k.x0) * rw * fuenteAncho * s, h = (k.y1 - k.y0) * rh * fuenteAlto * s;
+    const color = COLOR_CAJA[k.clase] ?? "#fff";
+    ctx.strokeStyle = color;
+    ctx.strokeRect(x, y, w, h);
+    const texto = `${window.__meta.nombres[k.clase]} ${pct(k.conf)}`;
+    const tw = ctx.measureText(texto).width + 10;
+    ctx.fillStyle = color;
+    ctx.fillRect(x, Math.max(0, y - 20), tw, 20);
+    ctx.fillStyle = "#111";
+    ctx.fillText(texto, x + 5, Math.max(14, y - 5));
+  }
+}
+
+function limpiarCajas() {
+  lienzoCajas.getContext("2d").clearRect(0, 0, lienzoCajas.width, lienzoCajas.height);
+}
+
 // ---------------------------------------------------------------- zona marcada a mano
 // El usuario arrastra un rectángulo sobre el video. Se guarda en coordenadas normalizadas
 // del video (0-1) y al recortar se agranda MARGEN_ZONA por lado: el modelo se entrenó con
@@ -266,8 +303,10 @@ async function bucle() {
     if (video.readyState >= 2 && !video.paused && video.videoWidth) {
       const img = capturarFrame(video, video.videoWidth, video.videoHeight, MAX_LADO_VIDEO, regionVideo());
       const modo = estado.modo;
-      const { probs, ms } = await clasificar(img, modo);
+      const { probs, ms, mapa, animales } = await clasificar(img, modo);
       if (!estado.corriendo) break;
+      const region = estado.zona ? zonaConMargen() : undefined;
+      dibujarCajas(cajasDelMapa(mapa, animales, estado.umbral), video.videoWidth, video.videoHeight, region);
       const suave = suavizador.agregar(probs);          // promedio de los últimos 3 s
       const r = interpretar(suave.probs, estado.umbral);
       estado.frames++;
@@ -329,7 +368,8 @@ async function clasificarFoto(archivo) {
   lienzoFoto.hidden = false;
   video.hidden = true;
   mostrarVacio(null);
-  const { probs, ms } = await clasificar(img, estado.modo);
+  const { probs, ms, mapa, animales } = await clasificar(img, estado.modo);
+  dibujarCajas(cajasDelMapa(mapa, animales, estado.umbral), img.width, img.height);
   estado.ultimaFoto = img;
   estado.frames++;
   pintarResultado(interpretar(probs, estado.umbral));
@@ -361,7 +401,47 @@ function cambiarFuente(fuente) {
   video.removeAttribute("src");
   video.srcObject = null;
   $("etiqueta").hidden = true;
+  limpiarCajas();
+  pintarDemos(fuente);
   mostrarVacio(TEXTO_VACIO[fuente]);
+}
+
+// ---------------------------------------------------------------- demos (videos y fotos de prueba)
+// web/public/demo/demos.json: {"videos": [{"titulo", "archivo", "descripcion"}], "fotos": [...]}
+let demos = { videos: [], fotos: [] };
+
+function pintarDemos(fuente) {
+  const caja = $("demos");
+  const lista = fuente === "video" ? demos.videos : fuente === "foto" ? demos.fotos : [];
+  caja.hidden = !lista.length;
+  caja.querySelectorAll("button").forEach((b) => b.remove());
+  lista.forEach((d) => {
+    const b = document.createElement("button");
+    b.className = "cam-boton";
+    b.textContent = d.titulo;
+    b.title = d.descripcion ?? d.titulo;
+    b.setAttribute("aria-pressed", "false");
+    b.addEventListener("click", () => usarDemo(fuente, d, b));
+    caja.appendChild(b);
+  });
+}
+
+async function usarDemo(fuente, d, boton) {
+  $("demos").querySelectorAll("button").forEach((b) => b.setAttribute("aria-pressed", String(b === boton)));
+  const url = `/demo/${d.archivo}`;
+  if (fuente === "foto") {
+    try {
+      const blob = await (await fetch(url)).blob();
+      await clasificarFoto(blob);
+    } catch (e) {
+      toast(`No se pudo cargar la foto demo: ${e.message}`);
+    }
+    return;
+  }
+  if (estado.corriendo) detener();
+  if (estado.archivoVideo?.startsWith("blob:")) URL.revokeObjectURL(estado.archivoVideo);
+  estado.archivoVideo = url;
+  await iniciar();
 }
 
 document.querySelectorAll(".cam-tab").forEach((b) => b.addEventListener("click", () => cambiarFuente(b.dataset.fuente)));
@@ -390,6 +470,11 @@ video.addEventListener("ended", () => estado.fuente === "video" && detener());
 
 // ---------------------------------------------------------------- arranque
 async function arrancar() {
+  try {
+    demos = await (await fetch("/demo/demos.json")).json();
+  } catch {
+    /* sin demos: solo se pueden subir archivos */
+  }
   try {
     window.__meta = await cargarMeta();
     await cargarModelo("preciso");

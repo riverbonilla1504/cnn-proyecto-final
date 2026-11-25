@@ -1,0 +1,42 @@
+Modelo(s) v3: cnn_v3+cnn_v3_s1 | frame a 640 px
+Umbral ÚNICO elegido con validación (2205 escenas): 0.7  (escena exacta en val 83.6%)
+Umbral POR ANIMAL (validación, mejor F1): {'bovino': 0.575, 'caballo': 0.75, 'gato': 0.75, 'perro': 0.65}  (escena exacta en val 84.4%)
+
+===== B. Test de ESCENAS (fotos completas de cámaras nunca vistas + COCO) =====
+-- cct (776 fotos)
+  v2 (frame aplastado 224)   detecta animal   4.7% | especie correcta   0.0% | escena exacta  44.2% | falsas alarmas en fondo   2.0%
+  v3 umbral único 0.7        detecta animal  62.0% | especie correcta  58.0% | escena exacta  73.3% | falsas alarmas en fondo   6.0%
+  v3 umbral por animal       detecta animal  60.8% | especie correcta  56.1% | escena exacta  71.9% | falsas alarmas en fondo   5.7%
+-- wcs (641 fotos)
+  v2 (frame aplastado 224)   detecta animal  11.7% | especie correcta   6.2% | escena exacta  44.9% | falsas alarmas en fondo   2.9%
+  v3 umbral único 0.7        detecta animal  81.5% | especie correcta  79.1% | escena exacta  82.8% | falsas alarmas en fondo   7.3%
+  v3 umbral por animal       detecta animal  87.8% | especie correcta  86.1% | escena exacta  84.7% | falsas alarmas en fondo  12.1%
+-- nacti (736 fotos)
+  v2 (frame aplastado 224)   detecta animal   7.9% | especie correcta   6.0% | escena exacta  23.5% | falsas alarmas en fondo   2.1%
+  v3 umbral único 0.7        detecta animal  70.6% | especie correcta  62.9% | escena exacta  61.3% | falsas alarmas en fondo  27.9%
+  v3 umbral por animal       detecta animal  74.8% | especie correcta  65.8% | escena exacta  57.5% | falsas alarmas en fondo  38.6%
+-- coco (590 fotos)
+  v2 (frame aplastado 224)   detecta animal  23.3% | especie correcta  20.4% | escena exacta  58.1% | falsas alarmas en fondo   6.8%
+  v3 umbral único 0.7        detecta animal  71.3% | especie correcta  64.2% | escena exacta  73.6% | falsas alarmas en fondo  10.0%
+  v3 umbral por animal       detecta animal  71.0% | especie correcta  64.9% | escena exacta  74.2% | falsas alarmas en fondo   9.0%
+-- TODAS (2743 fotos)
+  v2 (frame aplastado 224)   detecta animal  10.5% | especie correcta   7.0% | escena exacta  41.8% | falsas alarmas en fondo   3.6%
+  v3 umbral único 0.7        detecta animal  70.9% | especie correcta  65.4% | escena exacta  72.4% | falsas alarmas en fondo  10.3%
+  v3 umbral por animal       detecta animal  73.5% | especie correcta  67.6% | escena exacta  71.5% | falsas alarmas en fondo  12.6%
+
+AP por clase en test (área bajo precisión-recall; 1.0 = perfecto):
+  bovino   v2 0.373   v3 0.897   (723 fotos)
+  caballo  v2 0.169   v3 0.505   (115 fotos)
+  gato     v2 0.269   v3 0.829   (362 fotos)
+  perro    v2 0.259   v3 0.717   (485 fotos)
+
+===== A. Test de Open Images (500 fotos, el animal llena la foto) =====
+  v2: 92.2%   v3 umbral único: 75.2%   v3 umbral por animal: 75.4%   (500 fotos)
+
+===== C. Videos de prueba (% de frames con la especie correcta / con alguna especie equivocada) =====
+  caballos_pradera.mp4   (caballo) v2 correcta   0.0% equivocada   0.0% | v3 correcta  15.8% equivocada  40.0%  (190 frames)
+  perros_calle.mp4       (perro  ) v2 correcta   0.0% equivocada   0.0% | v3 correcta  45.2% equivocada   1.2%  (252 frames)
+  vaca_desierto.mp4      (bovino ) v2 correcta   1.7% equivocada   0.6% | v3 correcta  64.0% equivocada  21.3%  (361 frames)
+  vacas_carretera.mp4    (bovino ) v2 correcta   0.0% equivocada   0.0% | v3 correcta  26.7% equivocada  69.0%  (116 frames)
+
+Guardado modelos/modelo_final_v3.json

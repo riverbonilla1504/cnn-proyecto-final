@@ -1,0 +1,153 @@
+Open Images: cajas de todas nuestras clases en las fotos del dataset máximo...
+  27118 fotos (6 s)
+COCO 2017...
+  22042 fotos (18 s)
+ENA24...
+  1556 fotos
+Caltech Camera Traps...
+  6751 con perro/gato, 3645 vacías (19 s)
+WCS Camera Traps...
+  5712 con animal, 3000 vacías (21 s)
+NACTI (metadatos de 1.2 GB, tarda unos minutos)...
+  12856 candidatas; leyendo las cajas de MegaDetector (1.5 GB)...
+  NACTI: {'bovino': 8209, 'perro': 1125, 'caballo': 105, 'vacia': 2524} (61 s)
+
+Fotos por split / fuente / etiqueta:
+  test  cct        fondo                     350
+  test  cct        gato                      272
+  test  cct        perro                     154
+  test  coco       bovino                     46
+  test  coco       bovino+caballo              3
+  test  coco       bovino+perro                2
+  test  coco       caballo                    56
+  test  coco       caballo+perro               2
+  test  coco       fondo                     311
+  test  coco       gato                       81
+  test  coco       gato+perro                  9
+  test  coco       perro                      80
+  test  nacti      bovino                    350
+  test  nacti      caballo                    54
+  test  nacti      fondo                     140
+  test  nacti      perro                     192
+  test  wcs        bovino                    350
+  test  wcs        caballo                     7
+  test  wcs        fondo                     291
+  test  wcs        perro                      48
+  train cct        fondo                    2856
+  train cct        gato                     3974
+  train cct        perro                    2336
+  train coco       bovino                   1773
+  train coco       bovino+caballo            122
+  train coco       bovino+caballo+perro        5
+  train coco       bovino+gato                 4
+  train coco       bovino+perro               64
+  train coco       caballo                  2704
+  train coco       caballo+gato                6
+  train coco       caballo+perro             104
+  train coco       fondo                    8000
+  train coco       gato                     3896
+  train coco       gato+perro                208
+  train coco       perro                    4004
+  train ena24      caballo                   317
+  train ena24      caballo+perro              21
+  train ena24      gato                      488
+  train ena24      gato+perro                  3
+  train ena24      perro                     727
+  train nacti      bovino                   6432
+  train nacti      caballo                    47
+  train nacti      fondo                    2151
+  train nacti      perro                     868
+  train openimages bovino                   3111
+  train openimages bovino+caballo            132
+  train openimages bovino+gato                 1
+  train openimages bovino+perro               27
+  train openimages caballo                  5846
+  train openimages caballo+perro              34
+  train openimages fondo                    6000
+  train openimages gato                     5911
+  train openimages gato+perro                126
+  train openimages perro                    5930
+  train wcs        bovino                   3841
+  train wcs        caballo                   111
+  train wcs        fondo                    2442
+  train wcs        perro                     490
+  val   cct        fondo                     350
+  val   cct        gato                       15
+  val   coco       bovino                     33
+  val   coco       bovino+caballo              2
+  val   coco       bovino+perro                1
+  val   coco       caballo                    63
+  val   coco       caballo+perro               2
+  val   coco       fondo                     289
+  val   coco       gato                       91
+  val   coco       gato+perro                  3
+  val   coco       perro                      78
+  val   nacti      bovino                    350
+  val   nacti      caballo                     4
+  val   nacti      fondo                     233
+  val   nacti      perro                      65
+  val   wcs        bovino                    350
+  val   wcs        caballo                    11
+  val   wcs        fondo                     267
+  val   wcs        perro                      45
+  2000/80162 fotos procesadas, 2150 imágenes, 0.0 min, errores 0
+  4000/80162 fotos procesadas, 4262 imágenes, 0.0 min, errores 16
+  6000/80162 fotos procesadas, 6416 imágenes, 0.0 min, errores 30
+  8000/80162 fotos procesadas, 8531 imágenes, 0.0 min, errores 53
+  10000/80162 fotos procesadas, 10677 imágenes, 0.0 min, errores 71
+  12000/80162 fotos procesadas, 12796 imágenes, 0.0 min, errores 91
+  14000/80162 fotos procesadas, 14897 imágenes, 0.0 min, errores 119
+  16000/80162 fotos procesadas, 16994 imágenes, 0.1 min, errores 150
+  18000/80162 fotos procesadas, 19130 imágenes, 0.8 min, errores 166
+  20000/80162 fotos procesadas, 21279 imágenes, 1.5 min, errores 181
+  22000/80162 fotos procesadas, 23396 imágenes, 2.3 min, errores 200
+  24000/80162 fotos procesadas, 25571 imágenes, 3.0 min, errores 212
+  26000/80162 fotos procesadas, 27696 imágenes, 3.8 min, errores 232
+  28000/80162 fotos procesadas, 29837 imágenes, 4.5 min, errores 244
+  30000/80162 fotos procesadas, 31956 imágenes, 5.2 min, errores 261
+  32000/80162 fotos procesadas, 34072 imágenes, 6.0 min, errores 274
+  34000/80162 fotos procesadas, 36175 imágenes, 6.7 min, errores 301
+  36000/80162 fotos procesadas, 38298 imágenes, 7.4 min, errores 317
+  38000/80162 fotos procesadas, 40427 imágenes, 8.2 min, errores 329
+  40000/80162 fotos procesadas, 42547 imágenes, 8.9 min, errores 344
+  42000/80162 fotos procesadas, 44663 imágenes, 9.7 min, errores 364
+  44000/80162 fotos procesadas, 46778 imágenes, 10.4 min, errores 386
+  46000/80162 fotos procesadas, 48879 imágenes, 11.1 min, errores 405
+  48000/80162 fotos procesadas, 51032 imágenes, 11.9 min, errores 416
+  50000/80162 fotos procesadas, 53159 imágenes, 12.6 min, errores 432
+  52000/80162 fotos procesadas, 55298 imágenes, 13.4 min, errores 445
+  54000/80162 fotos procesadas, 57424 imágenes, 14.2 min, errores 469
+  56000/80162 fotos procesadas, 59541 imágenes, 15.0 min, errores 487
+  58000/80162 fotos procesadas, 61667 imágenes, 15.7 min, errores 507
+  60000/80162 fotos procesadas, 63771 imágenes, 16.5 min, errores 522
+  62000/80162 fotos procesadas, 65889 imágenes, 17.3 min, errores 540
+  64000/80162 fotos procesadas, 68034 imágenes, 18.1 min, errores 553
+  66000/80162 fotos procesadas, 70159 imágenes, 18.9 min, errores 569
+  68000/80162 fotos procesadas, 72282 imágenes, 19.7 min, errores 592
+  70000/80162 fotos procesadas, 74403 imágenes, 20.5 min, errores 612
+  72000/80162 fotos procesadas, 76547 imágenes, 21.2 min, errores 623
+  74000/80162 fotos procesadas, 78693 imágenes, 21.9 min, errores 638
+  76000/80162 fotos procesadas, 80821 imágenes, 22.6 min, errores 651
+  78000/80162 fotos procesadas, 82943 imágenes, 23.4 min, errores 667
+  80000/80162 fotos procesadas, 85090 imágenes, 24.1 min, errores 677
+  80162/80162 fotos procesadas, 85257 imágenes, 24.2 min, errores 678
+
+Errores: {('wcs', 'descarga'): 360, ('ena24', 'descarga'): 318}
+
+Imágenes por split y etiqueta:
+split                 test  train   val
+etiqueta                               
+bovino                 718  14957   706
+bovino+caballo           3    185     2
+bovino+caballo+perro     0      1     0
+bovino+gato              0      5     0
+bovino+perro             2     64     1
+caballo                110   8944    68
+caballo+gato             0      3     0
+caballo+perro            2     92     2
+fondo                 1074  26132  1129
+gato                   353  14709   106
+gato+perro               9    279     3
+perro                  472  14938   188
+
+Listo en 25.2 min -> C:\PROGRAMACION\cnn-proyecto-final\data\dataset_v3

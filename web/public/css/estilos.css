@@ -163,3 +163,10 @@ h2 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; color
   background: var(--cam-texto); color: var(--cam-fondo); padding: 10px 16px; border-radius: 8px; font-size: 0.9rem;
 }
 .cam-toast[hidden] { display: none; }
+
+/* --- v3: cajas del mapa de evidencias y botones de demo --- */
+.cam-pantalla canvas.cam-cajas { pointer-events: none; object-fit: fill; }
+.cam-demos { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.cam-demos[hidden] { display: none; }
+.cam-demos .cam-boton { padding: 6px 10px; font-size: 0.85rem; }
+.cam-demos .cam-boton[aria-pressed="true"] { outline: 2px solid #f08a5d; }

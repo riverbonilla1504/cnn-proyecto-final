@@ -1,8 +1,15 @@
 {
+  "version": "v3",
   "clases": [
     "bovino",
     "caballo",
     "fondo",
+    "gato",
+    "perro"
+  ],
+  "animales": [
+    "bovino",
+    "caballo",
     "gato",
     "perro"
   ],
@@ -13,13 +20,28 @@
     "gato": "Gato",
     "perro": "Perro"
   },
-  "entrada": "imagen: float32 [1, alto, ancho, 3], RGB 0-255 (el modelo redimensiona y normaliza)",
-  "salida": "probabilidades: float32 [1, 5]",
+  "entrada": "imagen: float32 [1, alto, ancho, 3], RGB 0-255 de cualquier tamaño (el modelo reduce y normaliza)",
+  "salidas": {
+    "probabilidades": "[1, 5] mismo orden que la v2 (fondo = 1 - animal más probable)",
+    "animales": "[1, 4] sigmoide por animal (multi-etiqueta)",
+    "mapa": "[1, h, w, 4] probabilidad por zona (dónde está cada animal)"
+  },
   "archivos": {
     "rapido": "cnn_rapido.onnx",
     "preciso": "cnn_preciso.onnx"
   },
-  "test_accuracy": {
-    "preciso": 0.952
+  "lado": {
+    "rapido": 480,
+    "preciso": 640
+  },
+  "umbral_recomendado": 0.6,
+  "umbrales_por_animal_calibrados": {
+    "bovino": 0.575,
+    "caballo": 0.75,
+    "gato": 0.75,
+    "perro": 0.65
+  },
+  "metricas": {
+    "escena_exacta_val": 0.8435
   }
 }

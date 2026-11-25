@@ -21,3 +21,4 @@ desktop.ini
 web/eventos_local.db
 .env
 web/.vercel/
+.venv-onnx/

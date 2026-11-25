@@ -1,0 +1,24 @@
+{
+  "ensemble": [
+    "cnn_v3.keras",
+    "cnn_v3_s1.keras"
+  ],
+  "clases": [
+    "bovino",
+    "caballo",
+    "gato",
+    "perro"
+  ],
+  "umbral": 0.7,
+  "umbrales_por_animal": {
+    "bovino": 0.575,
+    "caballo": 0.75,
+    "gato": 0.75,
+    "perro": 0.65
+  },
+  "lado_rapido": 480,
+  "lado_preciso": 640,
+  "metricas": {
+    "escena_exacta_val": 0.8435
+  }
+}

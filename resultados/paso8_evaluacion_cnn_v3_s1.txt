@@ -1,0 +1,32 @@
+Umbral de la v3 elegido con validación (2205 escenas): 0.75  (escena exacta en val 82.0%)
+
+===== B. Test de ESCENAS (fotos completas de cámaras nunca vistas + COCO) =====
+-- cct (776 fotos)
+  v2 (frame aplastado 224)   detecta animal   4.7% | especie correcta   0.0% | escena exacta  44.2% | falsas alarmas en fondo   2.0%
+  v3 (frame 640 px)          detecta animal  55.4% | especie correcta  54.0% | escena exacta  71.4% | falsas alarmas en fondo   5.1%
+-- wcs (641 fotos)
+  v2 (frame aplastado 224)   detecta animal  11.7% | especie correcta   6.2% | escena exacta  44.9% | falsas alarmas en fondo   2.9%
+  v3 (frame 640 px)          detecta animal  75.8% | especie correcta  73.4% | escena exacta  78.9% | falsas alarmas en fondo   8.1%
+-- nacti (736 fotos)
+  v2 (frame aplastado 224)   detecta animal   7.9% | especie correcta   6.0% | escena exacta  23.5% | falsas alarmas en fondo   2.1%
+  v3 (frame 640 px)          detecta animal  65.6% | especie correcta  58.7% | escena exacta  58.6% | falsas alarmas en fondo  25.7%
+-- coco (590 fotos)
+  v2 (frame aplastado 224)   detecta animal  23.3% | especie correcta  20.4% | escena exacta  58.1% | falsas alarmas en fondo   6.8%
+  v3 (frame 640 px)          detecta animal  70.3% | especie correcta  62.4% | escena exacta  71.9% | falsas alarmas en fondo  10.0%
+-- TODAS (2743 fotos)
+  v2 (frame aplastado 224)   detecta animal  10.5% | especie correcta   7.0% | escena exacta  41.8% | falsas alarmas en fondo   3.6%
+  v3 (frame 640 px)          detecta animal  66.0% | especie correcta  61.4% | escena exacta  69.8% | falsas alarmas en fondo  10.0%
+
+AP por clase en test (área bajo precisión-recall; 1.0 = perfecto):
+  bovino   v2 0.373   v3 0.883   (723 fotos)
+  caballo  v2 0.169   v3 0.464   (115 fotos)
+  gato     v2 0.269   v3 0.809   (362 fotos)
+  perro    v2 0.259   v3 0.689   (485 fotos)
+
+===== A. Test de Open Images (500 fotos, el animal llena la foto) =====
+  v2: 92.2%   v3: 70.6%   (500 fotos)
+
+===== C. Videos de prueba (% de frames donde ve una vaca) =====
+  perros_calle.mp4         v2   0.0%   v3   0.4%   (252 frames revisados)
+  vaca_desierto.mp4        v2   1.7%   v3  35.7%   (361 frames revisados)
+  vacas_carretera.mp4      v2   0.0%   v3   0.9%   (116 frames revisados)

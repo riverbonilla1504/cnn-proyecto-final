@@ -1,0 +1,28 @@
+{
+  "clases": [
+    "bovino",
+    "caballo",
+    "gato",
+    "perro"
+  ],
+  "tipo_salida": "multi-etiqueta (sigmoide por animal); fondo = ninguno supera el umbral",
+  "img_size_entrenamiento": 320,
+  "entrada": "imagen RGB 0-255 de CUALQUIER tamaño (red totalmente convolucional)",
+  "tamano_recomendado_video": [
+    640,
+    360
+  ],
+  "arquitectura": "5 bloques [32, 64, 128, 256, 320] + mapa 1x1 + LogSumExp r=5.0",
+  "mejor_val_map": 0.7403,
+  "epocas": 25,
+  "minutos_entrenamiento": 57.1,
+  "parametros": 2837860,
+  "entrenado_en": "GPU (NVIDIA H100 80GB HBM3)",
+  "semilla_entrenamiento": 1,
+  "positivos_train": {
+    "bovino": 15212,
+    "caballo": 9225,
+    "gato": 14996,
+    "perro": 15374
+  }
+}

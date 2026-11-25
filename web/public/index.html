@@ -12,7 +12,7 @@
   <header class="cam-header">
     <div>
       <h1>Detección de animales en la vía</h1>
-      <p class="cam-sub">CNN propia entrenada desde cero · corre en tu navegador con ONNX · bovino, caballo, gato, perro o sin animal</p>
+      <p class="cam-sub">CNN v3 propia entrenada desde cero · frame completo, animales lejos y cámaras de seguridad · corre en tu navegador con ONNX · bovino, caballo, gato, perro o sin animal</p>
     </div>
     <span class="cam-pill" id="estado-sistema">Cargando modelo…</span>
   </header>
@@ -33,6 +33,7 @@
         </div>
         <div class="cam-zona" id="zona" hidden><span id="zona-texto">Zona analizada</span></div>
         <div class="cam-capa" id="capa-zona" hidden title="Arrastra un rectángulo alrededor de donde pasa el animal (Esc para cancelar)"></div>
+        <canvas class="cam-cajas" id="cajas" aria-hidden="true"></canvas>
         <div class="cam-etiqueta" id="etiqueta" hidden></div>
       </div>
 
@@ -44,6 +45,7 @@
         </label>
         <button class="cam-boton" id="btn-zona" title="Analizar solo una parte del video (+12 % de margen)">Marcar zona</button>
         <button class="cam-boton" id="btn-quitar-zona" hidden>Quitar zona</button>
+        <div class="cam-demos" id="demos" hidden><span class="cam-muted">Demo:</span></div>
 
 
         <label class="cam-umbral">
