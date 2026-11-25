@@ -1,0 +1,6 @@
+# Lo que NO se sube a Vercel (la clave va en las variables de entorno de Vercel, no en un archivo)
+.env
+.env.*
+eventos_local.db
+__pycache__/
+*.pyc

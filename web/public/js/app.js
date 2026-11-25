@@ -390,29 +390,31 @@ video.addEventListener("ended", () => estado.fuente === "video" && detener());
 
 // ---------------------------------------------------------------- arranque
 async function arrancar() {
+  // Lo liviano primero (nombres de clases); el resto en paralelo para que el chat y el historial
+  // no esperen a que termine de descargarse el modelo de 14 MB.
   try {
     window.__meta = await cargarMeta();
-    await cargarModelo("preciso");
-    $("estado-sistema").textContent = "Modelo listo · ONNX en el navegador";
-    $("estado-sistema").dataset.ok = "si";
   } catch (e) {
     console.error(e);
-    $("estado-sistema").textContent = "No se pudo cargar el modelo";
   }
-  try {
-    const salud = await (await fetch("/api/salud")).json();
-    $("stat-base").textContent = salud.base === "postgres" ? "PostgreSQL" : "SQLite local";
-  } catch {
-    $("stat-base").textContent = "sin API";
-  }
-  refrescarHistorial();
-  // Espacio del asistente de Tomás: si existe /chat/chat.js, se monta en #chat
-  try {
-    const chat = await import("/chat/chat.js");
-    chat.montarChat($("chat"), { apiBase: "/api" });
-  } catch {
-    /* el chat aún no está: queda el texto de reserva */
-  }
+  const modelo = cargarModelo("preciso")
+    .then(() => {
+      $("estado-sistema").textContent = "Modelo listo · ONNX en el navegador";
+      $("estado-sistema").dataset.ok = "si";
+    })
+    .catch((e) => {
+      console.error(e);
+      $("estado-sistema").textContent = "No se pudo cargar el modelo";
+    });
+  const salud = fetch("/api/salud")
+    .then((r) => r.json())
+    .then((s) => ($("stat-base").textContent = s.base === "postgres" ? "PostgreSQL" : "SQLite local"))
+    .catch(() => ($("stat-base").textContent = "sin API"));
+  // Asistente de Tomás: si existe /chat/chat.js, se monta en #chat (exporta montarChat)
+  const chat = import("/chat/chat.js")
+    .then((m) => m.montarChat($("chat"), { apiBase: "/api" }))
+    .catch(() => { /* el chat no está: queda el texto de reserva */ });
+  await Promise.all([modelo, salud, refrescarHistorial(), chat]);
 }
 
 arrancar();

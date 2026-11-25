@@ -5,8 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Animales en la vía · CNN propia</title>
   <link rel="stylesheet" href="/css/estilos.css">
-  <!-- onnxruntime-web: versión fija, se carga UNA vez aquí y la usa también el chat -->
-  <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web@1.31.1/dist/ort.min.js"></script>
+  <!-- onnxruntime-web 1.31.1 (solo WebAssembly), servido desde /vendor/ort: no depende de un CDN.
+       Se carga UNA vez aquí y lo usa también el chat de Tomás (globalThis.ort). -->
+  <script src="/vendor/ort/ort.wasm.min.js"></script>
+  <script>ort.env.wasm.wasmPaths = "/vendor/ort/";</script>
 </head>
 <body>
   <header class="cam-header">
@@ -18,12 +20,19 @@
   </header>
 
   <main class="cam-layout">
-    <section class="cam-visor" aria-label="Fuente de imagen">
-      <div class="cam-tabs" role="tablist">
-        <button role="tab" class="cam-tab" data-fuente="camara" aria-selected="true">Cámara</button>
-        <button role="tab" class="cam-tab" data-fuente="video" aria-selected="false">Video</button>
-        <button role="tab" class="cam-tab" data-fuente="foto" aria-selected="false">Foto</button>
-      </div>
+    <section class="cam-visor cam-tarjeta" aria-labelledby="visor-titulo">
+      <header class="cam-cabecera">
+        <div>
+          <h2 id="visor-titulo">Detector</h2>
+          <p>Cada frame pasa por las 3 CNN propias.</p>
+        </div>
+        <div class="cam-tabs" role="tablist" aria-label="Fuente de imagen">
+          <button role="tab" class="cam-tab" data-fuente="camara" aria-selected="true">Cámara</button>
+          <button role="tab" class="cam-tab" data-fuente="video" aria-selected="false">Video</button>
+          <button role="tab" class="cam-tab" data-fuente="foto" aria-selected="false">Foto</button>
+        </div>
+      </header>
+      <div class="cam-cuerpo">
 
       <div class="cam-pantalla" id="pantalla">
         <video id="video" playsinline muted></video>
@@ -58,10 +67,17 @@
         <div><dt>Frames</dt><dd id="stat-frames">0</dd></div>
         <div><dt>Base de datos</dt><dd id="stat-base">–</dd></div>
       </dl>
+      </div>
     </section>
 
-    <aside class="cam-panel" aria-live="polite">
-      <h2>Resultado</h2>
+    <aside class="cam-panel cam-tarjeta" aria-labelledby="resultado-titulo" aria-live="polite">
+      <header class="cam-cabecera">
+        <div>
+          <h2 id="resultado-titulo">Resultado</h2>
+          <p>Promedio de los últimos 3 segundos.</p>
+        </div>
+      </header>
+      <div class="cam-cuerpo">
       <div class="cam-resultado" id="resultado" data-estado="nada">
         <span class="cam-chip" id="res-chip">Esperando imagen</span>
         <p class="cam-clase" id="res-clase">–</p>
@@ -69,18 +85,22 @@
       </div>
       <ul class="cam-barras" id="barras"></ul>
 
-      <h2>Evento en curso</h2>
+      <h3>Evento en curso</h3>
       <div class="cam-evento" id="evento-actual">
         <p class="cam-muted">Ninguno. Un evento empieza cuando el mismo animal aparece en 3 frames seguidos y termina tras 2 s sin verlo.</p>
+      </div>
       </div>
     </aside>
   </main>
 
-  <section class="cam-historial">
-    <div class="cam-historial-cabecera">
-      <h2>Historial de eventos</h2>
+  <section class="cam-historial cam-tarjeta" aria-labelledby="historial-titulo">
+    <header class="cam-cabecera">
+      <div>
+        <h2 id="historial-titulo">Historial de eventos</h2>
+        <p>Cada aparición de un animal queda registrada una sola vez.</p>
+      </div>
       <button class="cam-boton cam-boton-chico" id="btn-refrescar">Actualizar</button>
-    </div>
+    </header>
     <div class="cam-tabla-wrap">
       <table class="cam-tabla">
         <thead><tr><th>Inicio</th><th>Animal</th><th>Confianza</th><th>Duración</th><th>Frames</th><th>Fuente</th><th>Modo</th></tr></thead>
@@ -90,9 +110,13 @@
   </section>
 
   <!-- Espacio del asistente (transformer) de Tomás: chat.js exporta montarChat(contenedor, {apiBase}) -->
-  <section id="chat" class="cam-chat-slot">
-    <h2>Asistente</h2>
-    <p class="cam-muted">Aquí va el asistente (transformer) que responde preguntas sobre los eventos registrados.</p>
+  <section id="chat" class="cam-chat-slot cam-tarjeta">
+    <header class="cam-cabecera">
+      <div>
+        <h2>Asistente</h2>
+        <p>Cargando el asistente…</p>
+      </div>
+    </header>
   </section>
 
   <div class="cam-toast" id="toast" role="status" hidden></div>

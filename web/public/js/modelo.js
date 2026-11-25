@@ -5,7 +5,7 @@
 // y se interpreta la salida igual que src/clasificador.py.
 
 const RUTA = "/modelos/";
-const ORT_VERSION = "1.31.1";
+const RUTA_ORT = "/vendor/ort/";   // onnxruntime-web 1.31.1 (solo WASM), servido por el propio sitio
 
 let meta = null;
 const sesiones = {};
@@ -18,7 +18,7 @@ export async function cargarMeta() {
 export async function cargarModelo(modo) {
   await cargarMeta();
   if (!sesiones[modo]) {
-    ort.env.wasm.wasmPaths = `https://cdn.jsdelivr.net/npm/onnxruntime-web@${ORT_VERSION}/dist/`;
+    ort.env.wasm.wasmPaths = RUTA_ORT;
     sesiones[modo] = ort.InferenceSession.create(RUTA + meta.archivos[modo], {
       executionProviders: ["wasm"],
       graphOptimizationLevel: "all",
