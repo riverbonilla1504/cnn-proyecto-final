@@ -1,0 +1,11 @@
+Buscando autos y camiones en el CSV completo de Open Images (2.2 GB, tarda unos minutos)...
+Fotos candidatas por clase: {'bovino': 1892, 'caballo': 4849, 'fondo': 85875, 'gato': 11086, 'perro': 18441}
+bovino  : 1787 recortes nuevos  {'ok': 1787, 'muy_pequeno': 105}  (0.9 min)
+caballo : 1811 recortes nuevos  {'ok': 1811, 'muy_pequeno': 39}  (1.8 min)
+fondo   : 1801 recortes nuevos  {'ok': 1801, 'muy_pequeno': 318}  (3.0 min)
+gato    : 1850 recortes nuevos  {'ok': 1850}  (3.9 min)
+perro   : 1837 recortes nuevos  {'ok': 1837, 'muy_pequeno': 13}  (4.8 min)
+
+Dataset ampliado en C:\PROGRAMACION\cnn-proyecto-final\data\dataset_cnn_ampliado
+train por clase: {'bovino': 2287, 'caballo': 2300, 'fondo': 2300, 'gato': 2300, 'perro': 2300}
+Tiempo total: 4.9 min

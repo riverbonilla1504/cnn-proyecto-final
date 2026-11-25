@@ -1,0 +1,12 @@
+# Versión de Python usada: 3.12 (TensorFlow aún no soporta 3.14)
+tensorflow==2.19.*
+numpy
+pillow
+matplotlib
+seaborn
+scikit-learn
+pandas
+opencv-python   # para la futura fase de cámara/video
+# Solo para el paso 5 (CNN v2 en GPU): Keras con backend PyTorch + CUDA 12.8 (serie RTX 50)
+--extra-index-url https://download.pytorch.org/whl/cu128
+torch

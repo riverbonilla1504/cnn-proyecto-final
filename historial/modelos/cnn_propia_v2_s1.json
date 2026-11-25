@@ -1,0 +1,20 @@
+{
+  "clases": [
+    "bovino",
+    "caballo",
+    "fondo",
+    "gato",
+    "perro"
+  ],
+  "img_size": 160,
+  "entrada": "imagen RGB 0-255 sin normalizar (el modelo normaliza por dentro)",
+  "tipo": "CNN desde cero v2 (BatchNorm + 2 conv por bloque + GlobalAveragePooling)",
+  "test_accuracy": 0.66,
+  "mejor_val_accuracy": 0.5733,
+  "epocas_entrenadas": 60,
+  "minutos_entrenamiento": 19.0,
+  "parametros": 1176421,
+  "entrenado_en": "GPU (NVIDIA GeForce RTX 5070)",
+  "dataset": "dataset_cnn",
+  "semilla_entrenamiento": 1
+}

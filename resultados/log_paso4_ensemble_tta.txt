@@ -1,0 +1,30 @@
+2026-11-25 03:14:50.903186: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-11-25 03:14:54.257588: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+Found 27202 files belonging to 5 classes.
+Using 23122 files for training.
+2026-11-25 03:15:01.669317: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: SSE3 SSE4.1 SSE4.2 AVX AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Found 27202 files belonging to 5 classes.
+Using 4080 files for validation.
+Found 500 files belonging to 5 classes.
+2026-11-25 03:15:03.617146: I tensorflow/core/framework/local_rendezvous.cc:407] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+2026-11-25 03:15:04.325544: I tensorflow/core/framework/local_rendezvous.cc:407] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+2026-11-25 03:15:04.598231: I tensorflow/core/framework/local_rendezvous.cc:407] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+Validación: 4080 fotos | Test: 500 fotos
+C:\PROGRAMACION\cnn-proyecto-final\.venv\Lib\site-packages\keras\src\saving\saving_lib.py:869: UserWarning: Skipping variable loading for optimizer 'rm_sprop', because it has 28 variables whereas the saved optimizer has 2 variables. 
+  saveable.load_own_variables(store)
+Opción                                   |   Val    |  Test
+--------------------------------------------------------------
+cnn_propia_v2_receta solo                |  88.19% |  92.80%
+cnn_propia_v2_receta + TTA               |  88.53% |  93.00%
+cnn_propia_v2_receta_s1 solo             |  88.70% |  92.00%
+cnn_propia_v2_receta_s1 + TTA            |  88.87% |  93.80%
+cnn_propia_v2_receta_s2 solo             |  88.28% |  94.40%
+cnn_propia_v2_receta_s2 + TTA            |  88.55% |  94.80%
+Ensemble 3 semillas                      |  89.19% |  95.00%
+Ensemble 3 semillas + TTA                |  89.56% |  95.20%   <- ELEGIDA (mejor validación)
+
+Semillas individuales en test: 93.07% ± 1.22%
+Tiempo por imagen (CPU, opción elegida): 310 ms  (~3 imágenes/s)
+
+Modelo final: Ensemble 3 semillas + TTA  ->  modelos/modelo_final.json

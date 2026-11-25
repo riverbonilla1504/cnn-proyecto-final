@@ -1,0 +1,16 @@
+{
+  "clases": [
+    "bovino",
+    "caballo",
+    "fondo",
+    "gato",
+    "perro"
+  ],
+  "img_size": 160,
+  "entrada": "imagen RGB 0-255 sin normalizar (el modelo normaliza por dentro)",
+  "tipo": "CNN desde cero",
+  "test_accuracy": 0.588,
+  "epocas_entrenadas": 15,
+  "minutos_entrenamiento": 6.1,
+  "parametros": 1880005
+}

@@ -1,0 +1,35 @@
+===== Una sola CNN (semilla 42), receta moderna, 224 px (cnn_propia_v2_receta) =====
+1 modelo(s), 224 px | parámetros: 1,176,421
+Accuracy en test: 0.9260  (463/500 correctas)
+
+              precision    recall  f1-score   support
+
+      bovino      0.935     0.860     0.896       100
+     caballo      0.880     0.950     0.913       100
+       fondo      0.990     0.990     0.990       100
+        gato      0.968     0.920     0.944       100
+       perro      0.867     0.910     0.888       100
+
+    accuracy                          0.926       500
+   macro avg      0.928     0.926     0.926       500
+weighted avg      0.928     0.926     0.926       500
+
+===== MODELO FINAL (ensemble 3 semillas + TTA) (modelo_final) =====
+3 modelo(s) + TTA, 224 px | parámetros: 3,529,263
+Accuracy en test: 0.9520  (476/500 correctas)
+
+              precision    recall  f1-score   support
+
+      bovino      0.939     0.920     0.929       100
+     caballo      0.933     0.970     0.951       100
+       fondo      1.000     1.000     1.000       100
+        gato      0.979     0.950     0.964       100
+       perro      0.911     0.920     0.915       100
+
+    accuracy                          0.952       500
+   macro avg      0.952     0.952     0.952       500
+weighted avg      0.952     0.952     0.952       500
+
+
+===== Repeticiones con distintas semillas (accuracy en test) =====
+CNN sola, receta moderna            : 3 corridas, 93.1% ± 1.2%   (92.8%, 92.0%, 94.4%)

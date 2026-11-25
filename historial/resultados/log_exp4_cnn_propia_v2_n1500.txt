@@ -1,0 +1,473 @@
+Backend de Keras: torch  |  Dispositivo: GPU (NVIDIA GeForce RTX 5070)
+Found 7500 files belonging to 5 classes.
+Using 6375 files for training.
+Found 7500 files belonging to 5 classes.
+Using 1125 files for validation.
+Found 500 files belonging to 5 classes.
+Model: "cnn_propia_v2_n1500"
+┌─────────────────────────────────┬────────────────────────┬───────────────┐
+│ Layer (type)                    │ Output Shape           │       Param # │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ imagen_rgb_0_255 (InputLayer)   │ (None, 160, 160, 3)    │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ normalizar_0_1 (Rescaling)      │ (None, 160, 160, 3)    │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque1_conv1 (Conv2D)          │ (None, 160, 160, 32)   │           864 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque1_bn1                     │ (None, 160, 160, 32)   │           128 │
+│ (BatchNormalization)            │                        │               │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque1_relu1 (Activation)      │ (None, 160, 160, 32)   │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque1_conv2 (Conv2D)          │ (None, 160, 160, 32)   │         9,216 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque1_bn2                     │ (None, 160, 160, 32)   │           128 │
+│ (BatchNormalization)            │                        │               │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque1_relu2 (Activation)      │ (None, 160, 160, 32)   │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque1_pool (MaxPooling2D)     │ (None, 80, 80, 32)     │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque2_conv1 (Conv2D)          │ (None, 80, 80, 64)     │        18,432 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque2_bn1                     │ (None, 80, 80, 64)     │           256 │
+│ (BatchNormalization)            │                        │               │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque2_relu1 (Activation)      │ (None, 80, 80, 64)     │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque2_conv2 (Conv2D)          │ (None, 80, 80, 64)     │        36,864 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque2_bn2                     │ (None, 80, 80, 64)     │           256 │
+│ (BatchNormalization)            │                        │               │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque2_relu2 (Activation)      │ (None, 80, 80, 64)     │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque2_pool (MaxPooling2D)     │ (None, 40, 40, 64)     │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque3_conv1 (Conv2D)          │ (None, 40, 40, 128)    │        73,728 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque3_bn1                     │ (None, 40, 40, 128)    │           512 │
+│ (BatchNormalization)            │                        │               │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque3_relu1 (Activation)      │ (None, 40, 40, 128)    │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque3_conv2 (Conv2D)          │ (None, 40, 40, 128)    │       147,456 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque3_bn2                     │ (None, 40, 40, 128)    │           512 │
+│ (BatchNormalization)            │                        │               │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque3_relu2 (Activation)      │ (None, 40, 40, 128)    │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque3_pool (MaxPooling2D)     │ (None, 20, 20, 128)    │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque4_conv1 (Conv2D)          │ (None, 20, 20, 256)    │       294,912 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque4_bn1                     │ (None, 20, 20, 256)    │         1,024 │
+│ (BatchNormalization)            │                        │               │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque4_relu1 (Activation)      │ (None, 20, 20, 256)    │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque4_conv2 (Conv2D)          │ (None, 20, 20, 256)    │       589,824 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque4_bn2                     │ (None, 20, 20, 256)    │         1,024 │
+│ (BatchNormalization)            │                        │               │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque4_relu2 (Activation)      │ (None, 20, 20, 256)    │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque4_pool (MaxPooling2D)     │ (None, 10, 10, 256)    │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ gap (GlobalAveragePooling2D)    │ (None, 256)            │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ dropout (Dropout)               │ (None, 256)            │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ clasificador (Dense)            │ (None, 5)              │         1,285 │
+└─────────────────────────────────┴────────────────────────┴───────────────┘
+ Total params: 1,176,421 (4.49 MB)
+ Trainable params: 1,174,501 (4.48 MB)
+ Non-trainable params: 1,920 (7.50 KB)
+C:\PROGRAMACION\cnn-proyecto-final\.venv\Lib\site-packages\keras\src\trainers\epoch_iterator.py:74: UserWarning: `shuffle=True` was passed, but will be ignored since the data `x` was provided as a tf.data.Dataset. The Dataset is expected to already be shuffled (via `.shuffle(buffer_size)`).
+  self.data_adapter = data_adapters.get_data_adapter(
+Epoch 1/150
+
+Epoch 1: val_accuracy improved from None to 0.20889, saving model to C:\PROGRAMACION\cnn-proyecto-final\modelos\cnn_propia_v2_n1500.keras
+
+Epoch 1: finished saving model to C:\PROGRAMACION\cnn-proyecto-final\modelos\cnn_propia_v2_n1500.keras
+200/200 - 40s - 202ms/step - accuracy: 0.3586 - loss: 1.5377 - val_accuracy: 0.2089 - val_loss: 2.1325 - learning_rate: 0.0010
+Epoch 2/150
+
+Epoch 2: val_accuracy improved from 0.20889 to 0.28000, saving model to C:\PROGRAMACION\cnn-proyecto-final\modelos\cnn_propia_v2_n1500.keras
+
+Epoch 2: finished saving model to C:\PROGRAMACION\cnn-proyecto-final\modelos\cnn_propia_v2_n1500.keras
+200/200 - 38s - 191ms/step - accuracy: 0.3875 - loss: 1.4434 - val_accuracy: 0.2800 - val_loss: 1.6327 - learning_rate: 0.0010
+Epoch 3/150
+
+Epoch 3: val_accuracy improved from 0.28000 to 0.42044, saving model to C:\PROGRAMACION\cnn-proyecto-final\modelos\cnn_propia_v2_n1500.keras
+
+Epoch 3: finished saving model to C:\PROGRAMACION\cnn-proyecto-final\modelos\cnn_propia_v2_n1500.keras
+200/200 - 38s - 190ms/step - accuracy: 0.4166 - loss: 1.3924 - val_accuracy: 0.4204 - val_loss: 1.3898 - learning_rate: 0.0010
+Epoch 4/150
+
+Epoch 4: val_accuracy did not improve from 0.42044
+200/200 - 38s - 191ms/step - accuracy: 0.4289 - loss: 1.3493 - val_accuracy: 0.3822 - val_loss: 1.5218 - learning_rate: 0.0010
+Epoch 5/150
+
+Epoch 5: val_accuracy did not improve from 0.42044
+200/200 - 38s - 189ms/step - accuracy: 0.4569 - loss: 1.3102 - val_accuracy: 0.3760 - val_loss: 1.5874 - learning_rate: 0.0010
+Epoch 6/150
+
+Epoch 6: val_accuracy improved from 0.42044 to 0.47111, saving model to C:\PROGRAMACION\cnn-proyecto-final\modelos\cnn_propia_v2_n1500.keras
+
+Epoch 6: finished saving model to C:\PROGRAMACION\cnn-proyecto-final\modelos\cnn_propia_v2_n1500.keras
+200/200 - 38s - 192ms/step - accuracy: 0.4638 - loss: 1.2736 - val_accuracy: 0.4711 - val_loss: 1.2289 - learning_rate: 0.0010
+Epoch 7/150
+
+Epoch 7: val_accuracy did not improve from 0.47111
+200/200 - 37s - 187ms/step - accuracy: 0.4784 - loss: 1.2451 - val_accuracy: 0.4133 - val_loss: 1.6431 - learning_rate: 0.0010
+Epoch 8/150
+
+Epoch 8: val_accuracy improved from 0.47111 to 0.48089, saving model to C:\PROGRAMACION\cnn-proyecto-final\modelos\cnn_propia_v2_n1500.keras
+
+Epoch 8: finished saving model to C:\PROGRAMACION\cnn-proyecto-final\modelos\cnn_propia_v2_n1500.keras
+200/200 - 38s - 189ms/step - accuracy: 0.4872 - loss: 1.2117 - val_accuracy: 0.4809 - val_loss: 1.3084 - learning_rate: 0.0010
+Epoch 9/150
+
+Epoch 9: val_accuracy did not improve from 0.48089
+200/200 - 38s - 192ms/step - accuracy: 0.5148 - loss: 1.1666 - val_accuracy: 0.4498 - val_loss: 1.3117 - learning_rate: 0.0010
+Epoch 10/150
+
+Epoch 10: val_accuracy did not improve from 0.48089
+200/200 - 36s - 182ms/step - accuracy: 0.5263 - loss: 1.1405 - val_accuracy: 0.4551 - val_loss: 1.4654 - learning_rate: 0.0010
+Epoch 11/150
+
+Epoch 11: val_accuracy did not improve from 0.48089
+200/200 - 38s - 190ms/step - accuracy: 0.5440 - loss: 1.1081 - val_accuracy: 0.4711 - val_loss: 1.3745 - learning_rate: 0.0010
+Epoch 12/150
+
+Epoch 12: val_accuracy did not improve from 0.48089
+
+Epoch 12: ReduceLROnPlateau reducing learning rate to 0.0005000000237487257.
+200/200 - 39s - 194ms/step - accuracy: 0.5504 - loss: 1.0852 - val_accuracy: 0.4738 - val_loss: 1.2811 - learning_rate: 0.0010
+Epoch 13/150
+
+Epoch 13: val_accuracy improved from 0.48089 to 0.54044, saving model to C:\PROGRAMACION\cnn-proyecto-final\modelos\cnn_propia_v2_n1500.keras
+
+Epoch 13: finished saving model to C:\PROGRAMACION\cnn-proyecto-final\modelos\cnn_propia_v2_n1500.keras
+200/200 - 38s - 190ms/step - accuracy: 0.5744 - loss: 1.0284 - val_accuracy: 0.5404 - val_loss: 1.0638 - learning_rate: 5.0000e-04
+Epoch 14/150
+
+Epoch 14: val_accuracy improved from 0.54044 to 0.55733, saving model to C:\PROGRAMACION\cnn-proyecto-final\modelos\cnn_propia_v2_n1500.keras
+
+Epoch 14: finished saving model to C:\PROGRAMACION\cnn-proyecto-final\modelos\cnn_propia_v2_n1500.keras
+200/200 - 38s - 192ms/step - accuracy: 0.5901 - loss: 1.0016 - val_accuracy: 0.5573 - val_loss: 1.1456 - learning_rate: 5.0000e-04
+Epoch 15/150
+
+Epoch 15: val_accuracy improved from 0.55733 to 0.61689, saving model to C:\PROGRAMACION\cnn-proyecto-final\modelos\cnn_propia_v2_n1500.keras
+
+Epoch 15: finished saving model to C:\PROGRAMACION\cnn-proyecto-final\modelos\cnn_propia_v2_n1500.keras
+200/200 - 39s - 193ms/step - accuracy: 0.5975 - loss: 0.9859 - val_accuracy: 0.6169 - val_loss: 0.9317 - learning_rate: 5.0000e-04
+Epoch 16/150
+
+Epoch 16: val_accuracy did not improve from 0.61689
+200/200 - 39s - 193ms/step - accuracy: 0.6039 - loss: 0.9718 - val_accuracy: 0.5902 - val_loss: 1.0241 - learning_rate: 5.0000e-04
+Epoch 17/150
+
+Epoch 17: val_accuracy did not improve from 0.61689
+200/200 - 38s - 192ms/step - accuracy: 0.6099 - loss: 0.9483 - val_accuracy: 0.5876 - val_loss: 1.0229 - learning_rate: 5.0000e-04
+Epoch 18/150
+
+Epoch 18: val_accuracy did not improve from 0.61689
+200/200 - 38s - 192ms/step - accuracy: 0.6184 - loss: 0.9378 - val_accuracy: 0.5564 - val_loss: 1.0906 - learning_rate: 5.0000e-04
+Epoch 19/150
+
+Epoch 19: val_accuracy did not improve from 0.61689
+200/200 - 37s - 187ms/step - accuracy: 0.6231 - loss: 0.9385 - val_accuracy: 0.6160 - val_loss: 0.9101 - learning_rate: 5.0000e-04
+Epoch 20/150
+
+Epoch 20: val_accuracy did not improve from 0.61689
+200/200 - 38s - 192ms/step - accuracy: 0.6209 - loss: 0.9226 - val_accuracy: 0.6107 - val_loss: 0.9529 - learning_rate: 5.0000e-04
+Epoch 21/150
+
+Epoch 21: val_accuracy improved from 0.61689 to 0.62489, saving model to C:\PROGRAMACION\cnn-proyecto-final\modelos\cnn_propia_v2_n1500.keras
+
+Epoch 21: finished saving model to C:\PROGRAMACION\cnn-proyecto-final\modelos\cnn_propia_v2_n1500.keras
+200/200 - 38s - 191ms/step - accuracy: 0.6285 - loss: 0.9078 - val_accuracy: 0.6249 - val_loss: 0.9914 - learning_rate: 5.0000e-04
+Epoch 22/150
+
+Epoch 22: val_accuracy did not improve from 0.62489
+200/200 - 39s - 193ms/step - accuracy: 0.6381 - loss: 0.8887 - val_accuracy: 0.5173 - val_loss: 1.3114 - learning_rate: 5.0000e-04
+Epoch 23/150
+
+Epoch 23: val_accuracy improved from 0.62489 to 0.64978, saving model to C:\PROGRAMACION\cnn-proyecto-final\modelos\cnn_propia_v2_n1500.keras
+
+Epoch 23: finished saving model to C:\PROGRAMACION\cnn-proyecto-final\modelos\cnn_propia_v2_n1500.keras
+200/200 - 38s - 190ms/step - accuracy: 0.6428 - loss: 0.8841 - val_accuracy: 0.6498 - val_loss: 0.8449 - learning_rate: 5.0000e-04
+Epoch 24/150
+
+Epoch 24: val_accuracy did not improve from 0.64978
+200/200 - 38s - 191ms/step - accuracy: 0.6516 - loss: 0.8609 - val_accuracy: 0.6329 - val_loss: 0.9058 - learning_rate: 5.0000e-04
+Epoch 25/150
+
+Epoch 25: val_accuracy improved from 0.64978 to 0.66222, saving model to C:\PROGRAMACION\cnn-proyecto-final\modelos\cnn_propia_v2_n1500.keras
+
+Epoch 25: finished saving model to C:\PROGRAMACION\cnn-proyecto-final\modelos\cnn_propia_v2_n1500.keras
+200/200 - 38s - 190ms/step - accuracy: 0.6562 - loss: 0.8610 - val_accuracy: 0.6622 - val_loss: 0.8417 - learning_rate: 5.0000e-04
+Epoch 26/150
+
+Epoch 26: val_accuracy did not improve from 0.66222
+200/200 - 38s - 191ms/step - accuracy: 0.6580 - loss: 0.8516 - val_accuracy: 0.6489 - val_loss: 0.8470 - learning_rate: 5.0000e-04
+Epoch 27/150
+
+Epoch 27: val_accuracy did not improve from 0.66222
+200/200 - 38s - 192ms/step - accuracy: 0.6621 - loss: 0.8318 - val_accuracy: 0.5973 - val_loss: 0.9923 - learning_rate: 5.0000e-04
+Epoch 28/150
+
+Epoch 28: val_accuracy did not improve from 0.66222
+200/200 - 38s - 190ms/step - accuracy: 0.6660 - loss: 0.8317 - val_accuracy: 0.6151 - val_loss: 0.9458 - learning_rate: 5.0000e-04
+Epoch 29/150
+
+Epoch 29: val_accuracy did not improve from 0.66222
+200/200 - 38s - 190ms/step - accuracy: 0.6707 - loss: 0.8207 - val_accuracy: 0.6027 - val_loss: 0.9343 - learning_rate: 5.0000e-04
+Epoch 30/150
+
+Epoch 30: val_accuracy did not improve from 0.66222
+200/200 - 39s - 194ms/step - accuracy: 0.6751 - loss: 0.8119 - val_accuracy: 0.6400 - val_loss: 0.9848 - learning_rate: 5.0000e-04
+Epoch 31/150
+
+Epoch 31: val_accuracy did not improve from 0.66222
+
+Epoch 31: ReduceLROnPlateau reducing learning rate to 0.0002500000118743628.
+200/200 - 38s - 189ms/step - accuracy: 0.6811 - loss: 0.7961 - val_accuracy: 0.6036 - val_loss: 0.9006 - learning_rate: 5.0000e-04
+Epoch 32/150
+
+Epoch 32: val_accuracy improved from 0.66222 to 0.66844, saving model to C:\PROGRAMACION\cnn-proyecto-final\modelos\cnn_propia_v2_n1500.keras
+
+Epoch 32: finished saving model to C:\PROGRAMACION\cnn-proyecto-final\modelos\cnn_propia_v2_n1500.keras
+200/200 - 38s - 191ms/step - accuracy: 0.7071 - loss: 0.7373 - val_accuracy: 0.6684 - val_loss: 0.7878 - learning_rate: 2.5000e-04
+Epoch 33/150
+
+Epoch 33: val_accuracy did not improve from 0.66844
+200/200 - 38s - 192ms/step - accuracy: 0.7125 - loss: 0.7312 - val_accuracy: 0.6622 - val_loss: 0.7757 - learning_rate: 2.5000e-04
+Epoch 34/150
+
+Epoch 34: val_accuracy improved from 0.66844 to 0.68000, saving model to C:\PROGRAMACION\cnn-proyecto-final\modelos\cnn_propia_v2_n1500.keras
+
+Epoch 34: finished saving model to C:\PROGRAMACION\cnn-proyecto-final\modelos\cnn_propia_v2_n1500.keras
+200/200 - 38s - 190ms/step - accuracy: 0.7120 - loss: 0.7233 - val_accuracy: 0.6800 - val_loss: 0.7633 - learning_rate: 2.5000e-04
+Epoch 35/150
+
+Epoch 35: val_accuracy improved from 0.68000 to 0.68356, saving model to C:\PROGRAMACION\cnn-proyecto-final\modelos\cnn_propia_v2_n1500.keras
+
+Epoch 35: finished saving model to C:\PROGRAMACION\cnn-proyecto-final\modelos\cnn_propia_v2_n1500.keras
+200/200 - 38s - 191ms/step - accuracy: 0.7187 - loss: 0.7219 - val_accuracy: 0.6836 - val_loss: 0.7880 - learning_rate: 2.5000e-04
+Epoch 36/150
+
+Epoch 36: val_accuracy did not improve from 0.68356
+200/200 - 38s - 191ms/step - accuracy: 0.7247 - loss: 0.7094 - val_accuracy: 0.6284 - val_loss: 1.0148 - learning_rate: 2.5000e-04
+Epoch 37/150
+
+Epoch 37: val_accuracy did not improve from 0.68356
+200/200 - 38s - 188ms/step - accuracy: 0.7263 - loss: 0.6931 - val_accuracy: 0.6809 - val_loss: 0.8261 - learning_rate: 2.5000e-04
+Epoch 38/150
+
+Epoch 38: val_accuracy improved from 0.68356 to 0.69778, saving model to C:\PROGRAMACION\cnn-proyecto-final\modelos\cnn_propia_v2_n1500.keras
+
+Epoch 38: finished saving model to C:\PROGRAMACION\cnn-proyecto-final\modelos\cnn_propia_v2_n1500.keras
+200/200 - 39s - 194ms/step - accuracy: 0.7231 - loss: 0.6984 - val_accuracy: 0.6978 - val_loss: 0.7513 - learning_rate: 2.5000e-04
+Epoch 39/150
+
+Epoch 39: val_accuracy did not improve from 0.69778
+200/200 - 38s - 189ms/step - accuracy: 0.7304 - loss: 0.6794 - val_accuracy: 0.6409 - val_loss: 0.8646 - learning_rate: 2.5000e-04
+Epoch 40/150
+
+Epoch 40: val_accuracy did not improve from 0.69778
+200/200 - 38s - 189ms/step - accuracy: 0.7325 - loss: 0.6754 - val_accuracy: 0.6898 - val_loss: 0.8222 - learning_rate: 2.5000e-04
+Epoch 41/150
+
+Epoch 41: val_accuracy did not improve from 0.69778
+200/200 - 43s - 215ms/step - accuracy: 0.7371 - loss: 0.6732 - val_accuracy: 0.6649 - val_loss: 0.8892 - learning_rate: 2.5000e-04
+Epoch 42/150
+
+Epoch 42: val_accuracy did not improve from 0.69778
+200/200 - 38s - 192ms/step - accuracy: 0.7384 - loss: 0.6698 - val_accuracy: 0.6409 - val_loss: 0.9769 - learning_rate: 2.5000e-04
+Epoch 43/150
+
+Epoch 43: val_accuracy did not improve from 0.69778
+200/200 - 38s - 188ms/step - accuracy: 0.7415 - loss: 0.6630 - val_accuracy: 0.6791 - val_loss: 0.8077 - learning_rate: 2.5000e-04
+Epoch 44/150
+
+Epoch 44: val_accuracy did not improve from 0.69778
+
+Epoch 44: ReduceLROnPlateau reducing learning rate to 0.0001250000059371814.
+200/200 - 38s - 191ms/step - accuracy: 0.7471 - loss: 0.6505 - val_accuracy: 0.6853 - val_loss: 0.7933 - learning_rate: 2.5000e-04
+Epoch 45/150
+
+Epoch 45: val_accuracy improved from 0.69778 to 0.71467, saving model to C:\PROGRAMACION\cnn-proyecto-final\modelos\cnn_propia_v2_n1500.keras
+
+Epoch 45: finished saving model to C:\PROGRAMACION\cnn-proyecto-final\modelos\cnn_propia_v2_n1500.keras
+200/200 - 38s - 190ms/step - accuracy: 0.7622 - loss: 0.6201 - val_accuracy: 0.7147 - val_loss: 0.7185 - learning_rate: 1.2500e-04
+Epoch 46/150
+
+Epoch 46: val_accuracy did not improve from 0.71467
+200/200 - 38s - 190ms/step - accuracy: 0.7631 - loss: 0.6042 - val_accuracy: 0.7049 - val_loss: 0.7654 - learning_rate: 1.2500e-04
+Epoch 47/150
+
+Epoch 47: val_accuracy did not improve from 0.71467
+200/200 - 38s - 190ms/step - accuracy: 0.7644 - loss: 0.6015 - val_accuracy: 0.7004 - val_loss: 0.7391 - learning_rate: 1.2500e-04
+Epoch 48/150
+
+Epoch 48: val_accuracy did not improve from 0.71467
+200/200 - 38s - 191ms/step - accuracy: 0.7671 - loss: 0.6001 - val_accuracy: 0.6898 - val_loss: 0.7609 - learning_rate: 1.2500e-04
+Epoch 49/150
+
+Epoch 49: val_accuracy did not improve from 0.71467
+200/200 - 27s - 133ms/step - accuracy: 0.7718 - loss: 0.5898 - val_accuracy: 0.6987 - val_loss: 0.7504 - learning_rate: 1.2500e-04
+Epoch 50/150
+
+Epoch 50: val_accuracy did not improve from 0.71467
+200/200 - 26s - 129ms/step - accuracy: 0.7667 - loss: 0.5889 - val_accuracy: 0.7031 - val_loss: 0.7365 - learning_rate: 1.2500e-04
+Epoch 51/150
+
+Epoch 51: val_accuracy did not improve from 0.71467
+
+Epoch 51: ReduceLROnPlateau reducing learning rate to 6.25000029685907e-05.
+200/200 - 25s - 125ms/step - accuracy: 0.7713 - loss: 0.5849 - val_accuracy: 0.6951 - val_loss: 0.8049 - learning_rate: 1.2500e-04
+Epoch 52/150
+
+Epoch 52: val_accuracy did not improve from 0.71467
+200/200 - 25s - 126ms/step - accuracy: 0.7865 - loss: 0.5586 - val_accuracy: 0.7076 - val_loss: 0.7447 - learning_rate: 6.2500e-05
+Epoch 53/150
+
+Epoch 53: val_accuracy did not improve from 0.71467
+200/200 - 26s - 128ms/step - accuracy: 0.7870 - loss: 0.5494 - val_accuracy: 0.7102 - val_loss: 0.7303 - learning_rate: 6.2500e-05
+Epoch 54/150
+
+Epoch 54: val_accuracy did not improve from 0.71467
+200/200 - 25s - 126ms/step - accuracy: 0.7890 - loss: 0.5431 - val_accuracy: 0.7049 - val_loss: 0.7626 - learning_rate: 6.2500e-05
+Epoch 55/150
+
+Epoch 55: val_accuracy did not improve from 0.71467
+200/200 - 25s - 127ms/step - accuracy: 0.7918 - loss: 0.5393 - val_accuracy: 0.7013 - val_loss: 0.7436 - learning_rate: 6.2500e-05
+Epoch 56/150
+
+Epoch 56: val_accuracy did not improve from 0.71467
+200/200 - 26s - 128ms/step - accuracy: 0.7922 - loss: 0.5353 - val_accuracy: 0.7102 - val_loss: 0.7420 - learning_rate: 6.2500e-05
+Epoch 57/150
+
+Epoch 57: val_accuracy improved from 0.71467 to 0.72000, saving model to C:\PROGRAMACION\cnn-proyecto-final\modelos\cnn_propia_v2_n1500.keras
+
+Epoch 57: finished saving model to C:\PROGRAMACION\cnn-proyecto-final\modelos\cnn_propia_v2_n1500.keras
+
+Epoch 57: ReduceLROnPlateau reducing learning rate to 3.125000148429535e-05.
+200/200 - 25s - 125ms/step - accuracy: 0.7937 - loss: 0.5389 - val_accuracy: 0.7200 - val_loss: 0.7247 - learning_rate: 6.2500e-05
+Epoch 58/150
+
+Epoch 58: val_accuracy did not improve from 0.72000
+200/200 - 25s - 127ms/step - accuracy: 0.8027 - loss: 0.5181 - val_accuracy: 0.7191 - val_loss: 0.7302 - learning_rate: 3.1250e-05
+Epoch 59/150
+
+Epoch 59: val_accuracy did not improve from 0.72000
+200/200 - 26s - 128ms/step - accuracy: 0.7973 - loss: 0.5225 - val_accuracy: 0.7120 - val_loss: 0.7253 - learning_rate: 3.1250e-05
+Epoch 60/150
+
+Epoch 60: val_accuracy did not improve from 0.72000
+200/200 - 25s - 126ms/step - accuracy: 0.7964 - loss: 0.5205 - val_accuracy: 0.7164 - val_loss: 0.7305 - learning_rate: 3.1250e-05
+Epoch 61/150
+
+Epoch 61: val_accuracy did not improve from 0.72000
+200/200 - 25s - 126ms/step - accuracy: 0.8019 - loss: 0.5181 - val_accuracy: 0.7111 - val_loss: 0.7205 - learning_rate: 3.1250e-05
+Epoch 62/150
+
+Epoch 62: val_accuracy improved from 0.72000 to 0.72800, saving model to C:\PROGRAMACION\cnn-proyecto-final\modelos\cnn_propia_v2_n1500.keras
+
+Epoch 62: finished saving model to C:\PROGRAMACION\cnn-proyecto-final\modelos\cnn_propia_v2_n1500.keras
+200/200 - 26s - 129ms/step - accuracy: 0.7955 - loss: 0.5261 - val_accuracy: 0.7280 - val_loss: 0.7085 - learning_rate: 3.1250e-05
+Epoch 63/150
+
+Epoch 63: val_accuracy did not improve from 0.72800
+200/200 - 25s - 127ms/step - accuracy: 0.8013 - loss: 0.5162 - val_accuracy: 0.7147 - val_loss: 0.7326 - learning_rate: 3.1250e-05
+Epoch 64/150
+
+Epoch 64: val_accuracy did not improve from 0.72800
+200/200 - 25s - 127ms/step - accuracy: 0.8042 - loss: 0.5183 - val_accuracy: 0.7227 - val_loss: 0.7209 - learning_rate: 3.1250e-05
+Epoch 65/150
+
+Epoch 65: val_accuracy did not improve from 0.72800
+200/200 - 26s - 128ms/step - accuracy: 0.8024 - loss: 0.5166 - val_accuracy: 0.7209 - val_loss: 0.7149 - learning_rate: 3.1250e-05
+Epoch 66/150
+
+Epoch 66: val_accuracy did not improve from 0.72800
+200/200 - 25s - 127ms/step - accuracy: 0.8017 - loss: 0.5119 - val_accuracy: 0.7182 - val_loss: 0.7297 - learning_rate: 3.1250e-05
+Epoch 67/150
+
+Epoch 67: val_accuracy did not improve from 0.72800
+200/200 - 25s - 126ms/step - accuracy: 0.8008 - loss: 0.5141 - val_accuracy: 0.7200 - val_loss: 0.7199 - learning_rate: 3.1250e-05
+Epoch 68/150
+
+Epoch 68: val_accuracy did not improve from 0.72800
+
+Epoch 68: ReduceLROnPlateau reducing learning rate to 1.5625000742147677e-05.
+200/200 - 26s - 128ms/step - accuracy: 0.8014 - loss: 0.5067 - val_accuracy: 0.7120 - val_loss: 0.7325 - learning_rate: 3.1250e-05
+Epoch 69/150
+
+Epoch 69: val_accuracy did not improve from 0.72800
+200/200 - 25s - 126ms/step - accuracy: 0.8066 - loss: 0.5091 - val_accuracy: 0.7191 - val_loss: 0.7233 - learning_rate: 1.5625e-05
+Epoch 70/150
+
+Epoch 70: val_accuracy did not improve from 0.72800
+200/200 - 25s - 126ms/step - accuracy: 0.8072 - loss: 0.5021 - val_accuracy: 0.7156 - val_loss: 0.7263 - learning_rate: 1.5625e-05
+Epoch 71/150
+
+Epoch 71: val_accuracy did not improve from 0.72800
+200/200 - 25s - 127ms/step - accuracy: 0.8110 - loss: 0.4935 - val_accuracy: 0.7262 - val_loss: 0.7237 - learning_rate: 1.5625e-05
+Epoch 72/150
+
+Epoch 72: val_accuracy did not improve from 0.72800
+200/200 - 25s - 126ms/step - accuracy: 0.8069 - loss: 0.5008 - val_accuracy: 0.7129 - val_loss: 0.7360 - learning_rate: 1.5625e-05
+Epoch 73/150
+
+Epoch 73: val_accuracy did not improve from 0.72800
+200/200 - 25s - 127ms/step - accuracy: 0.8060 - loss: 0.4983 - val_accuracy: 0.7182 - val_loss: 0.7268 - learning_rate: 1.5625e-05
+Epoch 74/150
+
+Epoch 74: val_accuracy did not improve from 0.72800
+
+Epoch 74: ReduceLROnPlateau reducing learning rate to 1e-05.
+200/200 - 25s - 124ms/step - accuracy: 0.8086 - loss: 0.4958 - val_accuracy: 0.7129 - val_loss: 0.7355 - learning_rate: 1.5625e-05
+Epoch 75/150
+
+Epoch 75: val_accuracy did not improve from 0.72800
+200/200 - 25s - 126ms/step - accuracy: 0.8130 - loss: 0.4906 - val_accuracy: 0.7262 - val_loss: 0.7235 - learning_rate: 1.0000e-05
+Epoch 76/150
+
+Epoch 76: val_accuracy did not improve from 0.72800
+200/200 - 25s - 127ms/step - accuracy: 0.8104 - loss: 0.4893 - val_accuracy: 0.7182 - val_loss: 0.7201 - learning_rate: 1.0000e-05
+Epoch 77/150
+
+Epoch 77: val_accuracy did not improve from 0.72800
+200/200 - 26s - 131ms/step - accuracy: 0.8124 - loss: 0.4886 - val_accuracy: 0.7209 - val_loss: 0.7251 - learning_rate: 1.0000e-05
+Epoch 78/150
+
+Epoch 78: val_accuracy did not improve from 0.72800
+200/200 - 25s - 125ms/step - accuracy: 0.8129 - loss: 0.4951 - val_accuracy: 0.7147 - val_loss: 0.7309 - learning_rate: 1.0000e-05
+Epoch 79/150
+
+Epoch 79: val_accuracy did not improve from 0.72800
+200/200 - 25s - 127ms/step - accuracy: 0.8088 - loss: 0.4876 - val_accuracy: 0.7244 - val_loss: 0.7231 - learning_rate: 1.0000e-05
+Epoch 80/150
+
+Epoch 80: val_accuracy did not improve from 0.72800
+200/200 - 26s - 128ms/step - accuracy: 0.8094 - loss: 0.4888 - val_accuracy: 0.7138 - val_loss: 0.7217 - learning_rate: 1.0000e-05
+Epoch 81/150
+
+Epoch 81: val_accuracy did not improve from 0.72800
+200/200 - 25s - 127ms/step - accuracy: 0.8132 - loss: 0.4934 - val_accuracy: 0.7084 - val_loss: 0.7313 - learning_rate: 1.0000e-05
+Epoch 82/150
+
+Epoch 82: val_accuracy did not improve from 0.72800
+200/200 - 26s - 128ms/step - accuracy: 0.8111 - loss: 0.4925 - val_accuracy: 0.7138 - val_loss: 0.7237 - learning_rate: 1.0000e-05
+Epoch 82: early stopping
+Restoring model weights from the end of the best epoch: 62.
+
+Épocas: 82  |  Tiempo: 45.1 min en GPU (NVIDIA GeForce RTX 5070)
+Mejor val_accuracy: 0.7280
+Accuracy en TEST (imágenes nunca vistas): 0.7480

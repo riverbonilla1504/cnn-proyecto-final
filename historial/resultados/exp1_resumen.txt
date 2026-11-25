@@ -1,0 +1,7 @@
+train: {'bovino': 500, 'caballo': 500, 'fondo': 500, 'gato': 500, 'perro': 500}  total=2500
+test (val original): {'bovino': 100, 'caballo': 100, 'fondo': 100, 'gato': 100, 'perro': 100}  total=500
+
+Ancho  -> min 29, mediana 367, max 384
+Alto   -> min 16, mediana 282, max 384
+Imágenes con algún lado < 64 px: 44
+Todas se redimensionarán a un tamaño fijo (IMG_SIZE) porque la CNN necesita entradas iguales.

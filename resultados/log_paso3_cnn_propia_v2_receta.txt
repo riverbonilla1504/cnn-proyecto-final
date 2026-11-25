@@ -1,0 +1,373 @@
+2026-11-24 23:29:53.688938: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-11-24 23:29:56.123901: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+Backend: torch | GPU (NVIDIA GeForce RTX 5070) | modelo: cnn_propia_v2_receta
+Found 27202 files belonging to 5 classes.
+Using 23122 files for training.
+2026-11-24 23:29:58.978046: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: SSE3 SSE4.1 SSE4.2 AVX AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Found 27202 files belonging to 5 classes.
+Using 4080 files for validation.
+Found 500 files belonging to 5 classes.
+Fotos por clase: {'bovino': np.int64(3261), 'caballo': np.int64(5941), 'fondo': np.int64(6000), 'gato': np.int64(6000), 'perro': np.int64(6000)} | pesos: {'bovino': np.float32(1.67), 'caballo': np.float32(0.92), 'fondo': np.float32(0.91), 'gato': np.float32(0.91), 'perro': np.float32(0.91)}
+Model: "cnn_propia_v2_receta"
+┌─────────────────────────────────┬────────────────────────┬───────────────┐
+│ Layer (type)                    │ Output Shape           │       Param # │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ imagen_rgb_0_255 (InputLayer)   │ (None, 224, 224, 3)    │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ normalizar_0_1 (Rescaling)      │ (None, 224, 224, 3)    │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque1_conv1 (Conv2D)          │ (None, 224, 224, 32)   │           864 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque1_bn1                     │ (None, 224, 224, 32)   │           128 │
+│ (BatchNormalization)            │                        │               │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque1_relu1 (Activation)      │ (None, 224, 224, 32)   │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque1_conv2 (Conv2D)          │ (None, 224, 224, 32)   │         9,216 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque1_bn2                     │ (None, 224, 224, 32)   │           128 │
+│ (BatchNormalization)            │                        │               │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque1_relu2 (Activation)      │ (None, 224, 224, 32)   │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque1_pool (MaxPooling2D)     │ (None, 112, 112, 32)   │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque2_conv1 (Conv2D)          │ (None, 112, 112, 64)   │        18,432 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque2_bn1                     │ (None, 112, 112, 64)   │           256 │
+│ (BatchNormalization)            │                        │               │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque2_relu1 (Activation)      │ (None, 112, 112, 64)   │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque2_conv2 (Conv2D)          │ (None, 112, 112, 64)   │        36,864 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque2_bn2                     │ (None, 112, 112, 64)   │           256 │
+│ (BatchNormalization)            │                        │               │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque2_relu2 (Activation)      │ (None, 112, 112, 64)   │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque2_pool (MaxPooling2D)     │ (None, 56, 56, 64)     │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque3_conv1 (Conv2D)          │ (None, 56, 56, 128)    │        73,728 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque3_bn1                     │ (None, 56, 56, 128)    │           512 │
+│ (BatchNormalization)            │                        │               │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque3_relu1 (Activation)      │ (None, 56, 56, 128)    │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque3_conv2 (Conv2D)          │ (None, 56, 56, 128)    │       147,456 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque3_bn2                     │ (None, 56, 56, 128)    │           512 │
+│ (BatchNormalization)            │                        │               │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque3_relu2 (Activation)      │ (None, 56, 56, 128)    │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque3_pool (MaxPooling2D)     │ (None, 28, 28, 128)    │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque4_conv1 (Conv2D)          │ (None, 28, 28, 256)    │       294,912 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque4_bn1                     │ (None, 28, 28, 256)    │         1,024 │
+│ (BatchNormalization)            │                        │               │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque4_relu1 (Activation)      │ (None, 28, 28, 256)    │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque4_conv2 (Conv2D)          │ (None, 28, 28, 256)    │       589,824 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque4_bn2                     │ (None, 28, 28, 256)    │         1,024 │
+│ (BatchNormalization)            │                        │               │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque4_relu2 (Activation)      │ (None, 28, 28, 256)    │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ bloque4_pool (MaxPooling2D)     │ (None, 14, 14, 256)    │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ gap (GlobalAveragePooling2D)    │ (None, 256)            │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ dropout (Dropout)               │ (None, 256)            │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ clasificador (Dense)            │ (None, 5)              │         1,285 │
+└─────────────────────────────────┴────────────────────────┴───────────────┘
+ Total params: 1,176,421 (4.49 MB)
+ Trainable params: 1,174,501 (4.48 MB)
+ Non-trainable params: 1,920 (7.50 KB)
+C:\PROGRAMACION\cnn-proyecto-final\.venv\Lib\site-packages\keras\src\trainers\epoch_iterator.py:74: UserWarning: `shuffle=True` was passed, but will be ignored since the data `x` was provided as a tf.data.Dataset. The Dataset is expected to already be shuffled (via `.shuffle(buffer_size)`).
+  self.data_adapter = data_adapters.get_data_adapter(
+2026-11-24 23:30:06.925458: W tensorflow/core/kernels/data/cache_dataset_ops.cc:916] The calling iterator did not fully read the dataset being cached. In order to avoid unexpected truncation of the dataset, the partially cached contents of the dataset  will be discarded. This can happen if you have an input pipeline similar to `dataset.cache().take(k).repeat()`. You should use `dataset.take(k).cache().repeat()` instead.
+Epoch 1/60
+
+Epoch 1: val_accuracy improved from None to 0.22230, saving model to C:\PROGRAMACION\cnn-proyecto-final\modelos\_cnn_propia_v2_receta_entrenando.keras
+
+Epoch 1: finished saving model to C:\PROGRAMACION\cnn-proyecto-final\modelos\_cnn_propia_v2_receta_entrenando.keras
+361/361 - 96s - 266ms/step - accuracy: 0.3413 - loss: 1.6139 - val_accuracy: 0.2223 - val_loss: 1.6652
+Epoch 2/60
+
+Epoch 2: val_accuracy improved from 0.22230 to 0.50319, saving model to C:\PROGRAMACION\cnn-proyecto-final\modelos\_cnn_propia_v2_receta_entrenando.keras
+
+Epoch 2: finished saving model to C:\PROGRAMACION\cnn-proyecto-final\modelos\_cnn_propia_v2_receta_entrenando.keras
+361/361 - 75s - 208ms/step - accuracy: 0.4419 - loss: 1.4243 - val_accuracy: 0.5032 - val_loss: 1.2761
+Epoch 3/60
+
+Epoch 3: val_accuracy did not improve from 0.50319
+361/361 - 76s - 211ms/step - accuracy: 0.4869 - loss: 1.3526 - val_accuracy: 0.3652 - val_loss: 1.7986
+Epoch 4/60
+
+Epoch 4: val_accuracy did not improve from 0.50319
+361/361 - 75s - 207ms/step - accuracy: 0.5148 - loss: 1.3003 - val_accuracy: 0.3603 - val_loss: 2.2493
+Epoch 5/60
+
+Epoch 5: val_accuracy did not improve from 0.50319
+361/361 - 74s - 206ms/step - accuracy: 0.5378 - loss: 1.2680 - val_accuracy: 0.5029 - val_loss: 1.2716
+Epoch 6/60
+
+Epoch 6: val_accuracy improved from 0.50319 to 0.60515, saving model to C:\PROGRAMACION\cnn-proyecto-final\modelos\_cnn_propia_v2_receta_entrenando.keras
+
+Epoch 6: finished saving model to C:\PROGRAMACION\cnn-proyecto-final\modelos\_cnn_propia_v2_receta_entrenando.keras
+361/361 - 75s - 207ms/step - accuracy: 0.5586 - loss: 1.2365 - val_accuracy: 0.6051 - val_loss: 1.1168
+Epoch 7/60
+
+Epoch 7: val_accuracy did not improve from 0.60515
+361/361 - 75s - 207ms/step - accuracy: 0.5789 - loss: 1.2053 - val_accuracy: 0.3907 - val_loss: 1.5582
+Epoch 8/60
+
+Epoch 8: val_accuracy did not improve from 0.60515
+361/361 - 75s - 207ms/step - accuracy: 0.5950 - loss: 1.1789 - val_accuracy: 0.4632 - val_loss: 1.3766
+Epoch 9/60
+
+Epoch 9: val_accuracy improved from 0.60515 to 0.63382, saving model to C:\PROGRAMACION\cnn-proyecto-final\modelos\_cnn_propia_v2_receta_entrenando.keras
+
+Epoch 9: finished saving model to C:\PROGRAMACION\cnn-proyecto-final\modelos\_cnn_propia_v2_receta_entrenando.keras
+361/361 - 75s - 208ms/step - accuracy: 0.6086 - loss: 1.1578 - val_accuracy: 0.6338 - val_loss: 1.0543
+Epoch 10/60
+
+Epoch 10: val_accuracy did not improve from 0.63382
+361/361 - 75s - 208ms/step - accuracy: 0.6200 - loss: 1.1452 - val_accuracy: 0.5025 - val_loss: 1.4439
+Epoch 11/60
+
+Epoch 11: val_accuracy improved from 0.63382 to 0.67966, saving model to C:\PROGRAMACION\cnn-proyecto-final\modelos\_cnn_propia_v2_receta_entrenando.keras
+
+Epoch 11: finished saving model to C:\PROGRAMACION\cnn-proyecto-final\modelos\_cnn_propia_v2_receta_entrenando.keras
+361/361 - 75s - 208ms/step - accuracy: 0.6306 - loss: 1.1308 - val_accuracy: 0.6797 - val_loss: 0.9796
+Epoch 12/60
+
+Epoch 12: val_accuracy did not improve from 0.67966
+361/361 - 75s - 207ms/step - accuracy: 0.6430 - loss: 1.1101 - val_accuracy: 0.6250 - val_loss: 1.0891
+Epoch 13/60
+
+Epoch 13: val_accuracy did not improve from 0.67966
+361/361 - 75s - 208ms/step - accuracy: 0.6559 - loss: 1.0910 - val_accuracy: 0.5838 - val_loss: 1.1556
+Epoch 14/60
+
+Epoch 14: val_accuracy did not improve from 0.67966
+361/361 - 75s - 208ms/step - accuracy: 0.6642 - loss: 1.0810 - val_accuracy: 0.5316 - val_loss: 1.2636
+Epoch 15/60
+
+Epoch 15: val_accuracy did not improve from 0.67966
+361/361 - 75s - 207ms/step - accuracy: 0.6783 - loss: 1.0565 - val_accuracy: 0.6167 - val_loss: 1.1088
+Epoch 16/60
+
+Epoch 16: val_accuracy did not improve from 0.67966
+361/361 - 76s - 209ms/step - accuracy: 0.6916 - loss: 1.0435 - val_accuracy: 0.6549 - val_loss: 1.0933
+Epoch 17/60
+
+Epoch 17: val_accuracy did not improve from 0.67966
+361/361 - 77s - 214ms/step - accuracy: 0.6972 - loss: 1.0366 - val_accuracy: 0.5811 - val_loss: 1.2193
+Epoch 18/60
+
+Epoch 18: val_accuracy improved from 0.67966 to 0.72500, saving model to C:\PROGRAMACION\cnn-proyecto-final\modelos\_cnn_propia_v2_receta_entrenando.keras
+
+Epoch 18: finished saving model to C:\PROGRAMACION\cnn-proyecto-final\modelos\_cnn_propia_v2_receta_entrenando.keras
+361/361 - 77s - 213ms/step - accuracy: 0.7126 - loss: 1.0170 - val_accuracy: 0.7250 - val_loss: 0.9233
+Epoch 19/60
+
+Epoch 19: val_accuracy did not improve from 0.72500
+361/361 - 74s - 206ms/step - accuracy: 0.7198 - loss: 1.0035 - val_accuracy: 0.6770 - val_loss: 0.9908
+Epoch 20/60
+
+Epoch 20: val_accuracy did not improve from 0.72500
+361/361 - 75s - 207ms/step - accuracy: 0.7187 - loss: 1.0040 - val_accuracy: 0.7100 - val_loss: 0.9554
+Epoch 21/60
+
+Epoch 21: val_accuracy did not improve from 0.72500
+361/361 - 75s - 207ms/step - accuracy: 0.7276 - loss: 0.9906 - val_accuracy: 0.5711 - val_loss: 1.2401
+Epoch 22/60
+
+Epoch 22: val_accuracy did not improve from 0.72500
+361/361 - 75s - 208ms/step - accuracy: 0.7291 - loss: 0.9780 - val_accuracy: 0.6998 - val_loss: 0.9629
+Epoch 23/60
+
+Epoch 23: val_accuracy did not improve from 0.72500
+361/361 - 75s - 207ms/step - accuracy: 0.7428 - loss: 0.9676 - val_accuracy: 0.5703 - val_loss: 1.2173
+Epoch 24/60
+
+Epoch 24: val_accuracy did not improve from 0.72500
+361/361 - 75s - 208ms/step - accuracy: 0.7482 - loss: 0.9577 - val_accuracy: 0.6740 - val_loss: 1.0348
+Epoch 25/60
+
+Epoch 25: val_accuracy did not improve from 0.72500
+361/361 - 75s - 207ms/step - accuracy: 0.7553 - loss: 0.9479 - val_accuracy: 0.6255 - val_loss: 1.1554
+Epoch 26/60
+
+Epoch 26: val_accuracy improved from 0.72500 to 0.74755, saving model to C:\PROGRAMACION\cnn-proyecto-final\modelos\_cnn_propia_v2_receta_entrenando.keras
+
+Epoch 26: finished saving model to C:\PROGRAMACION\cnn-proyecto-final\modelos\_cnn_propia_v2_receta_entrenando.keras
+361/361 - 75s - 208ms/step - accuracy: 0.7569 - loss: 0.9452 - val_accuracy: 0.7475 - val_loss: 0.9375
+Epoch 27/60
+
+Epoch 27: val_accuracy did not improve from 0.74755
+361/361 - 75s - 208ms/step - accuracy: 0.7608 - loss: 0.9413 - val_accuracy: 0.7328 - val_loss: 0.9312
+Epoch 28/60
+
+Epoch 28: val_accuracy did not improve from 0.74755
+361/361 - 75s - 207ms/step - accuracy: 0.7665 - loss: 0.9283 - val_accuracy: 0.7213 - val_loss: 0.9451
+Epoch 29/60
+
+Epoch 29: val_accuracy improved from 0.74755 to 0.79093, saving model to C:\PROGRAMACION\cnn-proyecto-final\modelos\_cnn_propia_v2_receta_entrenando.keras
+
+Epoch 29: finished saving model to C:\PROGRAMACION\cnn-proyecto-final\modelos\_cnn_propia_v2_receta_entrenando.keras
+361/361 - 75s - 208ms/step - accuracy: 0.7738 - loss: 0.9118 - val_accuracy: 0.7909 - val_loss: 0.8098
+Epoch 30/60
+
+Epoch 30: val_accuracy did not improve from 0.79093
+361/361 - 75s - 207ms/step - accuracy: 0.7740 - loss: 0.9195 - val_accuracy: 0.7047 - val_loss: 0.9529
+Epoch 31/60
+
+Epoch 31: val_accuracy did not improve from 0.79093
+361/361 - 75s - 207ms/step - accuracy: 0.7804 - loss: 0.9023 - val_accuracy: 0.7267 - val_loss: 0.9253
+Epoch 32/60
+
+Epoch 32: val_accuracy did not improve from 0.79093
+361/361 - 75s - 207ms/step - accuracy: 0.7836 - loss: 0.9028 - val_accuracy: 0.7706 - val_loss: 0.8559
+Epoch 33/60
+
+Epoch 33: val_accuracy did not improve from 0.79093
+361/361 - 75s - 208ms/step - accuracy: 0.7925 - loss: 0.8893 - val_accuracy: 0.7613 - val_loss: 0.8648
+Epoch 34/60
+
+Epoch 34: val_accuracy improved from 0.79093 to 0.83309, saving model to C:\PROGRAMACION\cnn-proyecto-final\modelos\_cnn_propia_v2_receta_entrenando.keras
+
+Epoch 34: finished saving model to C:\PROGRAMACION\cnn-proyecto-final\modelos\_cnn_propia_v2_receta_entrenando.keras
+361/361 - 75s - 208ms/step - accuracy: 0.7982 - loss: 0.8852 - val_accuracy: 0.8331 - val_loss: 0.7547
+Epoch 35/60
+
+Epoch 35: val_accuracy did not improve from 0.83309
+361/361 - 75s - 208ms/step - accuracy: 0.8009 - loss: 0.8759 - val_accuracy: 0.7409 - val_loss: 0.8864
+Epoch 36/60
+
+Epoch 36: val_accuracy did not improve from 0.83309
+361/361 - 75s - 207ms/step - accuracy: 0.8021 - loss: 0.8701 - val_accuracy: 0.7936 - val_loss: 0.8137
+Epoch 37/60
+
+Epoch 37: val_accuracy did not improve from 0.83309
+361/361 - 75s - 208ms/step - accuracy: 0.8080 - loss: 0.8616 - val_accuracy: 0.8115 - val_loss: 0.7748
+Epoch 38/60
+
+Epoch 38: val_accuracy did not improve from 0.83309
+361/361 - 75s - 207ms/step - accuracy: 0.8121 - loss: 0.8570 - val_accuracy: 0.7735 - val_loss: 0.8531
+Epoch 39/60
+
+Epoch 39: val_accuracy did not improve from 0.83309
+361/361 - 75s - 207ms/step - accuracy: 0.8177 - loss: 0.8484 - val_accuracy: 0.8120 - val_loss: 0.7751
+Epoch 40/60
+
+Epoch 40: val_accuracy did not improve from 0.83309
+361/361 - 75s - 207ms/step - accuracy: 0.8182 - loss: 0.8419 - val_accuracy: 0.8314 - val_loss: 0.7437
+Epoch 41/60
+
+Epoch 41: val_accuracy improved from 0.83309 to 0.83676, saving model to C:\PROGRAMACION\cnn-proyecto-final\modelos\_cnn_propia_v2_receta_entrenando.keras
+
+Epoch 41: finished saving model to C:\PROGRAMACION\cnn-proyecto-final\modelos\_cnn_propia_v2_receta_entrenando.keras
+361/361 - 75s - 209ms/step - accuracy: 0.8226 - loss: 0.8421 - val_accuracy: 0.8368 - val_loss: 0.7395
+Epoch 42/60
+
+Epoch 42: val_accuracy did not improve from 0.83676
+361/361 - 75s - 207ms/step - accuracy: 0.8292 - loss: 0.8282 - val_accuracy: 0.8321 - val_loss: 0.7479
+Epoch 43/60
+
+Epoch 43: val_accuracy improved from 0.83676 to 0.84632, saving model to C:\PROGRAMACION\cnn-proyecto-final\modelos\_cnn_propia_v2_receta_entrenando.keras
+
+Epoch 43: finished saving model to C:\PROGRAMACION\cnn-proyecto-final\modelos\_cnn_propia_v2_receta_entrenando.keras
+361/361 - 75s - 208ms/step - accuracy: 0.8313 - loss: 0.8323 - val_accuracy: 0.8463 - val_loss: 0.7166
+Epoch 44/60
+
+Epoch 44: val_accuracy improved from 0.84632 to 0.85515, saving model to C:\PROGRAMACION\cnn-proyecto-final\modelos\_cnn_propia_v2_receta_entrenando.keras
+
+Epoch 44: finished saving model to C:\PROGRAMACION\cnn-proyecto-final\modelos\_cnn_propia_v2_receta_entrenando.keras
+361/361 - 75s - 208ms/step - accuracy: 0.8360 - loss: 0.8178 - val_accuracy: 0.8551 - val_loss: 0.7092
+Epoch 45/60
+
+Epoch 45: val_accuracy improved from 0.85515 to 0.85809, saving model to C:\PROGRAMACION\cnn-proyecto-final\modelos\_cnn_propia_v2_receta_entrenando.keras
+
+Epoch 45: finished saving model to C:\PROGRAMACION\cnn-proyecto-final\modelos\_cnn_propia_v2_receta_entrenando.keras
+361/361 - 75s - 209ms/step - accuracy: 0.8382 - loss: 0.8132 - val_accuracy: 0.8581 - val_loss: 0.7048
+Epoch 46/60
+
+Epoch 46: val_accuracy did not improve from 0.85809
+361/361 - 75s - 207ms/step - accuracy: 0.8424 - loss: 0.8131 - val_accuracy: 0.7895 - val_loss: 0.8410
+Epoch 47/60
+
+Epoch 47: val_accuracy did not improve from 0.85809
+361/361 - 75s - 208ms/step - accuracy: 0.8468 - loss: 0.8024 - val_accuracy: 0.8439 - val_loss: 0.7313
+Epoch 48/60
+
+Epoch 48: val_accuracy did not improve from 0.85809
+361/361 - 75s - 208ms/step - accuracy: 0.8499 - loss: 0.8019 - val_accuracy: 0.8556 - val_loss: 0.6974
+Epoch 49/60
+
+Epoch 49: val_accuracy did not improve from 0.85809
+361/361 - 75s - 207ms/step - accuracy: 0.8534 - loss: 0.7931 - val_accuracy: 0.8556 - val_loss: 0.7009
+Epoch 50/60
+
+Epoch 50: val_accuracy improved from 0.85809 to 0.86569, saving model to C:\PROGRAMACION\cnn-proyecto-final\modelos\_cnn_propia_v2_receta_entrenando.keras
+
+Epoch 50: finished saving model to C:\PROGRAMACION\cnn-proyecto-final\modelos\_cnn_propia_v2_receta_entrenando.keras
+361/361 - 75s - 208ms/step - accuracy: 0.8529 - loss: 0.7903 - val_accuracy: 0.8657 - val_loss: 0.6867
+Epoch 51/60
+
+Epoch 51: val_accuracy improved from 0.86569 to 0.86593, saving model to C:\PROGRAMACION\cnn-proyecto-final\modelos\_cnn_propia_v2_receta_entrenando.keras
+
+Epoch 51: finished saving model to C:\PROGRAMACION\cnn-proyecto-final\modelos\_cnn_propia_v2_receta_entrenando.keras
+361/361 - 75s - 208ms/step - accuracy: 0.8530 - loss: 0.7892 - val_accuracy: 0.8659 - val_loss: 0.6785
+Epoch 52/60
+
+Epoch 52: val_accuracy improved from 0.86593 to 0.87353, saving model to C:\PROGRAMACION\cnn-proyecto-final\modelos\_cnn_propia_v2_receta_entrenando.keras
+
+Epoch 52: finished saving model to C:\PROGRAMACION\cnn-proyecto-final\modelos\_cnn_propia_v2_receta_entrenando.keras
+361/361 - 75s - 209ms/step - accuracy: 0.8594 - loss: 0.7804 - val_accuracy: 0.8735 - val_loss: 0.6744
+Epoch 53/60
+
+Epoch 53: val_accuracy improved from 0.87353 to 0.88186, saving model to C:\PROGRAMACION\cnn-proyecto-final\modelos\_cnn_propia_v2_receta_entrenando.keras
+
+Epoch 53: finished saving model to C:\PROGRAMACION\cnn-proyecto-final\modelos\_cnn_propia_v2_receta_entrenando.keras
+361/361 - 75s - 208ms/step - accuracy: 0.8600 - loss: 0.7811 - val_accuracy: 0.8819 - val_loss: 0.6654
+Epoch 54/60
+
+Epoch 54: val_accuracy did not improve from 0.88186
+361/361 - 75s - 208ms/step - accuracy: 0.8629 - loss: 0.7778 - val_accuracy: 0.8765 - val_loss: 0.6684
+Epoch 55/60
+
+Epoch 55: val_accuracy did not improve from 0.88186
+361/361 - 75s - 207ms/step - accuracy: 0.8565 - loss: 0.7790 - val_accuracy: 0.8801 - val_loss: 0.6648
+Epoch 56/60
+
+Epoch 56: val_accuracy did not improve from 0.88186
+361/361 - 75s - 208ms/step - accuracy: 0.8623 - loss: 0.7757 - val_accuracy: 0.8760 - val_loss: 0.6660
+Epoch 57/60
+
+Epoch 57: val_accuracy did not improve from 0.88186
+361/361 - 75s - 207ms/step - accuracy: 0.8609 - loss: 0.7772 - val_accuracy: 0.8772 - val_loss: 0.6672
+Epoch 58/60
+
+Epoch 58: val_accuracy did not improve from 0.88186
+361/361 - 75s - 207ms/step - accuracy: 0.8644 - loss: 0.7754 - val_accuracy: 0.8738 - val_loss: 0.6674
+Epoch 59/60
+
+Epoch 59: val_accuracy did not improve from 0.88186
+361/361 - 75s - 207ms/step - accuracy: 0.8653 - loss: 0.7747 - val_accuracy: 0.8762 - val_loss: 0.6662
+Epoch 60/60
+
+Epoch 60: val_accuracy did not improve from 0.88186
+361/361 - 75s - 208ms/step - accuracy: 0.8634 - loss: 0.7769 - val_accuracy: 0.8745 - val_loss: 0.6703
+
+Épocas: 60  |  Tiempo: 75.5 min en GPU (NVIDIA GeForce RTX 5070)
+Mejor val_accuracy: 0.8819
+Accuracy en TEST (imágenes nunca vistas): 0.9280

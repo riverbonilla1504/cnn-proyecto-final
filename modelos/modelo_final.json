@@ -1,0 +1,20 @@
+{
+  "clases": [
+    "bovino",
+    "caballo",
+    "fondo",
+    "gato",
+    "perro"
+  ],
+  "img_size": 224,
+  "entrada": "imagen RGB 0-255 sin normalizar (el modelo normaliza por dentro)",
+  "tipo": "Ensemble 3 semillas + TTA (CNN propia desde cero, sin modelos preentrenados)",
+  "val_accuracy": 0.8956,
+  "test_accuracy": 0.952,
+  "ensemble": [
+    "cnn_propia_v2_receta.keras",
+    "cnn_propia_v2_receta_s1.keras",
+    "cnn_propia_v2_receta_s2.keras"
+  ],
+  "tta_volteo": true
+}

@@ -1,0 +1,13 @@
+Opción                                   |   Val    |  Test
+--------------------------------------------------------------
+cnn_propia_v2_receta solo                |  88.19% |  92.80%
+cnn_propia_v2_receta + TTA               |  88.53% |  93.00%
+cnn_propia_v2_receta_s1 solo             |  88.70% |  92.00%
+cnn_propia_v2_receta_s1 + TTA            |  88.87% |  93.80%
+cnn_propia_v2_receta_s2 solo             |  88.28% |  94.40%
+cnn_propia_v2_receta_s2 + TTA            |  88.55% |  94.80%
+Ensemble 3 semillas                      |  89.19% |  95.00%
+Ensemble 3 semillas + TTA                |  89.56% |  95.20%   <- ELEGIDA (mejor validación)
+
+Semillas individuales en test: 93.07% ± 1.22%
+Tiempo por imagen (CPU, opción elegida): 310 ms  (~3 imágenes/s)

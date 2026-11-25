@@ -1,0 +1,12 @@
+Leyendo anotaciones (el CSV de train pesa 2.2 GB, tarda unos minutos)...
+Fotos candidatas nuevas por clase: {'bovino': 1049, 'caballo': 3675, 'fondo': 98564, 'gato': 10251, 'perro': 21293}
+bovino  : +974 nuevas (pedidas 3713)  {'ok': 974, 'muy_pequeno': 75}  (0.6 min)
+caballo : +3641 nuevas (pedidas 3700)  {'ok': 3641, 'muy_pequeno': 34}  (2.4 min)
+fondo   : +3745 nuevas (pedidas 3700)  {'ok': 3745, 'muy_pequeno': 564}  (4.5 min)
+gato    : +3748 nuevas (pedidas 3700)  {'ok': 3748, 'muy_pequeno': 2}  (6.3 min)
+perro   : +3732 nuevas (pedidas 3700)  {'ok': 3732, 'muy_pequeno': 18}  (8.1 min)
+
+Dataset en C:\PROGRAMACION\cnn-proyecto-final\data\dataset_cnn_maximo
+train por clase: {'bovino': 3261, 'caballo': 5941, 'fondo': 6000, 'gato': 6000, 'perro': 6000} | total: 27202
+origen: {'nuevo_paso9_train': 13066, 'nuevo': 8987, 'nuevo_paso9_test': 2649, 'original': 2500}
+Tiempo total: 8.5 min

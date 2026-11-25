@@ -1,0 +1,27 @@
+{
+  "clases": [
+    "bovino",
+    "caballo",
+    "fondo",
+    "gato",
+    "perro"
+  ],
+  "img_size": 224,
+  "entrada": "imagen RGB 0-255 sin normalizar (el modelo normaliza por dentro)",
+  "tipo": "CNN desde cero v2 + receta moderna (AdamW, coseno, label smoothing, RandAugment, MixUp/CutMix)",
+  "test_accuracy": 0.944,
+  "mejor_val_accuracy": 0.8821,
+  "epocas_entrenadas": 60,
+  "minutos_entrenamiento": 73.8,
+  "parametros": 1176421,
+  "entrenado_en": "GPU (NVIDIA GeForce RTX 5070)",
+  "dataset": "dataset_cnn_maximo",
+  "semilla_entrenamiento": 2,
+  "fotos_por_clase": {
+    "bovino": 3261,
+    "caballo": 5941,
+    "fondo": 6000,
+    "gato": 6000,
+    "perro": 6000
+  }
+}

@@ -1,0 +1,6 @@
+Curva de aprendizaje - CNN desde cero v2 (test fijo de 500 fotos)
+fotos/clase (archivo)  | corridas | test promedio ± desv.
+        500 |    3     | 68.8% ± 2.8%   (71.6%, 66.0%, 68.8%)
+       1000 |    1     | 70.4% ± 0.0%   (70.4%)
+       1500 |    1     | 74.8% ± 0.0%   (74.8%)
+       2297 |    1     | 79.4% ± 0.0%   (79.4%)

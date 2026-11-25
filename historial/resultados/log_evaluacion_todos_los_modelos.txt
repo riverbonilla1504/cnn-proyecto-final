@@ -1,0 +1,100 @@
+2026-11-25 03:23:50.191925: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-11-25 03:23:53.352117: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-11-25 03:23:57.626431: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: SSE3 SSE4.1 SSE4.2 AVX AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Found 500 files belonging to 5 classes.
+2026-11-25 03:23:58.018597: I tensorflow/core/framework/local_rendezvous.cc:407] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+2026-11-25 03:23:58.129305: I tensorflow/core/framework/local_rendezvous.cc:407] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+===== CNN v1 (500 fotos/clase) (cnn_propia) =====
+1 modelo(s), 160 px | parámetros: 1,880,005
+Accuracy en test: 0.5880  (294/500 correctas)
+
+              precision    recall  f1-score   support
+
+      bovino      0.459     0.560     0.505       100
+     caballo      0.507     0.710     0.592       100
+       fondo      0.805     0.910     0.854       100
+        gato      0.743     0.550     0.632       100
+       perro      0.412     0.210     0.278       100
+
+    accuracy                          0.588       500
+   macro avg      0.585     0.588     0.572       500
+weighted avg      0.585     0.588     0.572       500
+
+===== CNN v2 (500 fotos/clase) (cnn_propia_v2) =====
+1 modelo(s), 160 px | parámetros: 1,176,421
+Accuracy en test: 0.7160  (358/500 correctas)
+
+              precision    recall  f1-score   support
+
+      bovino      0.670     0.610     0.639       100
+     caballo      0.726     0.770     0.748       100
+       fondo      0.897     0.960     0.928       100
+        gato      0.673     0.740     0.705       100
+       perro      0.581     0.500     0.538       100
+
+    accuracy                          0.716       500
+   macro avg      0.710     0.716     0.711       500
+weighted avg      0.710     0.716     0.711       500
+
+WARNING:tensorflow:5 out of the last 17 calls to <function TensorFlowTrainer.make_predict_function.<locals>.one_step_on_data_distributed at 0x00000166A9C5E660> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has reduce_retracing=True option that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+===== CNN v2 + dataset ampliado (~2 300/clase) (cnn_propia_v2_ampliado) =====
+1 modelo(s), 160 px | parámetros: 1,176,421
+Accuracy en test: 0.7940  (397/500 correctas)
+
+              precision    recall  f1-score   support
+
+      bovino      0.698     0.670     0.684       100
+     caballo      0.778     0.910     0.839       100
+       fondo      0.961     0.990     0.975       100
+        gato      0.840     0.790     0.814       100
+       perro      0.678     0.610     0.642       100
+
+    accuracy                          0.794       500
+   macro avg      0.791     0.794     0.791       500
+weighted avg      0.791     0.794     0.791       500
+
+C:\PROGRAMACION\cnn-proyecto-final\.venv\Lib\site-packages\keras\src\saving\saving_lib.py:869: UserWarning: Skipping variable loading for optimizer 'rm_sprop', because it has 28 variables whereas the saved optimizer has 2 variables. 
+  saveable.load_own_variables(store)
+Found 500 files belonging to 5 classes.
+2026-11-25 03:24:21.950147: I tensorflow/core/framework/local_rendezvous.cc:407] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+WARNING:tensorflow:5 out of the last 17 calls to <function TensorFlowTrainer.make_predict_function.<locals>.one_step_on_data_distributed at 0x0000016457D33CE0> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has reduce_retracing=True option that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+===== CNN v2 + receta moderna + dataset máximo, 224 px (cnn_propia_v2_receta) =====
+1 modelo(s), 224 px | parámetros: 1,176,421
+Accuracy en test: 0.9260  (463/500 correctas)
+
+              precision    recall  f1-score   support
+
+      bovino      0.935     0.860     0.896       100
+     caballo      0.880     0.950     0.913       100
+       fondo      0.990     0.990     0.990       100
+        gato      0.968     0.920     0.944       100
+       perro      0.867     0.910     0.888       100
+
+    accuracy                          0.926       500
+   macro avg      0.928     0.926     0.926       500
+weighted avg      0.928     0.926     0.926       500
+
+C:\PROGRAMACION\cnn-proyecto-final\.venv\Lib\site-packages\keras\src\saving\saving_lib.py:869: UserWarning: Skipping variable loading for optimizer 'rm_sprop', because it has 28 variables whereas the saved optimizer has 2 variables. 
+  saveable.load_own_variables(store)
+===== MODELO FINAL (modelo_final) =====
+3 modelo(s) + TTA, 224 px | parámetros: 3,529,263
+Accuracy en test: 0.9520  (476/500 correctas)
+
+              precision    recall  f1-score   support
+
+      bovino      0.939     0.920     0.929       100
+     caballo      0.933     0.970     0.951       100
+       fondo      1.000     1.000     1.000       100
+        gato      0.979     0.950     0.964       100
+       perro      0.911     0.920     0.915       100
+
+    accuracy                          0.952       500
+   macro avg      0.952     0.952     0.952       500
+weighted avg      0.952     0.952     0.952       500
+
+===== Repeticiones con distintas semillas (accuracy en test) =====
+v2, 500 fotos/clase                 : 3 corridas, 68.8% ± 2.8%   (71.6%, 66.0%, 68.8%)
+v2 + receta moderna, dataset máximo : 3 corridas, 93.1% ± 1.2%   (92.8%, 92.0%, 94.4%)
+
+Listo. Revisa resultados/
