@@ -1,0 +1,2220 @@
+{
+  "entrenamiento": 6340,
+  "parametros": 181267,
+  "validacion_sintetica": {
+    "ejemplos": 3472,
+    "exacta": 0.9985599078341014,
+    "intencion": 0.9997119815668203,
+    "clase": 0.9991359447004609,
+    "periodo": 0.9997119815668203
+  },
+  "evaluacion_escrita": {
+    "ejemplos": 42,
+    "exacta": 0.9285714285714286,
+    "intencion": 0.9523809523809523,
+    "clase": 1.0,
+    "periodo": 0.9761904761904762
+  },
+  "evaluacion_generalizacion": {
+    "ejemplos": 36,
+    "exacta": 0.8888888888888888,
+    "intencion": 0.9444444444444444,
+    "clase": 0.9444444444444444,
+    "periodo": 1.0
+  },
+  "evaluacion_contrastes": {
+    "ejemplos": 48,
+    "exacta": 0.9583333333333334,
+    "intencion": 0.9791666666666666,
+    "clase": 1.0,
+    "periodo": 0.9791666666666666
+  },
+  "evaluacion_contexto": {
+    "ejemplos": 36,
+    "exacta": 0.9166666666666666,
+    "intencion": 0.9722222222222222,
+    "clase": 0.9444444444444444,
+    "periodo": 0.9444444444444444
+  },
+  "diferencia_maxima_onnx": 7.450580596923828e-07,
+  "comparacion_anterior": {
+    "escrita": {
+      "anterior": {
+        "ejemplos": 42,
+        "exacta": 0.9285714285714286,
+        "intencion": 0.9285714285714286,
+        "clase": 1.0,
+        "periodo": 1.0
+      },
+      "nuevo": {
+        "ejemplos": 42,
+        "exacta": 0.9285714285714286,
+        "intencion": 0.9523809523809523,
+        "clase": 1.0,
+        "periodo": 0.9761904761904762
+      }
+    },
+    "generalizacion": {
+      "anterior": {
+        "ejemplos": 36,
+        "exacta": 0.8611111111111112,
+        "intencion": 0.9166666666666666,
+        "clase": 0.9444444444444444,
+        "periodo": 1.0
+      },
+      "nuevo": {
+        "ejemplos": 36,
+        "exacta": 0.8888888888888888,
+        "intencion": 0.9444444444444444,
+        "clase": 0.9444444444444444,
+        "periodo": 1.0
+      }
+    },
+    "contrastes": {
+      "anterior": {
+        "ejemplos": 48,
+        "exacta": 0.7083333333333334,
+        "intencion": 0.8333333333333334,
+        "clase": 0.9375,
+        "periodo": 0.8958333333333334
+      },
+      "nuevo": {
+        "ejemplos": 48,
+        "exacta": 0.9583333333333334,
+        "intencion": 0.9791666666666666,
+        "clase": 1.0,
+        "periodo": 0.9791666666666666
+      }
+    },
+    "contexto": {
+      "anterior": {
+        "ejemplos": 36,
+        "exacta": 0.7777777777777778,
+        "intencion": 0.9444444444444444,
+        "clase": 0.8888888888888888,
+        "periodo": 0.8611111111111112
+      },
+      "nuevo": {
+        "ejemplos": 36,
+        "exacta": 0.9166666666666666,
+        "intencion": 0.9722222222222222,
+        "clase": 0.9444444444444444,
+        "periodo": 0.9444444444444444
+      }
+    }
+  },
+  "predicciones": [
+    {
+      "pregunta": "¿Cuántas vacas pasaron hoy?",
+      "real": {
+        "intencion": "contar",
+        "clase": "bovino",
+        "periodo": "hoy"
+      },
+      "predicha": {
+        "intencion": "contar",
+        "clase": "bovino",
+        "periodo": "hoy"
+      }
+    },
+    {
+      "pregunta": "¿Me das el total de avistamientos de canes del día anterior?",
+      "real": {
+        "intencion": "contar",
+        "clase": "perro",
+        "periodo": "ayer"
+      },
+      "predicha": {
+        "intencion": "contar",
+        "clase": "perro",
+        "periodo": "ayer"
+      }
+    },
+    {
+      "pregunta": "¿Cuál es el conteo de gatos de los últimos sesenta minutos?",
+      "real": {
+        "intencion": "contar",
+        "clase": "gato",
+        "periodo": "ultima_hora"
+      },
+      "predicha": {
+        "intencion": "contar",
+        "clase": "gato",
+        "periodo": "ultima_hora"
+      }
+    },
+    {
+      "pregunta": "Quiero saber cuántas yeguas vio la cámara desde el lunes",
+      "real": {
+        "intencion": "contar",
+        "clase": "caballo",
+        "periodo": "esta_semana"
+      },
+      "predicha": {
+        "intencion": "contar",
+        "clase": "caballo",
+        "periodo": "esta_semana"
+      }
+    },
+    {
+      "pregunta": "¿En total cuántos animales se han visto?",
+      "real": {
+        "intencion": "contar",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      },
+      "predicha": {
+        "intencion": "contar",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      }
+    },
+    {
+      "pregunta": "¿Se vio algún perro en lo que va del día?",
+      "real": {
+        "intencion": "contar",
+        "clase": "perro",
+        "periodo": "hoy"
+      },
+      "predicha": {
+        "intencion": "contar",
+        "clase": "perro",
+        "periodo": "hoy"
+      }
+    },
+    {
+      "pregunta": "Necesito el número de registros de ganado que quedaron de ayer",
+      "real": {
+        "intencion": "contar",
+        "clase": "bovino",
+        "periodo": "ayer"
+      },
+      "predicha": {
+        "intencion": "contar",
+        "clase": "bovino",
+        "periodo": "ayer"
+      }
+    },
+    {
+      "pregunta": "Dime cuáles felinos quedaron registrados en el día",
+      "real": {
+        "intencion": "listar",
+        "clase": "gato",
+        "periodo": "hoy"
+      },
+      "predicha": {
+        "intencion": "listar",
+        "clase": "gato",
+        "periodo": "hoy"
+      }
+    },
+    {
+      "pregunta": "Saca los avistamientos de bovinos de la jornada anterior",
+      "real": {
+        "intencion": "listar",
+        "clase": "bovino",
+        "periodo": "ayer"
+      },
+      "predicha": {
+        "intencion": "listar",
+        "clase": "bovino",
+        "periodo": "ayer"
+      }
+    },
+    {
+      "pregunta": "Enséñame las detecciones de equinos de la última hora",
+      "real": {
+        "intencion": "listar",
+        "clase": "caballo",
+        "periodo": "ultima_hora"
+      },
+      "predicha": {
+        "intencion": "listar",
+        "clase": "caballo",
+        "periodo": "ultima_hora"
+      }
+    },
+    {
+      "pregunta": "Pásame el listado de perros de esta semana",
+      "real": {
+        "intencion": "listar",
+        "clase": "perro",
+        "periodo": "esta_semana"
+      },
+      "predicha": {
+        "intencion": "listar",
+        "clase": "perro",
+        "periodo": "esta_semana"
+      }
+    },
+    {
+      "pregunta": "¿Qué animales han pasado por la cámara?",
+      "real": {
+        "intencion": "listar",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      },
+      "predicha": {
+        "intencion": "listar",
+        "clase": "animales",
+        "periodo": "ayer"
+      }
+    },
+    {
+      "pregunta": "Déjame ver los eventos de vacas que hubo hoy",
+      "real": {
+        "intencion": "listar",
+        "clase": "bovino",
+        "periodo": "hoy"
+      },
+      "predicha": {
+        "intencion": "listar",
+        "clase": "bovino",
+        "periodo": "hoy"
+      }
+    },
+    {
+      "pregunta": "¿Me muestras cuáles apariciones de gatos hubo ayer?",
+      "real": {
+        "intencion": "listar",
+        "clase": "gato",
+        "periodo": "ayer"
+      },
+      "predicha": {
+        "intencion": "listar",
+        "clase": "gato",
+        "periodo": "ayer"
+      }
+    },
+    {
+      "pregunta": "¿A qué horas vieron el caballo más reciente hoy?",
+      "real": {
+        "intencion": "ultimo_avistamiento",
+        "clase": "caballo",
+        "periodo": "hoy"
+      },
+      "predicha": {
+        "intencion": "ultimo_avistamiento",
+        "clase": "caballo",
+        "periodo": "hoy"
+      }
+    },
+    {
+      "pregunta": "¿A qué hora fue la última detección de perros ayer?",
+      "real": {
+        "intencion": "ultimo_avistamiento",
+        "clase": "perro",
+        "periodo": "ayer"
+      },
+      "predicha": {
+        "intencion": "ultimo_avistamiento",
+        "clase": "perro",
+        "periodo": "ayer"
+      }
+    },
+    {
+      "pregunta": "¿Cuál es el registro más reciente de un bovino de la última hora?",
+      "real": {
+        "intencion": "ultimo_avistamiento",
+        "clase": "bovino",
+        "periodo": "ultima_hora"
+      },
+      "predicha": {
+        "intencion": "ultimo_avistamiento",
+        "clase": "bovino",
+        "periodo": "ultima_hora"
+      }
+    },
+    {
+      "pregunta": "¿Cuándo apareció el último gato de esta semana?",
+      "real": {
+        "intencion": "ultimo_avistamiento",
+        "clase": "gato",
+        "periodo": "esta_semana"
+      },
+      "predicha": {
+        "intencion": "ultimo_avistamiento",
+        "clase": "gato",
+        "periodo": "esta_semana"
+      }
+    },
+    {
+      "pregunta": "¿Qué animal fue el último que vio la cámara?",
+      "real": {
+        "intencion": "ultimo_avistamiento",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      },
+      "predicha": {
+        "intencion": "ultimo_avistamiento",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      }
+    },
+    {
+      "pregunta": "La aparición más reciente de un perro, porfa",
+      "real": {
+        "intencion": "ultimo_avistamiento",
+        "clase": "perro",
+        "periodo": "sin_periodo"
+      },
+      "predicha": {
+        "intencion": "ultimo_avistamiento",
+        "clase": "perro",
+        "periodo": "sin_periodo"
+      }
+    },
+    {
+      "pregunta": "¿A qué horas pasó la última vaca hoy?",
+      "real": {
+        "intencion": "ultimo_avistamiento",
+        "clase": "bovino",
+        "periodo": "hoy"
+      },
+      "predicha": {
+        "intencion": "ultimo_avistamiento",
+        "clase": "bovino",
+        "periodo": "hoy"
+      }
+    },
+    {
+      "pregunta": "¿Qué balance hay de la actividad de perros de hoy?",
+      "real": {
+        "intencion": "resumen",
+        "clase": "perro",
+        "periodo": "hoy"
+      },
+      "predicha": {
+        "intencion": "resumen",
+        "clase": "perro",
+        "periodo": "hoy"
+      }
+    },
+    {
+      "pregunta": "Hazme un recuento general de lo que se vio de vacas ayer",
+      "real": {
+        "intencion": "resumen",
+        "clase": "bovino",
+        "periodo": "ayer"
+      },
+      "predicha": {
+        "intencion": "resumen",
+        "clase": "bovino",
+        "periodo": "ayer"
+      }
+    },
+    {
+      "pregunta": "Necesito un panorama de avistamientos de gatos en la última hora",
+      "real": {
+        "intencion": "resumen",
+        "clase": "gato",
+        "periodo": "ultima_hora"
+      },
+      "predicha": {
+        "intencion": "resumen",
+        "clase": "gato",
+        "periodo": "ultima_hora"
+      }
+    },
+    {
+      "pregunta": "¿Cómo ha estado la actividad de los caballos esta semana?",
+      "real": {
+        "intencion": "resumen",
+        "clase": "caballo",
+        "periodo": "esta_semana"
+      },
+      "predicha": {
+        "intencion": "resumen",
+        "clase": "caballo",
+        "periodo": "esta_semana"
+      }
+    },
+    {
+      "pregunta": "Cuéntame en general qué se ha visto de animales",
+      "real": {
+        "intencion": "resumen",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      },
+      "predicha": {
+        "intencion": "resumen",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      }
+    },
+    {
+      "pregunta": "Un reporte general de los gatos registrados hoy",
+      "real": {
+        "intencion": "resumen",
+        "clase": "gato",
+        "periodo": "hoy"
+      },
+      "predicha": {
+        "intencion": "resumen",
+        "clase": "gato",
+        "periodo": "hoy"
+      }
+    },
+    {
+      "pregunta": "Haz un resumen rápido de las detecciones de ganado desde el lunes",
+      "real": {
+        "intencion": "resumen",
+        "clase": "bovino",
+        "periodo": "esta_semana"
+      },
+      "predicha": {
+        "intencion": "resumen",
+        "clase": "bovino",
+        "periodo": "esta_semana"
+      }
+    },
+    {
+      "pregunta": "¿En qué momento del día se vieron más gatos hoy?",
+      "real": {
+        "intencion": "hora_frecuente",
+        "clase": "gato",
+        "periodo": "hoy"
+      },
+      "predicha": {
+        "intencion": "hora_frecuente",
+        "clase": "gato",
+        "periodo": "hoy"
+      }
+    },
+    {
+      "pregunta": "¿A qué horas hubo más caballos en la jornada de ayer?",
+      "real": {
+        "intencion": "hora_frecuente",
+        "clase": "caballo",
+        "periodo": "ayer"
+      },
+      "predicha": {
+        "intencion": "fuera_de_dominio",
+        "clase": "caballo",
+        "periodo": "ayer"
+      }
+    },
+    {
+      "pregunta": "Dime la hora con más apariciones de perros en los últimos 60 minutos",
+      "real": {
+        "intencion": "hora_frecuente",
+        "clase": "perro",
+        "periodo": "ultima_hora"
+      },
+      "predicha": {
+        "intencion": "hora_frecuente",
+        "clase": "perro",
+        "periodo": "ultima_hora"
+      }
+    },
+    {
+      "pregunta": "¿Cuál ha sido la franja más movida para el ganado esta semana?",
+      "real": {
+        "intencion": "hora_frecuente",
+        "clase": "bovino",
+        "periodo": "esta_semana"
+      },
+      "predicha": {
+        "intencion": "hora_frecuente",
+        "clase": "bovino",
+        "periodo": "esta_semana"
+      }
+    },
+    {
+      "pregunta": "¿En qué hora suelen salir más animales?",
+      "real": {
+        "intencion": "hora_frecuente",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      },
+      "predicha": {
+        "intencion": "hora_frecuente",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      }
+    },
+    {
+      "pregunta": "¿A qué hora estuvo más activa la fauna hoy?",
+      "real": {
+        "intencion": "hora_frecuente",
+        "clase": "animales",
+        "periodo": "hoy"
+      },
+      "predicha": {
+        "intencion": "fuera_de_dominio",
+        "clase": "animales",
+        "periodo": "hoy"
+      }
+    },
+    {
+      "pregunta": "¿Cuál fue el pico de detección de caballos ayer?",
+      "real": {
+        "intencion": "hora_frecuente",
+        "clase": "caballo",
+        "periodo": "ayer"
+      },
+      "predicha": {
+        "intencion": "hora_frecuente",
+        "clase": "caballo",
+        "periodo": "ayer"
+      }
+    },
+    {
+      "pregunta": "¿A qué temperatura estamos ahora?",
+      "real": {
+        "intencion": "fuera_de_dominio",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      },
+      "predicha": {
+        "intencion": "fuera_de_dominio",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      }
+    },
+    {
+      "pregunta": "¿Cómo entreno a mi perro?",
+      "real": {
+        "intencion": "fuera_de_dominio",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      },
+      "predicha": {
+        "intencion": "fuera_de_dominio",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      }
+    },
+    {
+      "pregunta": "¿Hay alertas de animales en este momento?",
+      "real": {
+        "intencion": "fuera_de_dominio",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      },
+      "predicha": {
+        "intencion": "fuera_de_dominio",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      }
+    },
+    {
+      "pregunta": "¿Puedes contarme la historia de Colombia?",
+      "real": {
+        "intencion": "fuera_de_dominio",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      },
+      "predicha": {
+        "intencion": "fuera_de_dominio",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      }
+    },
+    {
+      "pregunta": "¿Cuáles autobuses pasaron hoy?",
+      "real": {
+        "intencion": "fuera_de_dominio",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      },
+      "predicha": {
+        "intencion": "fuera_de_dominio",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      }
+    },
+    {
+      "pregunta": "¿Me puedes comparar los gatos con los caballos de ayer?",
+      "real": {
+        "intencion": "fuera_de_dominio",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      },
+      "predicha": {
+        "intencion": "fuera_de_dominio",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      }
+    },
+    {
+      "pregunta": "¿Qué puedo darle de comer a mi gatito?",
+      "real": {
+        "intencion": "fuera_de_dominio",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      },
+      "predicha": {
+        "intencion": "fuera_de_dominio",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      }
+    }
+  ],
+  "predicciones_generalizacion": [
+    {
+      "pregunta": "¿Cuántas veces nos salió un canino en el video de hoy?",
+      "real": {
+        "intencion": "contar",
+        "clase": "perro",
+        "periodo": "hoy"
+      },
+      "predicha": {
+        "intencion": "contar",
+        "clase": "perro",
+        "periodo": "hoy"
+      }
+    },
+    {
+      "pregunta": "Quiero la cifra de caballos que detectamos ayer",
+      "real": {
+        "intencion": "contar",
+        "clase": "caballo",
+        "periodo": "ayer"
+      },
+      "predicha": {
+        "intencion": "contar",
+        "clase": "caballo",
+        "periodo": "ayer"
+      }
+    },
+    {
+      "pregunta": "¿Llevamos muchas detecciones de bovinos esta semana?",
+      "real": {
+        "intencion": "contar",
+        "clase": "bovino",
+        "periodo": "esta_semana"
+      },
+      "predicha": {
+        "intencion": "contar",
+        "clase": "bovino",
+        "periodo": "esta_semana"
+      }
+    },
+    {
+      "pregunta": "En la hora más reciente, ¿cuántos gatos alcanzó a ver la cámara?",
+      "real": {
+        "intencion": "contar",
+        "clase": "gato",
+        "periodo": "ultima_hora"
+      },
+      "predicha": {
+        "intencion": "contar",
+        "clase": "gato",
+        "periodo": "ultima_hora"
+      }
+    },
+    {
+      "pregunta": "¿Qué número de animales aparece registrado en total?",
+      "real": {
+        "intencion": "contar",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      },
+      "predicha": {
+        "intencion": "contar",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      }
+    },
+    {
+      "pregunta": "Oye, de hoy dime cuántos perros quedaron en el historial",
+      "real": {
+        "intencion": "contar",
+        "clase": "perro",
+        "periodo": "hoy"
+      },
+      "predicha": {
+        "intencion": "contar",
+        "clase": "perro",
+        "periodo": "hoy"
+      }
+    },
+    {
+      "pregunta": "Ponme en pantalla los registros de vacas de hoy",
+      "real": {
+        "intencion": "listar",
+        "clase": "bovino",
+        "periodo": "hoy"
+      },
+      "predicha": {
+        "intencion": "listar",
+        "clase": "bovino",
+        "periodo": "hoy"
+      }
+    },
+    {
+      "pregunta": "¿Qué apariciones de perros quedaron grabadas el día anterior?",
+      "real": {
+        "intencion": "listar",
+        "clase": "perro",
+        "periodo": "ayer"
+      },
+      "predicha": {
+        "intencion": "listar",
+        "clase": "perro",
+        "periodo": "ayer"
+      }
+    },
+    {
+      "pregunta": "Dime cuáles gatos se detectaron hace menos de una hora",
+      "real": {
+        "intencion": "listar",
+        "clase": "gato",
+        "periodo": "ultima_hora"
+      },
+      "predicha": {
+        "intencion": "listar",
+        "clase": "gato",
+        "periodo": "ultima_hora"
+      }
+    },
+    {
+      "pregunta": "Pásame los eventos de equinos de lo que va de semana",
+      "real": {
+        "intencion": "listar",
+        "clase": "caballo",
+        "periodo": "esta_semana"
+      },
+      "predicha": {
+        "intencion": "listar",
+        "clase": "caballo",
+        "periodo": "esta_semana"
+      }
+    },
+    {
+      "pregunta": "Cuáles son los animales que figuran en el historial",
+      "real": {
+        "intencion": "listar",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      },
+      "predicha": {
+        "intencion": "fuera_de_dominio",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      }
+    },
+    {
+      "pregunta": "Abre la lista de avistamientos del último tramo de una hora",
+      "real": {
+        "intencion": "listar",
+        "clase": "animales",
+        "periodo": "ultima_hora"
+      },
+      "predicha": {
+        "intencion": "listar",
+        "clase": "caballo",
+        "periodo": "ultima_hora"
+      }
+    },
+    {
+      "pregunta": "De los gatos de hoy, ¿cuál es el último registro?",
+      "real": {
+        "intencion": "ultimo_avistamiento",
+        "clase": "gato",
+        "periodo": "hoy"
+      },
+      "predicha": {
+        "intencion": "ultimo_avistamiento",
+        "clase": "gato",
+        "periodo": "hoy"
+      }
+    },
+    {
+      "pregunta": "¿A qué hora se anotó el avistamiento más reciente de caballos del día anterior?",
+      "real": {
+        "intencion": "ultimo_avistamiento",
+        "clase": "caballo",
+        "periodo": "ayer"
+      },
+      "predicha": {
+        "intencion": "hora_frecuente",
+        "clase": "caballo",
+        "periodo": "ayer"
+      }
+    },
+    {
+      "pregunta": "Ubica la última detección de ganado de lo que va de semana",
+      "real": {
+        "intencion": "ultimo_avistamiento",
+        "clase": "bovino",
+        "periodo": "esta_semana"
+      },
+      "predicha": {
+        "intencion": "ultimo_avistamiento",
+        "clase": "bovino",
+        "periodo": "esta_semana"
+      }
+    },
+    {
+      "pregunta": "¿Cuándo fue que se vio al perro más reciente en los últimos 60 minutos?",
+      "real": {
+        "intencion": "ultimo_avistamiento",
+        "clase": "perro",
+        "periodo": "ultima_hora"
+      },
+      "predicha": {
+        "intencion": "ultimo_avistamiento",
+        "clase": "perro",
+        "periodo": "ultima_hora"
+      }
+    },
+    {
+      "pregunta": "Me interesa saber cuándo ocurrió la detección más nueva de cualquier animal",
+      "real": {
+        "intencion": "ultimo_avistamiento",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      },
+      "predicha": {
+        "intencion": "ultimo_avistamiento",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      }
+    },
+    {
+      "pregunta": "Dime la hora del perro que apareció de último hoy",
+      "real": {
+        "intencion": "ultimo_avistamiento",
+        "clase": "perro",
+        "periodo": "hoy"
+      },
+      "predicha": {
+        "intencion": "ultimo_avistamiento",
+        "clase": "perro",
+        "periodo": "hoy"
+      }
+    },
+    {
+      "pregunta": "Cuéntame cómo han estado las detecciones de gatos en lo que va del día",
+      "real": {
+        "intencion": "resumen",
+        "clase": "gato",
+        "periodo": "hoy"
+      },
+      "predicha": {
+        "intencion": "resumen",
+        "clase": "gato",
+        "periodo": "hoy"
+      }
+    },
+    {
+      "pregunta": "Necesito una visión general de los perros que pasaron ayer",
+      "real": {
+        "intencion": "resumen",
+        "clase": "perro",
+        "periodo": "ayer"
+      },
+      "predicha": {
+        "intencion": "resumen",
+        "clase": "perro",
+        "periodo": "ayer"
+      }
+    },
+    {
+      "pregunta": "¿Cómo se movió la actividad de vacas durante la última hora?",
+      "real": {
+        "intencion": "resumen",
+        "clase": "bovino",
+        "periodo": "ultima_hora"
+      },
+      "predicha": {
+        "intencion": "resumen",
+        "clase": "bovino",
+        "periodo": "ultima_hora"
+      }
+    },
+    {
+      "pregunta": "Hazme un balance de lo que registramos de caballos desde el lunes",
+      "real": {
+        "intencion": "resumen",
+        "clase": "caballo",
+        "periodo": "esta_semana"
+      },
+      "predicha": {
+        "intencion": "resumen",
+        "clase": "caballo",
+        "periodo": "esta_semana"
+      }
+    },
+    {
+      "pregunta": "Descríbeme en términos generales los avistamientos de animales",
+      "real": {
+        "intencion": "resumen",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      },
+      "predicha": {
+        "intencion": "resumen",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      }
+    },
+    {
+      "pregunta": "Resume lo que ha pasado con el ganado en la jornada de hoy",
+      "real": {
+        "intencion": "resumen",
+        "clase": "bovino",
+        "periodo": "hoy"
+      },
+      "predicha": {
+        "intencion": "resumen",
+        "clase": "bovino",
+        "periodo": "hoy"
+      }
+    },
+    {
+      "pregunta": "Encuentra en qué horario se vio la mayor cantidad de caballos hoy",
+      "real": {
+        "intencion": "hora_frecuente",
+        "clase": "caballo",
+        "periodo": "hoy"
+      },
+      "predicha": {
+        "intencion": "hora_frecuente",
+        "clase": "caballo",
+        "periodo": "hoy"
+      }
+    },
+    {
+      "pregunta": "¿Cuál fue el momento de mayor actividad de perros ayer?",
+      "real": {
+        "intencion": "hora_frecuente",
+        "clase": "perro",
+        "periodo": "ayer"
+      },
+      "predicha": {
+        "intencion": "hora_frecuente",
+        "clase": "perro",
+        "periodo": "ayer"
+      }
+    },
+    {
+      "pregunta": "En la última hora, ¿en qué franja se registró el máximo de vacas?",
+      "real": {
+        "intencion": "hora_frecuente",
+        "clase": "bovino",
+        "periodo": "ultima_hora"
+      },
+      "predicha": {
+        "intencion": "hora_frecuente",
+        "clase": "bovino",
+        "periodo": "ultima_hora"
+      }
+    },
+    {
+      "pregunta": "Esta semana, ¿a qué hora hemos visto gatos con más frecuencia?",
+      "real": {
+        "intencion": "hora_frecuente",
+        "clase": "gato",
+        "periodo": "esta_semana"
+      },
+      "predicha": {
+        "intencion": "hora_frecuente",
+        "clase": "gato",
+        "periodo": "esta_semana"
+      }
+    },
+    {
+      "pregunta": "¿A qué horas se junta la mayor cantidad de avistamientos?",
+      "real": {
+        "intencion": "hora_frecuente",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      },
+      "predicha": {
+        "intencion": "hora_frecuente",
+        "clase": "bovino",
+        "periodo": "sin_periodo"
+      }
+    },
+    {
+      "pregunta": "Del día de ayer, ubica la hora que concentró más animales",
+      "real": {
+        "intencion": "hora_frecuente",
+        "clase": "animales",
+        "periodo": "ayer"
+      },
+      "predicha": {
+        "intencion": "hora_frecuente",
+        "clase": "animales",
+        "periodo": "ayer"
+      }
+    },
+    {
+      "pregunta": "¿Me haces una lista de veterinarias para llevar a mi gato hoy?",
+      "real": {
+        "intencion": "fuera_de_dominio",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      },
+      "predicha": {
+        "intencion": "fuera_de_dominio",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      }
+    },
+    {
+      "pregunta": "¿A qué hora abren el supermercado de la esquina?",
+      "real": {
+        "intencion": "fuera_de_dominio",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      },
+      "predicha": {
+        "intencion": "fuera_de_dominio",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      }
+    },
+    {
+      "pregunta": "Resume cuántos goles metió Colombia ayer",
+      "real": {
+        "intencion": "fuera_de_dominio",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      },
+      "predicha": {
+        "intencion": "fuera_de_dominio",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      }
+    },
+    {
+      "pregunta": "¿Cuándo fue la última vacuna de mi perro?",
+      "real": {
+        "intencion": "fuera_de_dominio",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      },
+      "predicha": {
+        "intencion": "fuera_de_dominio",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      }
+    },
+    {
+      "pregunta": "¿Puedo hacer que me lleguen alarmas a WhatsApp hoy?",
+      "real": {
+        "intencion": "fuera_de_dominio",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      },
+      "predicha": {
+        "intencion": "fuera_de_dominio",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      }
+    },
+    {
+      "pregunta": "¿Cuál de los caballos es de raza criolla?",
+      "real": {
+        "intencion": "fuera_de_dominio",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      },
+      "predicha": {
+        "intencion": "fuera_de_dominio",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      }
+    }
+  ],
+  "predicciones_contrastes": [
+    {
+      "pregunta": "De los perros que aparecen hoy, necesito el total",
+      "real": {
+        "intencion": "contar",
+        "clase": "perro",
+        "periodo": "hoy"
+      },
+      "predicha": {
+        "intencion": "contar",
+        "clase": "perro",
+        "periodo": "hoy"
+      }
+    },
+    {
+      "pregunta": "¿Cuántas detecciones de reses hubo durante el día anterior?",
+      "real": {
+        "intencion": "contar",
+        "clase": "bovino",
+        "periodo": "ayer"
+      },
+      "predicha": {
+        "intencion": "contar",
+        "clase": "bovino",
+        "periodo": "ayer"
+      }
+    },
+    {
+      "pregunta": "¿Qué cantidad de gatos se alcanzó a registrar en los pasados 60 minutos?",
+      "real": {
+        "intencion": "contar",
+        "clase": "gato",
+        "periodo": "ultima_hora"
+      },
+      "predicha": {
+        "intencion": "contar",
+        "clase": "gato",
+        "periodo": "ultima_hora"
+      }
+    },
+    {
+      "pregunta": "Acumulado de equinos desde el comienzo de esta semana",
+      "real": {
+        "intencion": "contar",
+        "clase": "caballo",
+        "periodo": "esta_semana"
+      },
+      "predicha": {
+        "intencion": "contar",
+        "clase": "caballo",
+        "periodo": "esta_semana"
+      }
+    },
+    {
+      "pregunta": "¿En cuánto va el conteo de la cámara?",
+      "real": {
+        "intencion": "contar",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      },
+      "predicha": {
+        "intencion": "contar",
+        "clase": "animales",
+        "periodo": "esta_semana"
+      }
+    },
+    {
+      "pregunta": "Dime el número de vacas que figuran hoy en los registros",
+      "real": {
+        "intencion": "contar",
+        "clase": "bovino",
+        "periodo": "hoy"
+      },
+      "predicha": {
+        "intencion": "contar",
+        "clase": "bovino",
+        "periodo": "hoy"
+      }
+    },
+    {
+      "pregunta": "¿Se llegó a ver algún gato ayer?",
+      "real": {
+        "intencion": "contar",
+        "clase": "gato",
+        "periodo": "ayer"
+      },
+      "predicha": {
+        "intencion": "contar",
+        "clase": "gato",
+        "periodo": "ayer"
+      }
+    },
+    {
+      "pregunta": "¿Cuántas veces aparece un caballo en todo el historial?",
+      "real": {
+        "intencion": "contar",
+        "clase": "caballo",
+        "periodo": "sin_periodo"
+      },
+      "predicha": {
+        "intencion": "contar",
+        "clase": "caballo",
+        "periodo": "sin_periodo"
+      }
+    },
+    {
+      "pregunta": "De los perros que aparecen hoy, necesito la lista",
+      "real": {
+        "intencion": "listar",
+        "clase": "perro",
+        "periodo": "hoy"
+      },
+      "predicha": {
+        "intencion": "listar",
+        "clase": "perro",
+        "periodo": "hoy"
+      }
+    },
+    {
+      "pregunta": "¿Qué detecciones de reses hubo durante el día anterior?",
+      "real": {
+        "intencion": "listar",
+        "clase": "bovino",
+        "periodo": "ayer"
+      },
+      "predicha": {
+        "intencion": "listar",
+        "clase": "bovino",
+        "periodo": "ayer"
+      }
+    },
+    {
+      "pregunta": "Pásame lo registrado de gatos en los pasados 60 minutos",
+      "real": {
+        "intencion": "listar",
+        "clase": "gato",
+        "periodo": "ultima_hora"
+      },
+      "predicha": {
+        "intencion": "listar",
+        "clase": "gato",
+        "periodo": "ultima_hora"
+      }
+    },
+    {
+      "pregunta": "Enséñame los eventos de equinos desde el comienzo de esta semana",
+      "real": {
+        "intencion": "listar",
+        "clase": "caballo",
+        "periodo": "esta_semana"
+      },
+      "predicha": {
+        "intencion": "listar",
+        "clase": "caballo",
+        "periodo": "esta_semana"
+      }
+    },
+    {
+      "pregunta": "Quiero revisar lo que ha detectado la cámara",
+      "real": {
+        "intencion": "listar",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      },
+      "predicha": {
+        "intencion": "listar",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      }
+    },
+    {
+      "pregunta": "¿Qué registros de vacas figuran hoy en el historial?",
+      "real": {
+        "intencion": "listar",
+        "clase": "bovino",
+        "periodo": "hoy"
+      },
+      "predicha": {
+        "intencion": "listar",
+        "clase": "bovino",
+        "periodo": "hoy"
+      }
+    },
+    {
+      "pregunta": "Déjame revisar lo que detectó de gatos el día pasado",
+      "real": {
+        "intencion": "listar",
+        "clase": "gato",
+        "periodo": "ayer"
+      },
+      "predicha": {
+        "intencion": "listar",
+        "clase": "gato",
+        "periodo": "ayer"
+      }
+    },
+    {
+      "pregunta": "Dime qué caballos aparecen en todo el historial",
+      "real": {
+        "intencion": "listar",
+        "clase": "caballo",
+        "periodo": "sin_periodo"
+      },
+      "predicha": {
+        "intencion": "listar",
+        "clase": "caballo",
+        "periodo": "sin_periodo"
+      }
+    },
+    {
+      "pregunta": "De los perros que aparecen hoy, necesito el último",
+      "real": {
+        "intencion": "ultimo_avistamiento",
+        "clase": "perro",
+        "periodo": "hoy"
+      },
+      "predicha": {
+        "intencion": "contar",
+        "clase": "perro",
+        "periodo": "hoy"
+      }
+    },
+    {
+      "pregunta": "¿A qué hora ocurrió la última detección de reses del día anterior?",
+      "real": {
+        "intencion": "ultimo_avistamiento",
+        "clase": "bovino",
+        "periodo": "ayer"
+      },
+      "predicha": {
+        "intencion": "ultimo_avistamiento",
+        "clase": "bovino",
+        "periodo": "ayer"
+      }
+    },
+    {
+      "pregunta": "Me interesa el avistamiento más nuevo de gatos de los pasados 60 minutos",
+      "real": {
+        "intencion": "ultimo_avistamiento",
+        "clase": "gato",
+        "periodo": "ultima_hora"
+      },
+      "predicha": {
+        "intencion": "ultimo_avistamiento",
+        "clase": "gato",
+        "periodo": "ultima_hora"
+      }
+    },
+    {
+      "pregunta": "De lo que va de semana, dime cuándo quedó registrada la última yegua",
+      "real": {
+        "intencion": "ultimo_avistamiento",
+        "clase": "caballo",
+        "periodo": "esta_semana"
+      },
+      "predicha": {
+        "intencion": "ultimo_avistamiento",
+        "clase": "caballo",
+        "periodo": "esta_semana"
+      }
+    },
+    {
+      "pregunta": "Dime cuál fue el último animal que detectamos",
+      "real": {
+        "intencion": "ultimo_avistamiento",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      },
+      "predicha": {
+        "intencion": "ultimo_avistamiento",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      }
+    },
+    {
+      "pregunta": "¿A qué hora salió la vaca más reciente de hoy?",
+      "real": {
+        "intencion": "ultimo_avistamiento",
+        "clase": "bovino",
+        "periodo": "hoy"
+      },
+      "predicha": {
+        "intencion": "ultimo_avistamiento",
+        "clase": "bovino",
+        "periodo": "hoy"
+      }
+    },
+    {
+      "pregunta": "Ubícame el último registro de felinos del día pasado",
+      "real": {
+        "intencion": "ultimo_avistamiento",
+        "clase": "gato",
+        "periodo": "ayer"
+      },
+      "predicha": {
+        "intencion": "ultimo_avistamiento",
+        "clase": "gato",
+        "periodo": "ayer"
+      }
+    },
+    {
+      "pregunta": "¿Cuándo fue la aparición más reciente de un equino en el historial?",
+      "real": {
+        "intencion": "ultimo_avistamiento",
+        "clase": "caballo",
+        "periodo": "sin_periodo"
+      },
+      "predicha": {
+        "intencion": "ultimo_avistamiento",
+        "clase": "caballo",
+        "periodo": "sin_periodo"
+      }
+    },
+    {
+      "pregunta": "De los perros que aparecen hoy, necesito el resumen",
+      "real": {
+        "intencion": "resumen",
+        "clase": "perro",
+        "periodo": "hoy"
+      },
+      "predicha": {
+        "intencion": "resumen",
+        "clase": "perro",
+        "periodo": "hoy"
+      }
+    },
+    {
+      "pregunta": "Dame un panorama de lo que se detectó de reses en el día anterior",
+      "real": {
+        "intencion": "resumen",
+        "clase": "bovino",
+        "periodo": "ayer"
+      },
+      "predicha": {
+        "intencion": "resumen",
+        "clase": "bovino",
+        "periodo": "ayer"
+      }
+    },
+    {
+      "pregunta": "Haz un balance de los registros de felinos de los pasados 60 minutos",
+      "real": {
+        "intencion": "resumen",
+        "clase": "gato",
+        "periodo": "ultima_hora"
+      },
+      "predicha": {
+        "intencion": "resumen",
+        "clase": "gato",
+        "periodo": "ultima_hora"
+      }
+    },
+    {
+      "pregunta": "Descríbeme en general qué registramos de yeguas desde el comienzo de esta semana",
+      "real": {
+        "intencion": "resumen",
+        "clase": "caballo",
+        "periodo": "esta_semana"
+      },
+      "predicha": {
+        "intencion": "resumen",
+        "clase": "caballo",
+        "periodo": "esta_semana"
+      }
+    },
+    {
+      "pregunta": "Quiero una síntesis de lo que ha visto la cámara",
+      "real": {
+        "intencion": "resumen",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      },
+      "predicha": {
+        "intencion": "resumen",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      }
+    },
+    {
+      "pregunta": "Cuéntame a grandes rasgos la actividad de vacas de hoy",
+      "real": {
+        "intencion": "resumen",
+        "clase": "bovino",
+        "periodo": "hoy"
+      },
+      "predicha": {
+        "intencion": "resumen",
+        "clase": "bovino",
+        "periodo": "hoy"
+      }
+    },
+    {
+      "pregunta": "¿Cómo estuvo el movimiento de gatos el día pasado?",
+      "real": {
+        "intencion": "resumen",
+        "clase": "gato",
+        "periodo": "ayer"
+      },
+      "predicha": {
+        "intencion": "resumen",
+        "clase": "gato",
+        "periodo": "ayer"
+      }
+    },
+    {
+      "pregunta": "Dame un informe sobre la actividad registrada de equinos",
+      "real": {
+        "intencion": "resumen",
+        "clase": "caballo",
+        "periodo": "sin_periodo"
+      },
+      "predicha": {
+        "intencion": "resumen",
+        "clase": "caballo",
+        "periodo": "sin_periodo"
+      }
+    },
+    {
+      "pregunta": "De los perros que aparecen hoy, necesito la hora con más detecciones",
+      "real": {
+        "intencion": "hora_frecuente",
+        "clase": "perro",
+        "periodo": "hoy"
+      },
+      "predicha": {
+        "intencion": "hora_frecuente",
+        "clase": "perro",
+        "periodo": "hoy"
+      }
+    },
+    {
+      "pregunta": "¿A qué hora hubo más detecciones de reses durante el día anterior?",
+      "real": {
+        "intencion": "hora_frecuente",
+        "clase": "bovino",
+        "periodo": "ayer"
+      },
+      "predicha": {
+        "intencion": "hora_frecuente",
+        "clase": "bovino",
+        "periodo": "ayer"
+      }
+    },
+    {
+      "pregunta": "De los pasados 60 minutos, ¿qué horario tuvo más apariciones de gatos?",
+      "real": {
+        "intencion": "hora_frecuente",
+        "clase": "gato",
+        "periodo": "ultima_hora"
+      },
+      "predicha": {
+        "intencion": "hora_frecuente",
+        "clase": "gato",
+        "periodo": "ultima_hora"
+      }
+    },
+    {
+      "pregunta": "Señala la franja de mayor actividad de yeguas desde el comienzo de esta semana",
+      "real": {
+        "intencion": "hora_frecuente",
+        "clase": "caballo",
+        "periodo": "esta_semana"
+      },
+      "predicha": {
+        "intencion": "hora_frecuente",
+        "clase": "caballo",
+        "periodo": "esta_semana"
+      }
+    },
+    {
+      "pregunta": "¿En qué horario suele registrar más animales la cámara?",
+      "real": {
+        "intencion": "hora_frecuente",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      },
+      "predicha": {
+        "intencion": "hora_frecuente",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      }
+    },
+    {
+      "pregunta": "¿A qué horas se registraron más vacas hoy?",
+      "real": {
+        "intencion": "hora_frecuente",
+        "clase": "bovino",
+        "periodo": "hoy"
+      },
+      "predicha": {
+        "intencion": "hora_frecuente",
+        "clase": "bovino",
+        "periodo": "hoy"
+      }
+    },
+    {
+      "pregunta": "Dime en qué hora se concentraron más apariciones de felinos el día pasado",
+      "real": {
+        "intencion": "hora_frecuente",
+        "clase": "gato",
+        "periodo": "ayer"
+      },
+      "predicha": {
+        "intencion": "hora_frecuente",
+        "clase": "gato",
+        "periodo": "ayer"
+      }
+    },
+    {
+      "pregunta": "Identifica el horario con más apariciones de equinos de todo el historial",
+      "real": {
+        "intencion": "hora_frecuente",
+        "clase": "caballo",
+        "periodo": "sin_periodo"
+      },
+      "predicha": {
+        "intencion": "hora_frecuente",
+        "clase": "caballo",
+        "periodo": "sin_periodo"
+      }
+    },
+    {
+      "pregunta": "¿Cuántas veces debe comer un perro hoy?",
+      "real": {
+        "intencion": "fuera_de_dominio",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      },
+      "predicha": {
+        "intencion": "fuera_de_dominio",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      }
+    },
+    {
+      "pregunta": "Muéstrame los resultados de fútbol del día anterior",
+      "real": {
+        "intencion": "fuera_de_dominio",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      },
+      "predicha": {
+        "intencion": "fuera_de_dominio",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      }
+    },
+    {
+      "pregunta": "¿A qué hora salieron más buses en los pasados 60 minutos?",
+      "real": {
+        "intencion": "fuera_de_dominio",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      },
+      "predicha": {
+        "intencion": "fuera_de_dominio",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      }
+    },
+    {
+      "pregunta": "¿Qué alarmas me mandaron por correo esta semana?",
+      "real": {
+        "intencion": "fuera_de_dominio",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      },
+      "predicha": {
+        "intencion": "fuera_de_dominio",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      }
+    },
+    {
+      "pregunta": "¿Cuál es el precio de comprar un caballo criollo?",
+      "real": {
+        "intencion": "fuera_de_dominio",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      },
+      "predicha": {
+        "intencion": "fuera_de_dominio",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      }
+    },
+    {
+      "pregunta": "Dime si mañana va a llover en la vía",
+      "real": {
+        "intencion": "fuera_de_dominio",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      },
+      "predicha": {
+        "intencion": "fuera_de_dominio",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      }
+    },
+    {
+      "pregunta": "Busca un veterinario que vacune gatos hoy",
+      "real": {
+        "intencion": "fuera_de_dominio",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      },
+      "predicha": {
+        "intencion": "fuera_de_dominio",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      }
+    },
+    {
+      "pregunta": "¿Hubo más apariciones de perros o caballos ayer?",
+      "real": {
+        "intencion": "fuera_de_dominio",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      },
+      "predicha": {
+        "intencion": "fuera_de_dominio",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      }
+    }
+  ],
+  "predicciones_contexto": [
+    {
+      "pregunta": "Del video, ¿cuántos gatos quedaron registrados el día de ayer?",
+      "real": {
+        "intencion": "contar",
+        "clase": "gato",
+        "periodo": "ayer"
+      },
+      "predicha": {
+        "intencion": "contar",
+        "clase": "gato",
+        "periodo": "ayer"
+      }
+    },
+    {
+      "pregunta": "Sácame el total de caninos que llevamos en lo que va de semana",
+      "real": {
+        "intencion": "contar",
+        "clase": "perro",
+        "periodo": "esta_semana"
+      },
+      "predicha": {
+        "intencion": "contar",
+        "clase": "perro",
+        "periodo": "esta_semana"
+      }
+    },
+    {
+      "pregunta": "Desde hace una hora, ¿apareció algún caballo?",
+      "real": {
+        "intencion": "contar",
+        "clase": "caballo",
+        "periodo": "ultima_hora"
+      },
+      "predicha": {
+        "intencion": "contar",
+        "clase": "caballo",
+        "periodo": "ultima_hora"
+      }
+    },
+    {
+      "pregunta": "Número de veces que la cámara alcanzó a ver ganado en el día de hoy",
+      "real": {
+        "intencion": "contar",
+        "clase": "bovino",
+        "periodo": "hoy"
+      },
+      "predicha": {
+        "intencion": "contar",
+        "clase": "bovino",
+        "periodo": "hoy"
+      }
+    },
+    {
+      "pregunta": "¿Cuánto suma el total de apariciones de animales?",
+      "real": {
+        "intencion": "contar",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      },
+      "predicha": {
+        "intencion": "contar",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      }
+    },
+    {
+      "pregunta": "Quiero saber si quedó al menos un registro de un gato hoy",
+      "real": {
+        "intencion": "contar",
+        "clase": "gato",
+        "periodo": "hoy"
+      },
+      "predicha": {
+        "intencion": "fuera_de_dominio",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      }
+    },
+    {
+      "pregunta": "Déjame revisar cuáles vacas aparecieron desde el lunes",
+      "real": {
+        "intencion": "listar",
+        "clase": "bovino",
+        "periodo": "esta_semana"
+      },
+      "predicha": {
+        "intencion": "listar",
+        "clase": "bovino",
+        "periodo": "esta_semana"
+      }
+    },
+    {
+      "pregunta": "Quiero el listado de caballos que salieron el día de ayer",
+      "real": {
+        "intencion": "listar",
+        "clase": "caballo",
+        "periodo": "ayer"
+      },
+      "predicha": {
+        "intencion": "listar",
+        "clase": "caballo",
+        "periodo": "ayer"
+      }
+    },
+    {
+      "pregunta": "Pon en pantalla las apariciones de perros en lo que va del día",
+      "real": {
+        "intencion": "listar",
+        "clase": "perro",
+        "periodo": "hoy"
+      },
+      "predicha": {
+        "intencion": "listar",
+        "clase": "perro",
+        "periodo": "hoy"
+      }
+    },
+    {
+      "pregunta": "¿Qué felinos figuran en los registros de la hora previa?",
+      "real": {
+        "intencion": "listar",
+        "clase": "gato",
+        "periodo": "ultima_hora"
+      },
+      "predicha": {
+        "intencion": "listar",
+        "clase": "gato",
+        "periodo": "ultima_hora"
+      }
+    },
+    {
+      "pregunta": "Enséñame qué se ha visto por la cámara hasta ahora",
+      "real": {
+        "intencion": "listar",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      },
+      "predicha": {
+        "intencion": "listar",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      }
+    },
+    {
+      "pregunta": "Dime qué eventos de ganado quedaron registrados el día previo",
+      "real": {
+        "intencion": "listar",
+        "clase": "bovino",
+        "periodo": "ayer"
+      },
+      "predicha": {
+        "intencion": "listar",
+        "clase": "bovino",
+        "periodo": "ayer"
+      }
+    },
+    {
+      "pregunta": "¿En qué momento apareció el último caballo de hoy?",
+      "real": {
+        "intencion": "ultimo_avistamiento",
+        "clase": "caballo",
+        "periodo": "hoy"
+      },
+      "predicha": {
+        "intencion": "ultimo_avistamiento",
+        "clase": "caballo",
+        "periodo": "hoy"
+      }
+    },
+    {
+      "pregunta": "De los caninos detectados ayer elige el avistamiento más reciente",
+      "real": {
+        "intencion": "ultimo_avistamiento",
+        "clase": "perro",
+        "periodo": "ayer"
+      },
+      "predicha": {
+        "intencion": "ultimo_avistamiento",
+        "clase": "perro",
+        "periodo": "ayer"
+      }
+    },
+    {
+      "pregunta": "En lo que va de semana, ¿cuándo se vio a la última vaca?",
+      "real": {
+        "intencion": "ultimo_avistamiento",
+        "clase": "bovino",
+        "periodo": "esta_semana"
+      },
+      "predicha": {
+        "intencion": "ultimo_avistamiento",
+        "clase": "bovino",
+        "periodo": "esta_semana"
+      }
+    },
+    {
+      "pregunta": "¿Cuál fue el gato más reciente registrado dentro de la última hora?",
+      "real": {
+        "intencion": "ultimo_avistamiento",
+        "clase": "gato",
+        "periodo": "ultima_hora"
+      },
+      "predicha": {
+        "intencion": "ultimo_avistamiento",
+        "clase": "gato",
+        "periodo": "ultima_hora"
+      }
+    },
+    {
+      "pregunta": "¿Qué fue lo último que registró la cámara?",
+      "real": {
+        "intencion": "ultimo_avistamiento",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      },
+      "predicha": {
+        "intencion": "ultimo_avistamiento",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      }
+    },
+    {
+      "pregunta": "Saca la hora de la detección más reciente de un equino",
+      "real": {
+        "intencion": "ultimo_avistamiento",
+        "clase": "caballo",
+        "periodo": "sin_periodo"
+      },
+      "predicha": {
+        "intencion": "ultimo_avistamiento",
+        "clase": "caballo",
+        "periodo": "ultima_hora"
+      }
+    },
+    {
+      "pregunta": "Con los avistamientos de bovinos de hoy, hazme un balance",
+      "real": {
+        "intencion": "resumen",
+        "clase": "bovino",
+        "periodo": "hoy"
+      },
+      "predicha": {
+        "intencion": "resumen",
+        "clase": "bovino",
+        "periodo": "hoy"
+      }
+    },
+    {
+      "pregunta": "Necesito una vista general de lo que se vio de felinos ayer",
+      "real": {
+        "intencion": "resumen",
+        "clase": "gato",
+        "periodo": "ayer"
+      },
+      "predicha": {
+        "intencion": "resumen",
+        "clase": "gato",
+        "periodo": "ayer"
+      }
+    },
+    {
+      "pregunta": "En la hora previa, dame un resumen de la actividad de los perros",
+      "real": {
+        "intencion": "resumen",
+        "clase": "perro",
+        "periodo": "ultima_hora"
+      },
+      "predicha": {
+        "intencion": "resumen",
+        "clase": "perro",
+        "periodo": "ultima_hora"
+      }
+    },
+    {
+      "pregunta": "Cuéntame en pocas palabras cómo estuvo la actividad de caballos desde el lunes",
+      "real": {
+        "intencion": "resumen",
+        "clase": "caballo",
+        "periodo": "esta_semana"
+      },
+      "predicha": {
+        "intencion": "resumen",
+        "clase": "caballo",
+        "periodo": "esta_semana"
+      }
+    },
+    {
+      "pregunta": "En conjunto, ¿cómo estuvo la actividad que registró la cámara?",
+      "real": {
+        "intencion": "resumen",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      },
+      "predicha": {
+        "intencion": "resumen",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      }
+    },
+    {
+      "pregunta": "Dame una síntesis de lo que vimos de bovinos el día previo",
+      "real": {
+        "intencion": "resumen",
+        "clase": "bovino",
+        "periodo": "ayer"
+      },
+      "predicha": {
+        "intencion": "resumen",
+        "clase": "bovino",
+        "periodo": "ayer"
+      }
+    },
+    {
+      "pregunta": "Quiero la hora que acumuló más detecciones de gatos hoy",
+      "real": {
+        "intencion": "hora_frecuente",
+        "clase": "gato",
+        "periodo": "hoy"
+      },
+      "predicha": {
+        "intencion": "hora_frecuente",
+        "clase": "gato",
+        "periodo": "hoy"
+      }
+    },
+    {
+      "pregunta": "De los registros de perros de ayer, ¿en qué horario hubo el pico?",
+      "real": {
+        "intencion": "hora_frecuente",
+        "clase": "perro",
+        "periodo": "ayer"
+      },
+      "predicha": {
+        "intencion": "hora_frecuente",
+        "clase": "perro",
+        "periodo": "ayer"
+      }
+    },
+    {
+      "pregunta": "Marca el momento con más apariciones de reses desde hace una hora",
+      "real": {
+        "intencion": "hora_frecuente",
+        "clase": "bovino",
+        "periodo": "ultima_hora"
+      },
+      "predicha": {
+        "intencion": "hora_frecuente",
+        "clase": "bovino",
+        "periodo": "ultima_hora"
+      }
+    },
+    {
+      "pregunta": "¿En qué franja de esta semana se dejaron ver más caballos?",
+      "real": {
+        "intencion": "hora_frecuente",
+        "clase": "caballo",
+        "periodo": "esta_semana"
+      },
+      "predicha": {
+        "intencion": "hora_frecuente",
+        "clase": "caballo",
+        "periodo": "esta_semana"
+      }
+    },
+    {
+      "pregunta": "¿Cuál es el horario de mayor concentración de avistamientos?",
+      "real": {
+        "intencion": "hora_frecuente",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      },
+      "predicha": {
+        "intencion": "hora_frecuente",
+        "clase": "bovino",
+        "periodo": "sin_periodo"
+      }
+    },
+    {
+      "pregunta": "¿En qué hora salieron más felinos durante el día previo?",
+      "real": {
+        "intencion": "hora_frecuente",
+        "clase": "gato",
+        "periodo": "ayer"
+      },
+      "predicha": {
+        "intencion": "hora_frecuente",
+        "clase": "gato",
+        "periodo": "ayer"
+      }
+    },
+    {
+      "pregunta": "¿Cuándo me toca desparasitar al gato otra vez?",
+      "real": {
+        "intencion": "fuera_de_dominio",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      },
+      "predicha": {
+        "intencion": "fuera_de_dominio",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      }
+    },
+    {
+      "pregunta": "¿Se puede poner una alerta cuando salga un caballo?",
+      "real": {
+        "intencion": "fuera_de_dominio",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      },
+      "predicha": {
+        "intencion": "fuera_de_dominio",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      }
+    },
+    {
+      "pregunta": "¿A qué hora pasó el último bus hacia Villavicencio?",
+      "real": {
+        "intencion": "fuera_de_dominio",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      },
+      "predicha": {
+        "intencion": "fuera_de_dominio",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      }
+    },
+    {
+      "pregunta": "Consígueme un listado de los mejores paseadores de perros",
+      "real": {
+        "intencion": "fuera_de_dominio",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      },
+      "predicha": {
+        "intencion": "fuera_de_dominio",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      }
+    },
+    {
+      "pregunta": "¿Qué tan alto puede saltar una yegua?",
+      "real": {
+        "intencion": "fuera_de_dominio",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      },
+      "predicha": {
+        "intencion": "fuera_de_dominio",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      }
+    },
+    {
+      "pregunta": "Quiero un balance de las noticias de última hora",
+      "real": {
+        "intencion": "fuera_de_dominio",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      },
+      "predicha": {
+        "intencion": "fuera_de_dominio",
+        "clase": "animales",
+        "periodo": "sin_periodo"
+      }
+    }
+  ]
+}
